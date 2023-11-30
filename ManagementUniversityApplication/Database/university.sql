@@ -6,8 +6,7 @@ USE University;
 
 -- Membuat tabel Admin
 CREATE TABLE Admin (
-    Id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(10),
+    username VARCHAR(10) PRIMARY KEY,
     contact VARCHAR(13),
     pass VARCHAR(10),
     confirm VARCHAR(10)

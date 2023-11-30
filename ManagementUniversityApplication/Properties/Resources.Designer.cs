@@ -113,6 +113,16 @@ namespace ManagementUniversityApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hotel {
+            get {
+                object obj = ResourceManager.GetObject("hotel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap leave {
             get {
                 object obj = ResourceManager.GetObject("leave", resourceCulture);
@@ -186,6 +196,16 @@ namespace ManagementUniversityApplication.Properties {
         internal static System.Drawing.Bitmap school__3_ {
             get {
                 object obj = ResourceManager.GetObject("school (3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap school__4_ {
+            get {
+                object obj = ResourceManager.GetObject("school (4)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

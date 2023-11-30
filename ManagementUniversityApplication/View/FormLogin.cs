@@ -67,6 +67,8 @@ namespace ManagementUniversityApplication
             PanelInvalidPass.Visible = false;
             pictureBoxOpen.Visible = false;
             pictureBoxClose.Visible = true;
+            txtUserName.MaxLength = 10;
+            txtPassword.MaxLength = 10;
         }
 
         private void txtUserName_Enter(object sender, EventArgs e)
@@ -150,6 +152,8 @@ namespace ManagementUniversityApplication
 
         private void linkLabelSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            txtUserName.Clear();
+            txtPassword.Clear();
             FormSignUp signUp = new FormSignUp();
             this.Hide();
             signUp.Show();

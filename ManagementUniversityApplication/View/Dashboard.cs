@@ -26,5 +26,19 @@ namespace ManagementUniversityApplication.View
         {
 
         }
+
+        private void pictureBoxSudents_Click(object sender, EventArgs e)
+        {
+            FormStudents student = new FormStudents();
+            student.Show();
+            this.Hide();
+        }
+
+        private void pictureBoxDepartment_Click(object sender, EventArgs e)
+        {
+            FormDepartment department = new FormDepartment();
+            department.Show();
+            this.Hide();
+        }
     }
 }
