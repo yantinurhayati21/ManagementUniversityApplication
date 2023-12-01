@@ -33,6 +33,7 @@
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.linkLabelLogin = new System.Windows.Forms.LinkLabel();
             this.btnSignUp = new System.Windows.Forms.Button();
             this.lblSignUp = new System.Windows.Forms.Label();
             this.guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
@@ -55,7 +56,6 @@
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.linkLabelLogin = new System.Windows.Forms.LinkLabel();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -129,6 +129,19 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(599, 474);
             this.guna2Panel2.TabIndex = 3;
+            // 
+            // linkLabelLogin
+            // 
+            this.linkLabelLogin.AutoSize = true;
+            this.linkLabelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelLogin.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.linkLabelLogin.Location = new System.Drawing.Point(253, 365);
+            this.linkLabelLogin.Name = "linkLabelLogin";
+            this.linkLabelLogin.Size = new System.Drawing.Size(161, 20);
+            this.linkLabelLogin.TabIndex = 14;
+            this.linkLabelLogin.TabStop = true;
+            this.linkLabelLogin.Text = "Already have account";
+            this.linkLabelLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelLogin_LinkClicked);
             // 
             // btnSignUp
             // 
@@ -362,19 +375,6 @@
             this.lblUsername.TabIndex = 5;
             this.lblUsername.Text = "Username";
             // 
-            // linkLabelLogin
-            // 
-            this.linkLabelLogin.AutoSize = true;
-            this.linkLabelLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelLogin.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.linkLabelLogin.Location = new System.Drawing.Point(253, 365);
-            this.linkLabelLogin.Name = "linkLabelLogin";
-            this.linkLabelLogin.Size = new System.Drawing.Size(161, 20);
-            this.linkLabelLogin.TabIndex = 14;
-            this.linkLabelLogin.TabStop = true;
-            this.linkLabelLogin.Text = "Already have account";
-            this.linkLabelLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelLogin_LinkClicked);
-            // 
             // FormSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -386,6 +386,7 @@
             this.Name = "FormSignUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormSignUp";
+            this.Load += new System.EventHandler(this.FormSignUp_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();

@@ -9,11 +9,11 @@ namespace ManagementUniversityApplication.Controller
 {
     internal class ValidationController
     {
-        public bool ValidateName(string name)
+        public bool ValidateOnlyAlphabet(string name)
         {
             if (string.IsNullOrEmpty(name))
             {
-                MessageBox.Show("Name field is empty", "Add Training", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Name field is empty", "Add Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -21,7 +21,7 @@ namespace ManagementUniversityApplication.Controller
 
             if (invalidChars.Contains(name[0]) || invalidChars.Contains(name[name.Length - 1]))
             {
-                MessageBox.Show("Invalid starting or ending character in Name field", "Add Training", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Invalid starting or ending character in Name field", "Add Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -29,7 +29,7 @@ namespace ManagementUniversityApplication.Controller
             {
                 if (name.Contains(c))
                 {
-                    MessageBox.Show("Invalid character in Name field", "Add Training", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Invalid character in Name field", "Add Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }
@@ -37,11 +37,11 @@ namespace ManagementUniversityApplication.Controller
             return true;
         }
 
-        public bool ValidateAddress(string loc)
+        public bool ValidateAlphabetAndNumber(string loc)
         {
             if (string.IsNullOrEmpty(loc))
             {
-                MessageBox.Show("field is empty", "Add Training", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("field is empty", "Add Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -49,19 +49,19 @@ namespace ManagementUniversityApplication.Controller
 
             if (loc[0] >= '0' && loc[0] <= '9')
             {
-                MessageBox.Show("input should not start with a number", "Add Training", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("input should not start with a number", "Add Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
             if (loc[0] == '-' || loc[0] == '/')
             {
-                MessageBox.Show("Invalid starting character field", "Add Training", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Invalid starting character field", "Add Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
             if (loc[loc.Length - 1] == ' ' || loc[loc.Length - 1] == '-' || loc[loc.Length - 1] == '/')
             {
-                MessageBox.Show("Invalid ending character field", "Add Training", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Invalid ending character field", "Add Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -69,7 +69,7 @@ namespace ManagementUniversityApplication.Controller
             {
                 if (loc.Contains(c))
                 {
-                    MessageBox.Show("Invalid character field", "Add Training", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Invalid character field", "Add Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }

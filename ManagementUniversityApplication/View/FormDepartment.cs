@@ -16,12 +16,12 @@ namespace ManagementUniversityApplication.View
     {
         private Connection conn;
         private DepartmentController departmentController;
-        private ValidationController validationController;
+        private ValidationController val;
         public FormDepartment()
         {
-            conn = new Connection();
+            conn = new Connection(); 
             departmentController = new DepartmentController();
-            validationController = new ValidationController();
+            val = new ValidationController();
             InitializeComponent();
         }
 
@@ -36,11 +36,107 @@ namespace ManagementUniversityApplication.View
         private void FormDepartment_Load(object sender, EventArgs e)
         {
             refresh();
+            txtDepartmentId.MaxLength = 5;
+            txtDepartmentName.MaxLength = 20;
+            txtDepartmentNmDekan.MaxLength = 20;
+            txtDepartmentDesc.MaxLength = 30;
         }
 
-        private void dataGridViewDepartment_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if(val.ValidateOnlyAlphabet(txtDepartmentName.Text) && val.ValidateOnlyAlphabet(txtDepartmentNmDekan.Text) && val.ValidateAlphabetAndNumber(txtDepartmentDesc.Text))
+            {
+                try
+                {
+                    departmentController.addDepartment(Convert.ToInt32(txtDepartmentId.Text), txtDepartmentName.Text, txtDepartmentNmDekan.Text, txtDepartmentDesc.Text);
+                    MessageBox.Show("Saved Succesfully");
+                    refresh();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Empty field", "Add Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void brnUpdate_Click(object sender, EventArgs e)
+        {
+            if (val.ValidateOnlyAlphabet(txtDepartmentName.Text) && val.ValidateOnlyAlphabet(txtDepartmentNmDekan.Text) && val.ValidateAlphabetAndNumber(txtDepartmentDesc.Text))
+            {
+                try
+                {
+                    departmentController.updateDepartment(Convert.ToInt32(txtDepartmentId.Text), txtDepartmentName.Text, txtDepartmentNmDekan.Text, txtDepartmentDesc.Text);
+                    MessageBox.Show("Update Succesfully");
+                    refresh();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Empty field", "Update Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void brnDelete_Click(object sender, EventArgs e)
+        {
+            int selectedValue = (int)dataGridViewDepartment.SelectedRows[0].Cells["DepId"].Value;
+            departmentController.deleteDepartment(selectedValue);
+            refresh();
+        }
+
+        private void txtDepartmentId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void txtDepartmentName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void txtDepartmentNmDekan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtDepartmentId.Clear();
+            txtDepartmentName.Clear();
+            txtDepartmentNmDekan.Clear();
+            txtDepartmentDesc.Clear();
+        }
+
+        private void txtDepartmentDesc_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBoxSearch_Click(object sender, EventArgs e)
+        {
+            dataGridViewDepartment.DataSource = departmentController.searchDepartment(guna2TextBoxSearch.Text);
+        }
+
+        private void pictureBoxPrint_Click(object sender, EventArgs e)
+        {
+            printPreviewDialogDepartment.Document = printDocumentDepartment;
+            printPreviewDialogDepartment.ShowDialog();
+        }
+
+        private void printDocumentDepartment_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Bitmap btm = new Bitmap(this.dataGridViewDepartment.Width, this.dataGridViewDepartment.Height);
+            dataGridViewDepartment.DrawToBitmap(btm, new Rectangle(0, 0, this.dataGridViewDepartment.Width, this.dataGridViewDepartment.Height));
+            e.Graphics.DrawImage(btm, 170, 120);
+            e.Graphics.DrawString(pictureBoxPrint.Text, new Font("Consolas", 23, FontStyle.Bold), Brushes.Black, new Point(310, 50));
         }
 
         private void dataGridViewDepartment_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -49,25 +145,95 @@ namespace ManagementUniversityApplication.View
             txtDepartmentName.Text = dataGridViewDepartment.CurrentRow.Cells[1].Value.ToString();
             txtDepartmentNmDekan.Text = dataGridViewDepartment.CurrentRow.Cells[2].Value.ToString();
             txtDepartmentDesc.Text = dataGridViewDepartment.CurrentRow.Cells[3].Value.ToString();
+        } 
+
+        private void btnAdd_MouseEnter(object sender, EventArgs e)
+        {
+            btnAdd.ForeColor = Color.White;
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void brnUpdate_MouseEnter(object sender, EventArgs e)
         {
-            departmentController.addDepartment(Convert.ToInt32(txtDepartmentId.Text), txtDepartmentName.Text, txtDepartmentNmDekan.Text, txtDepartmentDesc.Text);
-            refresh();
+            brnUpdate.ForeColor = Color.White;
         }
 
-        private void brnUpdate_Click(object sender, EventArgs e)
+        private void brnDelete_MouseEnter(object sender, EventArgs e)
         {
-            departmentController.updateDepartment(Convert.ToInt32(txtDepartmentId.Text), txtDepartmentName.Text, txtDepartmentNmDekan.Text, txtDepartmentDesc.Text);
-            refresh();
+            brnDelete.ForeColor = Color.White;
         }
 
-        private void brnDelete_Click(object sender, EventArgs e)
+        private void btnClear_MouseEnter(object sender, EventArgs e)
         {
-            int selectedValue = (int)dataGridViewDepartment.SelectedRows[0].Cells["DepId"].Value;
-            departmentController.deleteDepartment(selectedValue);
-            refresh();
+            btnClear.ForeColor = Color.White;
+        }
+
+        private void btnAdd_MouseLeave(object sender, EventArgs e)
+        {
+            btnAdd.ForeColor = Color.Fuchsia;
+        }
+
+        private void brnUpdate_MouseLeave(object sender, EventArgs e)
+        {
+            brnUpdate.ForeColor = Color.Fuchsia;
+        }
+
+        private void brnDelete_MouseLeave(object sender, EventArgs e)
+        {
+            brnDelete.ForeColor = Color.Fuchsia;
+        }
+
+        private void btnClear_MouseLeave(object sender, EventArgs e)
+        {
+            btnClear.ForeColor = Color.Fuchsia;
+        }
+
+        private void pictureBoxHome_Click(object sender, EventArgs e)
+        {
+            Dashboard dsb = new Dashboard();
+            dsb.Show();
+            this.Close();
+        }
+
+        private void pictureBoxStudent_Click(object sender, EventArgs e)
+        {
+            FormStudents st = new FormStudents();
+            st.Show();
+            this.Close();
+        }
+
+        private void pictureBoxCourses_Click(object sender, EventArgs e)
+        {
+            FormCourses cs = new FormCourses();
+            cs.Show();
+            this.Close();
+        }
+
+        private void pictureBoxLecturer_Click(object sender, EventArgs e)
+        {
+            FormLecturer lr = new FormLecturer();
+            lr.Show();
+            this.Close();
+        }
+
+        private void pictureBoxLearning_Click(object sender, EventArgs e)
+        {
+            FormLearning lrn = new FormLearning();
+            lrn.Show();
+            this.Close();
+        }
+
+        private void pictureBoxFees_Click(object sender, EventArgs e)
+        {
+            FormFees fees = new FormFees();
+            fees.Show();
+            this.Close();
+        }
+
+        private void pictureBoxSalary_Click(object sender, EventArgs e)
+        {
+            FormSalary sl = new FormSalary();
+            sl.Show();
+            this.Close();
         }
     }
 }

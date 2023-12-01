@@ -137,5 +137,10 @@ namespace ManagementUniversityApplication.View
             formLogin.Show();
             this.Hide();
         }
+
+        private void FormSignUp_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

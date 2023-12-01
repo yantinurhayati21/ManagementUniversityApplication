@@ -183,6 +183,16 @@ namespace ManagementUniversityApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap printing__1_ {
+            get {
+                object obj = ResourceManager.GetObject("printing (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap right_arrow {
             get {
                 object obj = ResourceManager.GetObject("right-arrow", resourceCulture);
@@ -206,6 +216,16 @@ namespace ManagementUniversityApplication.Properties {
         internal static System.Drawing.Bitmap school__4_ {
             get {
                 object obj = ResourceManager.GetObject("school (4)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search__3_ {
+            get {
+                object obj = ResourceManager.GetObject("search (3)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

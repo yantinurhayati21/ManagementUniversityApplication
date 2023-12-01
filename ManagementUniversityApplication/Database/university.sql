@@ -27,9 +27,9 @@ CREATE TABLE Students (
     StName VARCHAR(50),
     StDOB DATE,
     StGen VARCHAR(10),
+    StSem INT,
     StDepId INT,
     StDepName VARCHAR(50),
-    StSem INT,
     StPhoto LONGBLOB,
     FOREIGN KEY (StDepId) REFERENCES Department(DepId)
 );
@@ -107,9 +107,9 @@ VALUES ('Computer Science', 'Dr. Smith', 'Department focusing on computer studie
        ('Biology', 'Prof. Johnson', 'Department specializing in biological sciences');
 
 -- Insert ke tabel Students
-INSERT INTO Students (StNim,StName, StDOB, StGen, StDepId, StDepName, StSem)
-VALUES ('02042211025','Yanti Nurhayati', '2002-11-21', 'Female', 1, 'Computer Science', 3),
-       ('02032211004','Dinar Aghnaya', '2002-04-23', 'Male', 2, 'Biology', 3);
+INSERT INTO Students (StNim,StName, StDOB, StGen, StSem, StDepId, StDepName)
+VALUES ('02042211025','Yanti Nurhayati', '2002-11-21', 'Female', 3, 1, 'Computer Science'),
+       ('02032211004','Dinar Aghnaya', '2002-04-23', 'Male', 3, 2, 'Biology');
 
 -- Insert ke tabel Lecturer
 INSERT INTO Lecturer (LrName, LrDOB, LrGen, LrQual, LrDepId, LrDepName, LrSalary)
