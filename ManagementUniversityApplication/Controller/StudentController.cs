@@ -53,9 +53,9 @@ namespace ManagementUniversityApplication.Controller
 
         }
 
-        public void updateStudentst(int StId, string StNim, string StName, DateTime StDOB, string StGen, int StSem, int StDepId, string StDepName, byte[] StPhoto)
+        public void updateStudents(int StId, string StNim, string StName, DateTime StDOB, string StGen, int StSem, int StDepId, string StDepName, byte[] StPhoto)
         {
-            string update = "update Students set StNim=@StNim, StName=@StName, StDOB=@StDOB, StGen=@StGen, StSem=@StSem, StDepId=@StDepId, StDepName=@StDepName where StId=" + StId;
+            string update = "update Students set StNim=@StNim, StName=@StName, StDOB=@StDOB, StGen=@StGen, StSem=@StSem, StDepId=@StDepId, StDepName=@StDepName, StPhoto=@StPhoto where StId=" + StId;
             try
             {
                 cmd = new MySqlConnector.MySqlCommand(update, GetConn());

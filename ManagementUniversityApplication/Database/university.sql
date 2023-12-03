@@ -1,3 +1,6 @@
+-- Menghapus database University
+DROP DATABASE University;
+
 -- Membuat database University
 CREATE DATABASE University;
 
@@ -23,7 +26,7 @@ CREATE TABLE Department (
 -- Membuat tabel Students
 CREATE TABLE Students (
     StId INT PRIMARY KEY AUTO_INCREMENT,
-    StNim VARCHAR(10),
+    StNim VARCHAR(11),
     StName VARCHAR(50),
     StDOB DATE,
     StGen VARCHAR(10),
@@ -38,12 +41,12 @@ CREATE TABLE Students (
 CREATE TABLE Lecturer (
     LrId INT PRIMARY KEY AUTO_INCREMENT,
     LrName VARCHAR(50),
+    LrQual VARCHAR(15),
     LrDOB DATE,
     LrGen VARCHAR(10),
-    LrQual VARCHAR(15),
+    LrSalary DECIMAL(10, 2),
     LrDepId INT,
     LrDepName VARCHAR(50),
-    LrSalary DECIMAL(10, 2),
     LrPhoto LONGBLOB,
     FOREIGN KEY (LrDepId) REFERENCES Department(DepId)
 );
@@ -53,6 +56,7 @@ CREATE TABLE Courses (
     CId INT PRIMARY KEY AUTO_INCREMENT,
     CName VARCHAR(50),
     CPrice DECIMAL(10, 2),
+    CRoom VARCHAR(10),
     CLrId INT,
     CLrName VARCHAR(50),
     FOREIGN KEY (CLrId) REFERENCES Lecturer(LrId)
@@ -65,6 +69,8 @@ CREATE TABLE Learning (
     LrnStName VARCHAR(50),
     LrnCId INT,
     LrCName VARCHAR(50),
+    LrCRoom VARCHAR(10),
+    LrnTimes DATE,
     LrnLrId INT,
     LrnLrName VARCHAR(50),
     LrnDuration INT,
@@ -112,19 +118,19 @@ VALUES ('02042211025','Yanti Nurhayati', '2002-11-21', 'Female', 3, 1, 'Computer
        ('02032211004','Dinar Aghnaya', '2002-04-23', 'Male', 3, 2, 'Biology');
 
 -- Insert ke tabel Lecturer
-INSERT INTO Lecturer (LrName, LrDOB, LrGen, LrQual, LrDepId, LrDepName, LrSalary)
-VALUES ('Dr. Erna', '1975-10-25', 'Male', 'Ph.D. Computer Science', 1, 'Computer Science', 60000.00),
-       ('Prof. Wilson', '1980-06-18', 'Female', 'M.Sc. Biology', 2, 'Biology', 55000.00);
+INSERT INTO Lecturer (LrName, LrQual, LrDOB, LrGen, LrSalary, LrDepId, LrDepName)
+VALUES ('Dr. Erna', 'Ph.D. Computer Science', '1975-10-25', 'Male', 60000.00, 1, 'Computer Science'),
+       ('Prof. Wilson', 'M.Sc. Biology', '1980-06-18', 'Female', 55000.00, 2, 'Biology');
 
 -- Insert ke tabel Courses
-INSERT INTO Courses (CName, CPrice, CLrId, CLrName)
-VALUES ('Database Management', 150.00, 1, 'Dr. Erna'),
-       ('Genetics 101', 200.00, 2, 'Prof. Wilson');
+INSERT INTO Courses (CName, CPrice, CRoom, CLrId, CLrName)
+VALUES ('Database Management', 1500.00, 'B31', 1, 'Dr. Erna'),
+       ('Genetics 101', 2000.00, 'B32', 2, 'Prof. Wilson');
        
 -- Insert ke tabel Learning
-INSERT INTO Learning (LrnStId, LrnStName, LrnCId, LrCName, LrnLrId, LrnLrName, LrnDuration)
-VALUES (1, 'Yanti Nurhayati', 1, 'Database Management', 1, 'Dr. Erna', 12),
-       (2, 'Dinar Aghnaya', 2, 'Genetics 101', 2, 'Prof. Wilson', 15);
+INSERT INTO Learning (LrnStId, LrnStName, LrnCId, LrCName, LrCRoom, LrnTimes, LrnLrId, LrnLrName, LrnDuration)
+VALUES (1, 'Yanti Nurhayati', 1, 'Database Management', 'B31', '2023-11-26', 1, 'Dr. Erna', 4),
+       (2, 'Dinar Aghnaya', 2, 'Genetics 101', 'B32', '2023-11-21', 2, 'Prof. Wilson', 4);
        
 -- Insert ke tabel Fees
 INSERT INTO Fees (FStId, FStName, FDepId, FPeriod, FAmount, PayDate)

@@ -71,7 +71,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(6, 113);
+            this.label10.Location = new System.Drawing.Point(14, 113);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(206, 22);
             this.label10.TabIndex = 20;
@@ -84,7 +84,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Monotype Corsiva", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.DeepPink;
-            this.label11.Location = new System.Drawing.Point(35, 135);
+            this.label11.Location = new System.Drawing.Point(43, 135);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(153, 49);
             this.label11.TabIndex = 21;
@@ -99,14 +99,14 @@
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2Panel2.Location = new System.Drawing.Point(0, 65);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(215, 565);
+            this.guna2Panel2.Size = new System.Drawing.Size(231, 565);
             this.guna2Panel2.TabIndex = 22;
             // 
             // pictureBoxUniv
             // 
             this.pictureBoxUniv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBoxUniv.Image = global::ManagementUniversityApplication.Properties.Resources.school__3_;
-            this.pictureBoxUniv.Location = new System.Drawing.Point(70, 17);
+            this.pictureBoxUniv.Location = new System.Drawing.Point(78, 17);
             this.pictureBoxUniv.Name = "pictureBoxUniv";
             this.pictureBoxUniv.Size = new System.Drawing.Size(92, 84);
             this.pictureBoxUniv.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -116,7 +116,7 @@
             // pictureBoxSudents
             // 
             this.pictureBoxSudents.Image = global::ManagementUniversityApplication.Properties.Resources.study__2_;
-            this.pictureBoxSudents.Location = new System.Drawing.Point(16, 15);
+            this.pictureBoxSudents.Location = new System.Drawing.Point(16, 20);
             this.pictureBoxSudents.Name = "pictureBoxSudents";
             this.pictureBoxSudents.Size = new System.Drawing.Size(36, 37);
             this.pictureBoxSudents.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -144,6 +144,7 @@
             this.pictureBoxLecturer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLecturer.TabIndex = 6;
             this.pictureBoxLecturer.TabStop = false;
+            this.pictureBoxLecturer.Click += new System.EventHandler(this.pictureBoxLecturer_Click);
             // 
             // pictureBox6
             // 
@@ -154,6 +155,7 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 7;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // labelSt
             // 
@@ -174,6 +176,7 @@
             this.pictureBoxCourses.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxCourses.TabIndex = 6;
             this.pictureBoxCourses.TabStop = false;
+            this.pictureBoxCourses.Click += new System.EventHandler(this.pictureBoxCourses_Click);
             // 
             // label3
             // 
@@ -204,6 +207,7 @@
             this.pictureBoxFees.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxFees.TabIndex = 8;
             this.pictureBoxFees.TabStop = false;
+            this.pictureBoxFees.Click += new System.EventHandler(this.pictureBoxFees_Click);
             // 
             // label5
             // 
@@ -224,6 +228,7 @@
             this.pictureBoxSalary.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxSalary.TabIndex = 5;
             this.pictureBoxSalary.TabStop = false;
+            this.pictureBoxSalary.Click += new System.EventHandler(this.pictureBoxSalary_Click);
             // 
             // label6
             // 
@@ -264,6 +269,7 @@
             this.pictureBoxLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxLogout.TabIndex = 19;
             this.pictureBoxLogout.TabStop = false;
+            this.pictureBoxLogout.Click += new System.EventHandler(this.pictureBoxLogout_Click);
             // 
             // panel1
             // 

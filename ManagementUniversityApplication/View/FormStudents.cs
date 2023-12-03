@@ -1,5 +1,6 @@
 ﻿using ManagementUniversityApplication.Controller;
 using ManagementUniversityApplication.Model;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +32,7 @@ namespace ManagementUniversityApplication.View
             InitializeComponent();
             dataGridViewStudent.DataSource = studentController.selectStudents();
             dataGridViewStudent.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DepartmentId();
         }
 
         private void pictureBoxHome_Click(object sender, EventArgs e)
@@ -86,11 +88,12 @@ namespace ManagementUniversityApplication.View
         {
             refresh();
             guna2TextBoxStudentId.MaxLength = 5;
-            guna2TextBoxStudentNim.MaxLength = 12;
+            guna2TextBoxStudentNim.MaxLength = 13;
             guna2TextBoxName.MaxLength = 20;
             guna2TextBoxSemester.MaxLength = 1;
             guna2ComboBoxDepID.MaxLength = 5;
             guna2TextBoxDepName.MaxLength = 20;
+            DepartmentId();
         }
 
         private void dataGridViewStudent_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -127,6 +130,31 @@ namespace ManagementUniversityApplication.View
             }
         }
 
+        private void DepartmentId()
+        {
+            DataTable data = new DataTable();
+            string departmentId = "SELECT DepId FROM Department";
+            conn.cmd = new MySqlCommand(departmentId, conn.GetConn());
+            conn.dr = conn.cmd.ExecuteReader();
+            data.Columns.Add("DepId", typeof(Int32));
+            data.Load(conn.dr);
+            guna2ComboBoxDepID.ValueMember = "DepId";
+            guna2ComboBoxDepID.DataSource = data;
+        }
+
+        private void DepName()
+        {
+            string pelname = "SELECT * FROM Department WHERE DepId = " + guna2ComboBoxDepID.SelectedValue;
+            conn.cmd = new MySqlCommand(pelname, conn.GetConn());
+            DataTable data = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(conn.cmd);
+            da.Fill(data);
+            foreach (DataRow dr in data.Rows)
+            {
+                guna2TextBoxDepName.Text = dr["DepName"].ToString();
+            }
+        }
+
         private void guna2RadioButtonGnd_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -138,10 +166,21 @@ namespace ManagementUniversityApplication.View
             {
                 try
                 {
+                    string gender = guna2RadioButton2Gnd.Checked ? "Male" : "Female";
                     MemoryStream memori = new MemoryStream();
                     guna2PictureBoxPhoto.Image.Save(memori, guna2PictureBoxPhoto.Image.RawFormat);
                     byte[] img = memori.ToArray();
-                    studentController.addStudents(Convert.ToInt32(guna2TextBoxStudentId.Text), guna2TextBoxStudentNim.Text, guna2TextBoxName.Text, guna2DateTimePickerDOB.Value, guna2RadioButton2Gnd.Text, Convert.ToInt32(guna2TextBoxSemester.Text), Convert.ToInt32(guna2ComboBoxDepID.Text), guna2TextBoxDepName.Text, img);
+                    studentController.addStudents(
+                        Convert.ToInt32(guna2TextBoxStudentId.Text),
+                        guna2TextBoxStudentNim.Text,
+                        guna2TextBoxName.Text,
+                        guna2DateTimePickerDOB.Value,
+                        gender,
+                        Convert.ToInt32(guna2TextBoxSemester.Text),
+                        Convert.ToInt32(guna2ComboBoxDepID.Text),
+                        guna2TextBoxDepName.Text,
+                        img
+                    );
                     MessageBox.Show("Saved Succesfully");
                     refresh();
                 }
@@ -155,5 +194,122 @@ namespace ManagementUniversityApplication.View
                 MessageBox.Show("Empty field", "Add Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void guna2ComboBoxDepID_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            DepName();
+        }
+
+        private void guna2ButtonUpload_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "select Photo(*.jpg;*.png;*.gif)|*.jpg;*.png;*.gif;";
+
+            if (opf.ShowDialog() == DialogResult.OK)
+            {
+                guna2PictureBoxPhoto.Image = Image.FromFile(opf.FileName);
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            guna2TextBoxStudentId.Clear();
+            guna2TextBoxStudentNim.Clear();
+            guna2TextBoxName.Clear();
+            guna2DateTimePickerDOB.Value=DateTime.Now;
+            guna2RadioButton2Gnd.Checked=false;
+            guna2TextBoxSemester.Clear();
+            guna2TextBoxDepName.Clear();
+            guna2PictureBoxPhoto.Image=null;
+        }
+
+        private void brnUpdate_Click(object sender, EventArgs e)
+        {
+            if (val.ValidateOnlyAlphabet(guna2TextBoxName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxDepName.Text))
+            {
+                try
+                {
+                    string gender = guna2RadioButton2Gnd.Checked ? "Male" : "Female";
+                    MemoryStream memori = new MemoryStream();
+                    guna2PictureBoxPhoto.Image.Save(memori, guna2PictureBoxPhoto.Image.RawFormat);
+                    byte[] img = memori.ToArray();
+                    studentController.updateStudents(
+                        Convert.ToInt32(guna2TextBoxStudentId.Text),
+                        guna2TextBoxStudentNim.Text,               
+                        guna2TextBoxName.Text,                    
+                        guna2DateTimePickerDOB.Value,              
+                        gender,                                    
+                        Convert.ToInt32(guna2TextBoxSemester.Text), 
+                        Convert.ToInt32(guna2ComboBoxDepID.Text),   
+                        guna2TextBoxDepName.Text,                  
+                        img
+                     );
+                    MessageBox.Show("Update Succesfully");
+                    refresh();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Empty field", "Update Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void brnDelete_Click(object sender, EventArgs e)
+        {
+            int selectedValue = (int)dataGridViewStudent.SelectedRows[0].Cells["StId"].Value;
+            studentController.deleteStudents(selectedValue);
+            refresh();
+        }
+
+        private void guna2TextBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            dataGridViewStudent.DataSource = studentController.searchStudents(guna2TextBoxSearch.Text);
+        }
+
+        private void btnAdd_MouseEnter(object sender, EventArgs e)
+        {
+            btnAdd.ForeColor = Color.White;
+        }
+
+        private void brnUpdate_MouseEnter(object sender, EventArgs e)
+        {
+            brnUpdate.ForeColor = Color.White;
+        }
+
+        private void brnDelete_MouseEnter(object sender, EventArgs e)
+        {
+            brnDelete.ForeColor = Color.White;
+        }
+
+        private void btnClear_MouseEnter(object sender, EventArgs e)
+        {
+            btnClear.ForeColor = Color.White;
+        }
+
+        private void btnAdd_MouseLeave(object sender, EventArgs e)
+        {
+            btnAdd.ForeColor = Color.Fuchsia;
+        }
+
+        private void brnUpdate_MouseLeave(object sender, EventArgs e)
+        {
+            brnDelete.ForeColor = Color.Fuchsia;
+        }
+
+        private void brnDelete_MouseLeave(object sender, EventArgs e)
+        {
+            brnDelete.ForeColor = Color.Fuchsia;
+        }
+
+        private void btnClear_MouseLeave(object sender, EventArgs e)
+        {
+            btnClear.ForeColor = Color.Fuchsia;
+        }
+
+
     }
 }

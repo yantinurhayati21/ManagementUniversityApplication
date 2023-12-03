@@ -236,8 +236,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CoursesController.cs" />
     <Compile Include="Controller\DepartmentController.cs" />
     <Compile Include="Controller\GetDataController.cs" />
+    <Compile Include="Controller\LearningController.cs" />
+    <Compile Include="Controller\LecturerController.cs" />
     <Compile Include="Controller\SignUpController.cs" />
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\ValidationController.cs" />
@@ -322,6 +325,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormDepartment.resx">
       <DependentUpon>FormDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormLearning.resx">
+      <DependentUpon>FormLearning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormLecturer.resx">
+      <DependentUpon>FormLecturer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
