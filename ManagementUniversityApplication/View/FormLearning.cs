@@ -251,24 +251,21 @@ namespace ManagementUniversityApplication.View
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (val.ValidateOnlyAlphabet(guna2TextBoxLecturerName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxDepName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxLecturerQual.Text))
+            if (val.ValidateOnlyAlphabet(guna2TextBoxLecturerName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxStuName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxCName.Text) && val.ValidateAlphabetAndNumber(guna2TextBoxCRoom.Text))
             {
                 try
-                {
-                    string gender = guna2RadioButton2Gnd.Checked ? "Male" : "Female";
-                    MemoryStream memori = new MemoryStream();
-                    guna2PictureBoxPhoto.Image.Save(memori, guna2PictureBoxPhoto.Image.RawFormat);
-                    byte[] img = memori.ToArray();
-                    lecturerController.addLecturers(
-                        Convert.ToInt32(guna2TextBoxLecturerId.Text),
+                {                  
+                    learningController.addLearning(
+                        Convert.ToInt32(guna2TextBoxLearnID.Text),
+                        Convert.ToInt32(guna2ComboBoxStuID.Text),
+                        guna2TextBoxStuName.Text,
+                        Convert.ToInt32(guna2ComboBoxCID.Text),
+                        guna2TextBoxCName.Text,
+                        guna2TextBoxCRoom.Text,
+                        guna2DateTimePickerClass.Value,
+                        Convert.ToInt32(guna2ComboBoxLecID.Text),
                         guna2TextBoxLecturerName.Text,
-                        guna2TextBoxLecturerQual.Text,
-                        guna2DateTimePickerDOB.Value,
-                        gender,
-                        Convert.ToInt32(guna2TextBoxSalary.Text),
-                        Convert.ToInt32(guna2ComboBoxDepID.Text),
-                        guna2TextBoxDepName.Text,
-                        img
+                        Convert.ToInt32(guna2TextBoxDuration.Text)
                     );
                     MessageBox.Show("Saved Succesfully");
                     refresh();
@@ -282,6 +279,56 @@ namespace ManagementUniversityApplication.View
             {
                 MessageBox.Show("Empty field", "Add Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (val.ValidateOnlyAlphabet(guna2TextBoxLecturerName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxStuName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxCName.Text) && val.ValidateAlphabetAndNumber(guna2TextBoxCRoom.Text))
+            {
+                try
+                {
+                    learningController.updateLearning(
+                        Convert.ToInt32(guna2TextBoxLearnID.Text),
+                        Convert.ToInt32(guna2ComboBoxStuID.Text),
+                        guna2TextBoxStuName.Text,
+                        Convert.ToInt32(guna2ComboBoxCID.Text),
+                        guna2TextBoxCName.Text,
+                        guna2TextBoxCRoom.Text,
+                        guna2DateTimePickerClass.Value,
+                        Convert.ToInt32(guna2ComboBoxLecID.Text),
+                        guna2TextBoxLecturerName.Text,
+                        Convert.ToInt32(guna2TextBoxDuration.Text)
+                    );
+                    MessageBox.Show("Update Succesfully");
+                    refresh();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Empty field", "Add Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            int selectedValue = (int)dataGridViewLearning.SelectedRows[0].Cells["LrnId"].Value;
+            learningController.deleteLearning(selectedValue);
+            refresh();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            guna2TextBoxLearnID.Clear();
+            guna2TextBoxStuName.Clear();
+            guna2TextBoxCName.Clear();
+            guna2TextBoxCRoom.Clear();
+            guna2DateTimePickerClass.Value = DateTime.Now;
+            guna2TextBoxLecturerName.Clear();
+            guna2TextBoxDuration.Clear();
         }
     }
 }

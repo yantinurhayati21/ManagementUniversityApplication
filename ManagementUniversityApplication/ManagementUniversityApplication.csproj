@@ -238,9 +238,11 @@
   <ItemGroup>
     <Compile Include="Controller\CoursesController.cs" />
     <Compile Include="Controller\DepartmentController.cs" />
+    <Compile Include="Controller\FeesController.cs" />
     <Compile Include="Controller\GetDataController.cs" />
     <Compile Include="Controller\LearningController.cs" />
     <Compile Include="Controller\LecturerController.cs" />
+    <Compile Include="Controller\SalaryController.cs" />
     <Compile Include="Controller\SignUpController.cs" />
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="Controller\ValidationController.cs" />
@@ -326,6 +328,9 @@
     <EmbeddedResource Include="View\FormDepartment.resx">
       <DependentUpon>FormDepartment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\FormFees.resx">
+      <DependentUpon>FormFees.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormLearning.resx">
       <DependentUpon>FormLearning.cs</DependentUpon>
     </EmbeddedResource>
@@ -334,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormSalary.resx">
+      <DependentUpon>FormSalary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormSignUp.resx">
       <DependentUpon>FormSignUp.cs</DependentUpon>
@@ -425,6 +433,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\printing %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\study.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\study %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\department %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lecturer %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b564c1ee-4e8e-41b4-86b3-278dc809b22f.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\packages\Fody.4.0.2\build\Fody.targets')" />

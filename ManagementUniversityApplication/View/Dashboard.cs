@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ManagementUniversityApplication.Model;
+using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,19 +14,17 @@ namespace ManagementUniversityApplication.View
 {
     public partial class Dashboard : Form
     {
+        private Connection conn;
         public Dashboard()
         {
+            conn = new Connection();
             InitializeComponent();
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            SumFinances();
+            SumSalaries();
+            SumStudents();
+            SumDepartement();
+            SumLecturer();
+            SumCourses();
         }
 
         private void pictureBoxSudents_Click(object sender, EventArgs e)
@@ -82,5 +82,66 @@ namespace ManagementUniversityApplication.View
             formLogin.Show();
             this.Hide();
         }
+
+        private void SumFinances()
+        {
+            string sum = "SELECT SUM(FAmount) FROM Fees";
+            conn.cmd = new MySqlCommand(sum, conn.GetConn());
+            DataTable data = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(conn.cmd);
+            da.Fill(data);           
+            labelFinances.Text = "Rp " + data.Rows[0][0].ToString();
+        }
+
+        private void SumSalaries()
+        {
+            string sum = "SELECT SUM(SLrSalary) FROM Salary";
+            conn.cmd = new MySqlCommand(sum, conn.GetConn());
+            DataTable data = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(conn.cmd);
+            da.Fill(data);
+            labelSalaries.Text = "Rp " + data.Rows[0][0].ToString();
+        }
+
+        private void SumStudents()
+        {
+            string sum = "SELECT Count(*) FROM Students";
+            conn.cmd = new MySqlCommand(sum, conn.GetConn());
+            DataTable data = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(conn.cmd);
+            da.Fill(data);
+            labelStud.Text = data.Rows[0][0].ToString();
+        }
+
+        private void SumLecturer()
+        {
+            string sum = "SELECT Count(*) FROM Lecturer";
+            conn.cmd = new MySqlCommand(sum, conn.GetConn());
+            DataTable data = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(conn.cmd);
+            da.Fill(data);
+            labelLectur.Text = data.Rows[0][0].ToString();
+        }
+
+        private void SumDepartement()
+        {
+            string sum = "SELECT Count(*) FROM Department";
+            conn.cmd = new MySqlCommand(sum, conn.GetConn());
+            DataTable data = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(conn.cmd);
+            da.Fill(data);
+            labelDepart.Text = data.Rows[0][0].ToString();
+        }
+
+        private void SumCourses()
+        {
+            string sum = "SELECT Count(*) FROM Courses";
+            conn.cmd = new MySqlCommand(sum, conn.GetConn());
+            DataTable data = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(conn.cmd);
+            da.Fill(data);
+            labelCours.Text = data.Rows[0][0].ToString();
+        }
+
     }
 }

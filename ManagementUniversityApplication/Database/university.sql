@@ -86,7 +86,7 @@ CREATE TABLE Fees (
     FStName VARCHAR(50),
     FDepId INT,
     FPeriod INT,
-    FAmount DECIMAL(10, 2),
+    FAmount INT,
     PayDate DATE,
     FOREIGN KEY (FStId) REFERENCES Students(StId),
     FOREIGN KEY (FDepId) REFERENCES Department(DepId)
@@ -131,7 +131,7 @@ VALUES ('Database Management', 1500.00, 'B31', 1, 'Dr. Erna'),
 INSERT INTO Learning (LrnStId, LrnStName, LrnCId, LrCName, LrCRoom, LrnTimes, LrnLrId, LrnLrName, LrnDuration)
 VALUES (1, 'Yanti Nurhayati', 1, 'Database Management', 'B31', '2023-11-26', 1, 'Dr. Erna', 4),
        (2, 'Dinar Aghnaya', 2, 'Genetics 101', 'B32', '2023-11-21', 2, 'Prof. Wilson', 4);
-       
+       `admin`
 -- Insert ke tabel Fees
 INSERT INTO Fees (FStId, FStName, FDepId, FPeriod, FAmount, PayDate)
 VALUES (1, 'Yanti Nurhayati', 1, 3, 50000.00, '2023-11-15'),
