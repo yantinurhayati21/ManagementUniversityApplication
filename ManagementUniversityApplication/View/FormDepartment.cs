@@ -31,20 +31,21 @@ namespace ManagementUniversityApplication.View
             InitializeComponent();
             dataGridViewDepartment.DataSource = departmentController.selectDepartment();
             dataGridViewDepartment.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        }
-
-        private void FormDepartment_Load(object sender, EventArgs e)
-        {
-            refresh();
             txtDepartmentId.MaxLength = 5;
             txtDepartmentName.MaxLength = 20;
             txtDepartmentNmDekan.MaxLength = 20;
             txtDepartmentDesc.MaxLength = 30;
         }
 
+        private void FormDepartment_Load(object sender, EventArgs e)
+        {
+            refresh(); 
+        }
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+
             if(val.ValidateOnlyAlphabet(txtDepartmentName.Text) && val.ValidateOnlyAlphabet(txtDepartmentNmDekan.Text) && val.ValidateAlphabetAndNumber(txtDepartmentDesc.Text))
             {
                 try
@@ -87,9 +88,14 @@ namespace ManagementUniversityApplication.View
 
         private void brnDelete_Click(object sender, EventArgs e)
         {
-            int selectedValue = (int)dataGridViewDepartment.SelectedRows[0].Cells["DepId"].Value;
-            departmentController.deleteDepartment(selectedValue);
-            refresh();
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this data?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                int selectedValue = (int)dataGridViewDepartment.SelectedRows[0].Cells["DepId"].Value;
+                departmentController.deleteDepartment(selectedValue);
+                refresh();
+            }
         }
 
         private void txtDepartmentId_KeyPress(object sender, KeyPressEventArgs e)
@@ -115,11 +121,6 @@ namespace ManagementUniversityApplication.View
             txtDepartmentDesc.Clear();
         }
 
-        private void txtDepartmentDesc_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBoxSearch_Click(object sender, EventArgs e)
         {
             dataGridViewDepartment.DataSource = departmentController.searchDepartment(guna2TextBoxSearch.Text);
@@ -133,10 +134,37 @@ namespace ManagementUniversityApplication.View
 
         private void printDocumentDepartment_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+            // Judul Data Department
+            string title = "Data Department";
+            Font titleFont = new Font("Arial", 32, FontStyle.Bold);
+
+            // Warna judul
+            using (SolidBrush brush = new SolidBrush(Color.Black))
+            {
+                // Menggambar judul di tengah atas halaman
+                SizeF titleSize = e.Graphics.MeasureString(title, titleFont);
+                float titleX = (e.PageBounds.Width - titleSize.Width) / 2;
+                float titleY = 15;
+                e.Graphics.DrawString(title, titleFont, brush, titleX, titleY);
+            }
+
+            // Menambahkan garis sebagai pemisah
+            using (Pen pen = new Pen(Color.Black, 2))
+            {
+                e.Graphics.DrawLine(pen, new Point(50, 90), new Point(e.PageBounds.Width - 50, 90));
+            }
+
+            // Menggambar data dari DataGridView
             Bitmap btm = new Bitmap(this.dataGridViewDepartment.Width, this.dataGridViewDepartment.Height);
             dataGridViewDepartment.DrawToBitmap(btm, new Rectangle(0, 0, this.dataGridViewDepartment.Width, this.dataGridViewDepartment.Height));
-            e.Graphics.DrawImage(btm, 170, 120);
-            e.Graphics.DrawString(pictureBoxPrint.Text, new Font("Consolas", 23, FontStyle.Bold), Brushes.Black, new Point(310, 50));
+
+            // Menggambar DataGridView di tengah halaman
+            float dataGridViewX = (e.PageBounds.Width - btm.Width) / 2;
+            float dataGridViewY = 110; // Mulai dari 110 (dibawah garis pemisah)
+            e.Graphics.DrawImage(btm, dataGridViewX, dataGridViewY);
+
+            // Menambahkan teks pada pictureBoxPrint
+            e.Graphics.DrawString(pictureBoxPrint.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(310, 50));
         }
 
         private void dataGridViewDepartment_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -234,6 +262,11 @@ namespace ManagementUniversityApplication.View
             FormSalary sl = new FormSalary();
             sl.Show();
             this.Close();
+        }
+
+        private void txtDepartmentDesc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
         }
     }
 }

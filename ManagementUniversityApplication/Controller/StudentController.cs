@@ -74,7 +74,6 @@ namespace ManagementUniversityApplication.Controller
             {
                 MessageBox.Show("Update data Failed" + ex.Message);
             }
-
         }
 
         public void deleteStudents(int StId)

@@ -105,7 +105,6 @@
             // 
             // labelUniv
             // 
-            this.labelUniv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelUniv.AutoSize = true;
             this.labelUniv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUniv.ForeColor = System.Drawing.Color.DodgerBlue;
@@ -117,7 +116,6 @@
             // 
             // labelYantovia
             // 
-            this.labelYantovia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelYantovia.AutoSize = true;
             this.labelYantovia.Font = new System.Drawing.Font("Monotype Corsiva", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelYantovia.ForeColor = System.Drawing.Color.Fuchsia;
@@ -129,6 +127,8 @@
             // 
             // guna2PanelLeft
             // 
+            this.guna2PanelLeft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.guna2PanelLeft.BackColor = System.Drawing.Color.LightCyan;
             this.guna2PanelLeft.Controls.Add(this.labelLogout);
             this.guna2PanelLeft.Controls.Add(this.pictureBoxUniv);
@@ -150,7 +150,6 @@
             this.guna2PanelLeft.Controls.Add(this.labelLearn);
             this.guna2PanelLeft.Controls.Add(this.pictureBoxFees);
             this.guna2PanelLeft.Controls.Add(this.pictureBox6);
-            this.guna2PanelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2PanelLeft.Location = new System.Drawing.Point(0, 0);
             this.guna2PanelLeft.Name = "guna2PanelLeft";
             this.guna2PanelLeft.Size = new System.Drawing.Size(236, 710);
@@ -169,7 +168,6 @@
             // 
             // pictureBoxUniv
             // 
-            this.pictureBoxUniv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBoxUniv.Image = global::ManagementUniversityApplication.Properties.Resources.school__3_;
             this.pictureBoxUniv.Location = new System.Drawing.Point(91, 3);
             this.pictureBoxUniv.Name = "pictureBoxUniv";
@@ -353,6 +351,9 @@
             // 
             // guna2PanelCenter
             // 
+            this.guna2PanelCenter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2PanelCenter.BackColor = System.Drawing.Color.Plum;
             this.guna2PanelCenter.BackgroundImage = global::ManagementUniversityApplication.Properties.Resources.b564c1ee_4e8e_41b4_86b3_278dc809b22f;
             this.guna2PanelCenter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -411,6 +412,8 @@
             // 
             // label1Desc
             // 
+            this.label1Desc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1Desc.AutoSize = true;
             this.label1Desc.BackColor = System.Drawing.Color.Transparent;
             this.label1Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -467,6 +470,7 @@
             // 
             // guna2PanelStatistic
             // 
+            this.guna2PanelStatistic.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.guna2PanelStatistic.BackColor = System.Drawing.Color.Violet;
             this.guna2PanelStatistic.Controls.Add(this.labelCours);
             this.guna2PanelStatistic.Controls.Add(this.labelLectur);
@@ -644,9 +648,10 @@
             // 
             // guna2PanelTop
             // 
+            this.guna2PanelTop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2PanelTop.BackColor = System.Drawing.Color.Fuchsia;
             this.guna2PanelTop.Controls.Add(this.labelTitla);
-            this.guna2PanelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2PanelTop.Location = new System.Drawing.Point(236, 0);
             this.guna2PanelTop.Name = "guna2PanelTop";
             this.guna2PanelTop.Size = new System.Drawing.Size(965, 68);
@@ -654,6 +659,8 @@
             // 
             // labelTitla
             // 
+            this.labelTitla.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelTitla.AutoSize = true;
             this.labelTitla.Font = new System.Drawing.Font("Monotype Corsiva", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitla.ForeColor = System.Drawing.Color.White;

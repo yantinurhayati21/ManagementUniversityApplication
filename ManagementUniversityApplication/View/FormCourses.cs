@@ -33,6 +33,12 @@ namespace ManagementUniversityApplication.View
             InitializeComponent();
             dataGridViewCourses.DataSource = courseController.selectCourses();
             dataGridViewCourses.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            txtCoursesId.MaxLength = 5;
+            txtCoursesName.MaxLength = 20;
+            txtCoursesPrice.MaxLength = 20;
+            guna2TextBoxRoom.MaxLength = 3;
+            comboBoxLrId.MaxLength = 10;
+            txtLecturerName.MaxLength = 5;
             LecturerId();
         }
 
@@ -59,11 +65,6 @@ namespace ManagementUniversityApplication.View
             {
                 txtLecturerName.Text = dr["LrName"].ToString();
             }
-        }
-
-        private void comboBoxLrId_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void pictureBoxHome_Click(object sender, EventArgs e)
@@ -163,13 +164,9 @@ namespace ManagementUniversityApplication.View
         private void FormCourses_Load(object sender, EventArgs e)
         {
             refresh();
-            txtCoursesId.MaxLength = 5;
-            txtCoursesName.MaxLength = 20;
-            txtCoursesPrice.MaxLength = 20;
-            comboBoxLrId.MaxLength = 10;
-            txtLecturerName.MaxLength = 5;
             LecturerId();
         }
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -196,11 +193,6 @@ namespace ManagementUniversityApplication.View
             {
                 MessageBox.Show("Empty field", "Add Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -232,9 +224,14 @@ namespace ManagementUniversityApplication.View
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int selectedValue = (int)dataGridViewCourses.SelectedRows[0].Cells["CId"].Value;
-            courseController.deleteCourses(selectedValue);
-            refresh();
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this data?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                int selectedValue = (int)dataGridViewCourses.SelectedRows[0].Cells["CId"].Value;
+                courseController.deleteCourses(selectedValue);
+                refresh();
+            }     
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -243,7 +240,8 @@ namespace ManagementUniversityApplication.View
             txtCoursesName.Clear();
             txtCoursesPrice.Clear();
             guna2TextBoxRoom.Clear();
-            txtLecturerName.Clear();          
+            txtLecturerName.Clear();
+            comboBoxLrId.SelectedIndex = 0;
         }
 
         private void dataGridViewCourses_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -254,6 +252,55 @@ namespace ManagementUniversityApplication.View
             guna2TextBoxRoom.Text = dataGridViewCourses.CurrentRow.Cells[3].Value.ToString();
             comboBoxLrId.Text = dataGridViewCourses.CurrentRow.Cells[4].Value.ToString();
             txtLecturerName.Text = dataGridViewCourses.CurrentRow.Cells[5].Value.ToString();
+        }
+
+        private void txtCoursesId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void txtCoursesName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void txtCoursesPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void pictureBoxSearch_Click(object sender, EventArgs e)
+        {
+            dataGridViewCourses.DataSource = courseController.searchCourses(guna2TextBoxSearch.Text);
+        }
+
+        private void pictureBoxPrint_Click(object sender, EventArgs e)
+        {
+            printPreviewDialogCourses.Document = printDocumentCourses;
+            printPreviewDialogCourses.ShowDialog();
+        }
+
+        private void printDocumentCourses_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            string title = "Data Courses";
+            Font titleFont = new Font("Arial", 32, FontStyle.Bold);
+            using (SolidBrush brush = new SolidBrush(Color.Black))
+            {
+                SizeF titleSize = e.Graphics.MeasureString(title, titleFont);
+                float titleX = (e.PageBounds.Width - titleSize.Width) / 2;
+                float titleY = 15;
+                e.Graphics.DrawString(title, titleFont, brush, titleX, titleY);
+            }
+            using (Pen pen = new Pen(Color.Black, 2))
+            {
+                e.Graphics.DrawLine(pen, new Point(50, 90), new Point(e.PageBounds.Width - 50, 90));
+            }
+            Bitmap btm = new Bitmap(this.dataGridViewCourses.Width, this.dataGridViewCourses.Height);
+            dataGridViewCourses.DrawToBitmap(btm, new Rectangle(0, 0, this.dataGridViewCourses.Width, this.dataGridViewCourses.Height));
+            float dataGridViewX = (e.PageBounds.Width - btm.Width) / 2;
+            float dataGridViewY = 110;
+            e.Graphics.DrawImage(btm, dataGridViewX, dataGridViewY);
+            e.Graphics.DrawString(pictureBoxPrint.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(310, 50));
         }
     }
 }

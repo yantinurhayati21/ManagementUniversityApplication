@@ -32,6 +32,12 @@ namespace ManagementUniversityApplication.View
             InitializeComponent();
             dataGridViewStudent.DataSource = studentController.selectStudents();
             dataGridViewStudent.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            guna2TextBoxStudentId.MaxLength = 5;
+            guna2TextBoxStudentNim.MaxLength = 11;
+            guna2TextBoxName.MaxLength = 20;
+            guna2TextBoxSemester.MaxLength = 1;
+            guna2ComboBoxDepID.MaxLength = 5;
+            guna2TextBoxDepName.MaxLength = 20;
             DepartmentId();
         }
 
@@ -87,12 +93,6 @@ namespace ManagementUniversityApplication.View
         private void FormStudents_Load(object sender, EventArgs e)
         {
             refresh();
-            guna2TextBoxStudentId.MaxLength = 5;
-            guna2TextBoxStudentNim.MaxLength = 13;
-            guna2TextBoxName.MaxLength = 20;
-            guna2TextBoxSemester.MaxLength = 1;
-            guna2ComboBoxDepID.MaxLength = 5;
-            guna2TextBoxDepName.MaxLength = 20;
             DepartmentId();
         }
 
@@ -155,21 +155,42 @@ namespace ManagementUniversityApplication.View
             }
         }
 
-        private void guna2RadioButtonGnd_CheckedChanged(object sender, EventArgs e)
+        bool verify()
         {
-
+            if (guna2PictureBoxPhoto.Image == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (val.ValidateOnlyAlphabet(guna2TextBoxName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxDepName .Text))
+            int bornYear = guna2DateTimePickerDOB.Value.Year;
+            int thisYear = DateTime.Now.Year;
+            if ((thisYear - bornYear) <= 17 || (thisYear - bornYear) >= 25)
+            {
+                MessageBox.Show("Age must be between 17 to 25", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!int.TryParse(guna2TextBoxSemester.Text, out int semester) || semester < 1 || semester > 8)
+            {
+                MessageBox.Show("Semester can only be between 1-8", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!guna2RadioButtonGnd.Checked && !guna2RadioButton2Gnd.Checked)
+            {
+                MessageBox.Show("Please select a gender", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (verify() && val.ValidateOnlyAlphabet(guna2TextBoxName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxDepName.Text))
             {
                 try
                 {
                     string gender = guna2RadioButton2Gnd.Checked ? "Male" : "Female";
-                    MemoryStream memori = new MemoryStream();
-                    guna2PictureBoxPhoto.Image.Save(memori, guna2PictureBoxPhoto.Image.RawFormat);
-                    byte[] img = memori.ToArray();
+                    MemoryStream memory = new MemoryStream();
+                    guna2PictureBoxPhoto.Image.Save(memory, guna2PictureBoxPhoto.Image.RawFormat);
+                    byte[] img = memory.ToArray();
                     studentController.addStudents(
                         Convert.ToInt32(guna2TextBoxStudentId.Text),
                         guna2TextBoxStudentNim.Text,
@@ -181,12 +202,12 @@ namespace ManagementUniversityApplication.View
                         guna2TextBoxDepName.Text,
                         img
                     );
-                    MessageBox.Show("Saved Succesfully");
+                    MessageBox.Show("Saved Successfully");
                     refresh();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Error ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -218,6 +239,8 @@ namespace ManagementUniversityApplication.View
             guna2TextBoxName.Clear();
             guna2DateTimePickerDOB.Value=DateTime.Now;
             guna2RadioButton2Gnd.Checked=false;
+            guna2RadioButtonGnd.Checked=false;
+            guna2ComboBoxDepID.SelectedIndex = 0;
             guna2TextBoxSemester.Clear();
             guna2TextBoxDepName.Clear();
             guna2PictureBoxPhoto.Image=null;
@@ -225,7 +248,21 @@ namespace ManagementUniversityApplication.View
 
         private void brnUpdate_Click(object sender, EventArgs e)
         {
-            if (val.ValidateOnlyAlphabet(guna2TextBoxName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxDepName.Text))
+            int bornYear = guna2DateTimePickerDOB.Value.Year;
+            int thisYear = DateTime.Now.Year;
+            if ((thisYear - bornYear) <= 17 || (thisYear - bornYear) >= 25)
+            {
+                MessageBox.Show("Age must be between 17 to 25", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!int.TryParse(guna2TextBoxSemester.Text, out int semester) || semester < 1 || semester > 8)
+            {
+                MessageBox.Show("Semester can only be between 1-8", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!guna2RadioButtonGnd.Checked && !guna2RadioButton2Gnd.Checked)
+            {
+                MessageBox.Show("Please select a gender", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (verify() && val.ValidateOnlyAlphabet(guna2TextBoxName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxDepName.Text))
             {
                 try
                 {
@@ -260,9 +297,14 @@ namespace ManagementUniversityApplication.View
 
         private void brnDelete_Click(object sender, EventArgs e)
         {
-            int selectedValue = (int)dataGridViewStudent.SelectedRows[0].Cells["StId"].Value;
-            studentController.deleteStudents(selectedValue);
-            refresh();
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this data?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                int selectedValue = (int)dataGridViewStudent.SelectedRows[0].Cells["StId"].Value;
+                studentController.deleteStudents(selectedValue);
+                refresh();
+            }
         }
 
         private void guna2TextBoxSearch_TextChanged(object sender, EventArgs e)
@@ -297,7 +339,7 @@ namespace ManagementUniversityApplication.View
 
         private void brnUpdate_MouseLeave(object sender, EventArgs e)
         {
-            brnDelete.ForeColor = Color.Fuchsia;
+            brnUpdate.ForeColor = Color.Fuchsia;
         }
 
         private void brnDelete_MouseLeave(object sender, EventArgs e)
@@ -310,6 +352,57 @@ namespace ManagementUniversityApplication.View
             btnClear.ForeColor = Color.Fuchsia;
         }
 
+        private void guna2TextBoxStudentId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
 
+        }
+
+        private void guna2TextBoxStudentNim_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+
+        }
+
+        private void guna2TextBoxName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+
+        }
+
+        private void guna2TextBoxSemester_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+
+        }
+
+        private void pictureBoxPrint_Click(object sender, EventArgs e)
+        {
+            printPreviewDialogSt.Document = printDocumentStudents;
+            printPreviewDialogSt.ShowDialog();
+        }
+
+        private void printDocumentStudents_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            string title = "Data students";
+            Font titleFont = new Font("Arial", 32, FontStyle.Bold);
+            using (SolidBrush brush = new SolidBrush(Color.Black))
+            {
+                SizeF titleSize = e.Graphics.MeasureString(title, titleFont);
+                float titleX = (e.PageBounds.Width - titleSize.Width) / 2;
+                float titleY = 15;
+                e.Graphics.DrawString(title, titleFont, brush, titleX, titleY);
+            }
+            using (Pen pen = new Pen(Color.Black, 2))
+            {
+                e.Graphics.DrawLine(pen, new Point(50, 90), new Point(e.PageBounds.Width - 50, 90));
+            }
+            Bitmap btm = new Bitmap(this.dataGridViewStudent.Width, this.dataGridViewStudent.Height);
+            dataGridViewStudent.DrawToBitmap(btm, new Rectangle(0, 0, this.dataGridViewStudent.Width, this.dataGridViewStudent.Height));
+            float dataGridViewX = (e.PageBounds.Width - btm.Width) / 2;
+            float dataGridViewY = 110;
+            e.Graphics.DrawImage(btm, dataGridViewX, dataGridViewY);
+            e.Graphics.DrawString(pictureBoxPrint.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(310, 50));
+        }
     }
 }

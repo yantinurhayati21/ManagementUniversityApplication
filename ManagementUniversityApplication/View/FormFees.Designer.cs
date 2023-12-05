@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFees));
             this.guna2PanelLeft = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2TextBoxDepID = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2DateTimePickerPayDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
@@ -72,6 +73,8 @@
             this.pictureBoxLecturer = new System.Windows.Forms.PictureBox();
             this.pictureBoxDepartment = new System.Windows.Forms.PictureBox();
             this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
+            this.printPreviewDialogFees = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocumentFees = new System.Drawing.Printing.PrintDocument();
             this.guna2PanelLeft.SuspendLayout();
             this.guna2PanelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
@@ -92,7 +95,7 @@
             // 
             // guna2PanelLeft
             // 
-            this.guna2PanelLeft.BackColor = System.Drawing.Color.Plum;
+            this.guna2PanelLeft.BackColor = System.Drawing.Color.Violet;
             this.guna2PanelLeft.BorderRadius = 8;
             this.guna2PanelLeft.Controls.Add(this.guna2TextBoxDepID);
             this.guna2PanelLeft.Controls.Add(this.guna2DateTimePickerPayDate);
@@ -133,6 +136,7 @@
             this.guna2TextBoxDepID.SelectedText = "";
             this.guna2TextBoxDepID.Size = new System.Drawing.Size(286, 39);
             this.guna2TextBoxDepID.TabIndex = 46;
+            this.guna2TextBoxDepID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxDepID_KeyPress);
             // 
             // guna2DateTimePickerPayDate
             // 
@@ -171,14 +175,14 @@
             this.txtPayAmount.SelectedText = "";
             this.txtPayAmount.Size = new System.Drawing.Size(286, 39);
             this.txtPayAmount.TabIndex = 42;
+            this.txtPayAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPayAmount_KeyPress);
             // 
             // labelLecId
             // 
-            this.labelLecId.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelLecId.AutoSize = true;
             this.labelLecId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLecId.ForeColor = System.Drawing.Color.DarkOrchid;
-            this.labelLecId.Location = new System.Drawing.Point(3, 256);
+            this.labelLecId.Location = new System.Drawing.Point(1, 269);
             this.labelLecId.Name = "labelLecId";
             this.labelLecId.Size = new System.Drawing.Size(104, 25);
             this.labelLecId.TabIndex = 41;
@@ -195,7 +199,7 @@
             this.guna2ComboBoxStuID.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.guna2ComboBoxStuID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2ComboBoxStuID.ItemHeight = 30;
-            this.guna2ComboBoxStuID.Location = new System.Drawing.Point(6, 284);
+            this.guna2ComboBoxStuID.Location = new System.Drawing.Point(6, 297);
             this.guna2ComboBoxStuID.Name = "guna2ComboBoxStuID";
             this.guna2ComboBoxStuID.Size = new System.Drawing.Size(286, 36);
             this.guna2ComboBoxStuID.TabIndex = 40;
@@ -260,6 +264,7 @@
             this.txtFeesPeriod.SelectedText = "";
             this.txtFeesPeriod.Size = new System.Drawing.Size(286, 39);
             this.txtFeesPeriod.TabIndex = 35;
+            this.txtFeesPeriod.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFeesPeriod_KeyPress);
             // 
             // guna2PanelTop
             // 
@@ -285,9 +290,8 @@
             // label1Yantovia
             // 
             this.label1Yantovia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1Yantovia.AutoSize = true;
             this.label1Yantovia.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1Yantovia.ForeColor = System.Drawing.Color.Magenta;
+            this.label1Yantovia.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label1Yantovia.Location = new System.Drawing.Point(136, 82);
             this.label1Yantovia.Name = "label1Yantovia";
             this.label1Yantovia.Size = new System.Drawing.Size(125, 35);
@@ -327,6 +331,7 @@
             this.txtStudentName.SelectedText = "";
             this.txtStudentName.Size = new System.Drawing.Size(286, 39);
             this.txtStudentName.TabIndex = 26;
+            this.txtStudentName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStudentName_KeyPress);
             // 
             // panelLineWhite
             // 
@@ -349,7 +354,7 @@
             this.txtFeesId.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtFeesId.ForeColor = System.Drawing.Color.Black;
             this.txtFeesId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFeesId.Location = new System.Drawing.Point(6, 191);
+            this.txtFeesId.Location = new System.Drawing.Point(8, 212);
             this.txtFeesId.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtFeesId.Name = "txtFeesId";
             this.txtFeesId.PasswordChar = '\0';
@@ -357,6 +362,7 @@
             this.txtFeesId.SelectedText = "";
             this.txtFeesId.Size = new System.Drawing.Size(286, 39);
             this.txtFeesId.TabIndex = 25;
+            this.txtFeesId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFeesId_KeyPress);
             // 
             // guna2PanelTitle
             // 
@@ -420,6 +426,7 @@
             this.pictureBoxSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxSearch.TabIndex = 44;
             this.pictureBoxSearch.TabStop = false;
+            this.pictureBoxSearch.Click += new System.EventHandler(this.pictureBoxSearch_Click);
             // 
             // guna2TextBoxSearch
             // 
@@ -454,6 +461,7 @@
             this.pictureBoxPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPrint.TabIndex = 45;
             this.pictureBoxPrint.TabStop = false;
+            this.pictureBoxPrint.Click += new System.EventHandler(this.pictureBoxPrint_Click);
             // 
             // labelManageSalary
             // 
@@ -507,27 +515,27 @@
             // 
             // dataGridViewFees
             // 
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.dataGridViewFees.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dataGridViewFees.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewFees.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewFees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewFees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewFees.ColumnHeadersHeight = 4;
             this.dataGridViewFees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewFees.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewFees.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewFees.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGridViewFees.Location = new System.Drawing.Point(17, 301);
             this.dataGridViewFees.Name = "dataGridViewFees";
@@ -695,6 +703,20 @@
             this.pictureBoxStudent.TabStop = false;
             this.pictureBoxStudent.Click += new System.EventHandler(this.pictureBoxStudent_Click);
             // 
+            // printPreviewDialogFees
+            // 
+            this.printPreviewDialogFees.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogFees.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogFees.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialogFees.Enabled = true;
+            this.printPreviewDialogFees.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogFees.Icon")));
+            this.printPreviewDialogFees.Name = "printPreviewDialogFees";
+            this.printPreviewDialogFees.Visible = false;
+            // 
+            // printDocumentFees
+            // 
+            this.printDocumentFees.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentFees_PrintPage);
+            // 
             // FormFees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -773,5 +795,7 @@
         private System.Windows.Forms.PictureBox pictureBoxDepartment;
         private System.Windows.Forms.PictureBox pictureBoxStudent;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxDepID;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogFees;
+        private System.Drawing.Printing.PrintDocument printDocumentFees;
     }
 }

@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLearning));
             this.guna2PanelTitle = new Guna.UI2.WinForms.Guna2Panel();
             this.label1Yantovia = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
@@ -38,6 +39,7 @@
             this.labelUniv = new System.Windows.Forms.Label();
             this.guna2PanelCenter = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PanelInput = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2TextBoxCRoom = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2DateTimePickerClass = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.labelCrId = new System.Windows.Forms.Label();
             this.guna2ComboBoxCID = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -74,7 +76,9 @@
             this.pictureBoxLecturer = new System.Windows.Forms.PictureBox();
             this.pictureBoxDepartment = new System.Windows.Forms.PictureBox();
             this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
-            this.guna2TextBoxCRoom = new Guna.UI2.WinForms.Guna2TextBox();
+            this.printDocumentLearn = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialogLearn = new System.Windows.Forms.PrintPreviewDialog();
+            this.pictureBoxPrint = new System.Windows.Forms.PictureBox();
             this.guna2PanelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.guna2PanelCenter.SuspendLayout();
@@ -88,6 +92,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLecturer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDepartment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2PanelTitle
@@ -152,6 +157,7 @@
             // guna2PanelCenter
             // 
             this.guna2PanelCenter.BackColor = System.Drawing.Color.Azure;
+            this.guna2PanelCenter.Controls.Add(this.pictureBoxPrint);
             this.guna2PanelCenter.Controls.Add(this.guna2PanelInput);
             this.guna2PanelCenter.Controls.Add(this.btnClear);
             this.guna2PanelCenter.Controls.Add(this.guna2TextBoxSearch);
@@ -203,6 +209,29 @@
             this.guna2PanelInput.Name = "guna2PanelInput";
             this.guna2PanelInput.Size = new System.Drawing.Size(1233, 196);
             this.guna2PanelInput.TabIndex = 45;
+            // 
+            // guna2TextBoxCRoom
+            // 
+            this.guna2TextBoxCRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2TextBoxCRoom.BorderRadius = 10;
+            this.guna2TextBoxCRoom.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBoxCRoom.DefaultText = "";
+            this.guna2TextBoxCRoom.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBoxCRoom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBoxCRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBoxCRoom.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBoxCRoom.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBoxCRoom.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2TextBoxCRoom.ForeColor = System.Drawing.Color.Black;
+            this.guna2TextBoxCRoom.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBoxCRoom.Location = new System.Drawing.Point(458, 74);
+            this.guna2TextBoxCRoom.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.guna2TextBoxCRoom.Name = "guna2TextBoxCRoom";
+            this.guna2TextBoxCRoom.PasswordChar = '\0';
+            this.guna2TextBoxCRoom.PlaceholderText = "Courses Room";
+            this.guna2TextBoxCRoom.SelectedText = "";
+            this.guna2TextBoxCRoom.Size = new System.Drawing.Size(296, 39);
+            this.guna2TextBoxCRoom.TabIndex = 52;
             // 
             // guna2DateTimePickerClass
             // 
@@ -301,6 +330,7 @@
             this.guna2TextBoxCName.SelectedText = "";
             this.guna2TextBoxCName.Size = new System.Drawing.Size(296, 39);
             this.guna2TextBoxCName.TabIndex = 40;
+            this.guna2TextBoxCName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxCName_KeyPress);
             // 
             // guna2TextBoxStuName
             // 
@@ -324,6 +354,7 @@
             this.guna2TextBoxStuName.SelectedText = "";
             this.guna2TextBoxStuName.Size = new System.Drawing.Size(296, 39);
             this.guna2TextBoxStuName.TabIndex = 39;
+            this.guna2TextBoxStuName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxStuName_KeyPress);
             // 
             // labelLrId
             // 
@@ -359,6 +390,7 @@
             this.guna2TextBoxLecturerName.SelectedText = "";
             this.guna2TextBoxLecturerName.Size = new System.Drawing.Size(296, 39);
             this.guna2TextBoxLecturerName.TabIndex = 34;
+            this.guna2TextBoxLecturerName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxLecturerName_KeyPress);
             // 
             // guna2TextBoxLearnID
             // 
@@ -382,6 +414,7 @@
             this.guna2TextBoxLearnID.SelectedText = "";
             this.guna2TextBoxLearnID.Size = new System.Drawing.Size(296, 39);
             this.guna2TextBoxLearnID.TabIndex = 25;
+            this.guna2TextBoxLearnID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxLearnID_KeyPress);
             // 
             // guna2ComboBoxLecID
             // 
@@ -423,6 +456,7 @@
             this.guna2TextBoxDuration.SelectedText = "";
             this.guna2TextBoxDuration.Size = new System.Drawing.Size(296, 39);
             this.guna2TextBoxDuration.TabIndex = 27;
+            this.guna2TextBoxDuration.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxDuration_KeyPress);
             // 
             // btnClear
             // 
@@ -466,6 +500,7 @@
             this.guna2TextBoxSearch.SelectedText = "";
             this.guna2TextBoxSearch.Size = new System.Drawing.Size(267, 45);
             this.guna2TextBoxSearch.TabIndex = 43;
+            this.guna2TextBoxSearch.TextChanged += new System.EventHandler(this.guna2TextBoxSearch_TextChanged);
             // 
             // labelManageLearning
             // 
@@ -576,28 +611,28 @@
             // 
             // dataGridViewLearning
             // 
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            this.dataGridViewLearning.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.dataGridViewLearning.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewLearning.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridViewLearning.BackgroundColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewLearning.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewLearning.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewLearning.ColumnHeadersHeight = 4;
             this.dataGridViewLearning.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewLearning.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewLearning.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewLearning.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGridViewLearning.Location = new System.Drawing.Point(14, 388);
             this.dataGridViewLearning.Name = "dataGridViewLearning";
@@ -765,28 +800,31 @@
             this.pictureBoxStudent.TabStop = false;
             this.pictureBoxStudent.Click += new System.EventHandler(this.pictureBoxStudent_Click);
             // 
-            // guna2TextBoxCRoom
+            // printDocumentLearn
             // 
-            this.guna2TextBoxCRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.guna2TextBoxCRoom.BorderRadius = 10;
-            this.guna2TextBoxCRoom.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBoxCRoom.DefaultText = "";
-            this.guna2TextBoxCRoom.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBoxCRoom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBoxCRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBoxCRoom.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBoxCRoom.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxCRoom.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2TextBoxCRoom.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBoxCRoom.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxCRoom.Location = new System.Drawing.Point(458, 74);
-            this.guna2TextBoxCRoom.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.guna2TextBoxCRoom.Name = "guna2TextBoxCRoom";
-            this.guna2TextBoxCRoom.PasswordChar = '\0';
-            this.guna2TextBoxCRoom.PlaceholderText = "Courses Room";
-            this.guna2TextBoxCRoom.SelectedText = "";
-            this.guna2TextBoxCRoom.Size = new System.Drawing.Size(296, 39);
-            this.guna2TextBoxCRoom.TabIndex = 52;
+            this.printDocumentLearn.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentLearn_PrintPage);
+            // 
+            // printPreviewDialogLearn
+            // 
+            this.printPreviewDialogLearn.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogLearn.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogLearn.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialogLearn.Enabled = true;
+            this.printPreviewDialogLearn.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogLearn.Icon")));
+            this.printPreviewDialogLearn.Name = "printPreviewDialogLearn";
+            this.printPreviewDialogLearn.Visible = false;
+            // 
+            // pictureBoxPrint
+            // 
+            this.pictureBoxPrint.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxPrint.Image = global::ManagementUniversityApplication.Properties.Resources.printing__1_;
+            this.pictureBoxPrint.Location = new System.Drawing.Point(845, 322);
+            this.pictureBoxPrint.Name = "pictureBoxPrint";
+            this.pictureBoxPrint.Size = new System.Drawing.Size(84, 45);
+            this.pictureBoxPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPrint.TabIndex = 47;
+            this.pictureBoxPrint.TabStop = false;
+            this.pictureBoxPrint.Click += new System.EventHandler(this.pictureBoxPrint_Click);
             // 
             // FormLearning
             // 
@@ -814,6 +852,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLecturer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDepartment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPrint)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -864,5 +903,8 @@
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBoxCID;
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePickerClass;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxCRoom;
+        private System.Drawing.Printing.PrintDocument printDocumentLearn;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogLearn;
+        private System.Windows.Forms.PictureBox pictureBoxPrint;
     }
 }

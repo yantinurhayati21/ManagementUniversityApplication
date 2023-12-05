@@ -111,6 +111,11 @@ namespace ManagementUniversityApplication.View
             InitializeComponent();
             dataGridViewSalary.DataSource = salaryController.selectSalary();
             dataGridViewSalary.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            txtSalaryId.MaxLength = 5;
+            guna2ComboBoxLecID.MaxLength = 5;
+            txtLectureName.MaxLength = 20;
+            txtLectureSalary.MaxLength = 5;
+            txtPeriodSalary.MaxLength = 20;
             LectureId();
         }
 
@@ -143,11 +148,6 @@ namespace ManagementUniversityApplication.View
         private void FormSalary_Load(object sender, EventArgs e)
         {
             refresh();
-            txtSalaryId.MaxLength = 5;
-            guna2ComboBoxLecID.MaxLength = 5;
-            txtLectureName.MaxLength = 20;
-            txtLectureSalary.MaxLength = 5;
-            txtPeriodSalary.MaxLength = 20;
         }
 
         private void btnPay_Click(object sender, EventArgs e)
@@ -186,11 +186,66 @@ namespace ManagementUniversityApplication.View
             txtLectureSalary.Clear();
             txtPeriodSalary.Clear();
             guna2DateTimePickerPayDate.Value = DateTime.Now;
+            guna2ComboBoxLecID.SelectedIndex= 0;
         }
 
         private void guna2ComboBoxLecID_SelectedIndexChanged(object sender, EventArgs e)
         {
             LecName();
+        }
+
+        private void txtSalaryId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void txtLectureName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void txtLectureSalary_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void txtPeriodSalary_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void pictureBoxPrint_Click(object sender, EventArgs e)
+        {
+            printPreviewDialogSalary.Document = printDocumentSalary;
+            printPreviewDialogSalary.ShowDialog();
+        }
+
+        private void printDocumentSalary_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            string title = "Data Salary";
+            Font titleFont = new Font("Arial", 32, FontStyle.Bold);
+            using (SolidBrush brush = new SolidBrush(Color.Black))
+            {
+                SizeF titleSize = e.Graphics.MeasureString(title, titleFont);
+                float titleX = (e.PageBounds.Width - titleSize.Width) / 2;
+                float titleY = 15;
+                e.Graphics.DrawString(title, titleFont, brush, titleX, titleY);
+            }
+            using (Pen pen = new Pen(Color.Black, 2))
+            {
+                e.Graphics.DrawLine(pen, new Point(50, 90), new Point(e.PageBounds.Width - 50, 90));
+            }
+            Bitmap btm = new Bitmap(this.dataGridViewSalary.Width, this.dataGridViewSalary.Height);
+            dataGridViewSalary.DrawToBitmap(btm, new Rectangle(0, 0, this.dataGridViewSalary.Width, this.dataGridViewSalary.Height));
+            float dataGridViewX = (e.PageBounds.Width - btm.Width) / 2;
+            float dataGridViewY = 110;
+            e.Graphics.DrawImage(btm, dataGridViewX, dataGridViewY);
+            e.Graphics.DrawString(pictureBoxPrint.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(310, 50));
+        }
+
+        private void pictureBoxSearch_Click(object sender, EventArgs e)
+        {
+            dataGridViewSalary.DataSource = salaryController.searchSalary(guna2TextBoxSearch.Text);
         }
     }
 }

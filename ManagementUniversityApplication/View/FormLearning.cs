@@ -124,7 +124,7 @@ namespace ManagementUniversityApplication.View
             guna2TextBoxStuName.MaxLength = 20;
             guna2ComboBoxCID.MaxLength = 5;
             guna2TextBoxCName.MaxLength = 20;
-            guna2TextBoxCRoom.MaxLength = 5;
+            guna2TextBoxCRoom.MaxLength = 3;
             guna2ComboBoxLecID.MaxLength = 5;
             guna2TextBoxLecturerName.MaxLength = 20;
             guna2TextBoxDuration.MaxLength = 5;
@@ -315,9 +315,14 @@ namespace ManagementUniversityApplication.View
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int selectedValue = (int)dataGridViewLearning.SelectedRows[0].Cells["LrnId"].Value;
-            learningController.deleteLearning(selectedValue);
-            refresh();
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this data?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                int selectedValue = (int)dataGridViewLearning.SelectedRows[0].Cells["LrnId"].Value;
+                learningController.deleteLearning(selectedValue);
+                refresh();
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -329,6 +334,68 @@ namespace ManagementUniversityApplication.View
             guna2DateTimePickerClass.Value = DateTime.Now;
             guna2TextBoxLecturerName.Clear();
             guna2TextBoxDuration.Clear();
+            guna2ComboBoxCID.SelectedIndex = 0;
+            guna2ComboBoxLecID.SelectedIndex = 0;
+            guna2ComboBoxStuID.SelectedIndex = 0;
+        }
+
+        private void guna2TextBoxLearnID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void guna2TextBoxStuName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void guna2TextBoxCName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void guna2TextBoxLecturerName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void guna2TextBoxDuration_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void guna2TextBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            dataGridViewLearning.DataSource = learningController.searchLearning(guna2TextBoxSearch.Text);
+        }
+
+        private void pictureBoxPrint_Click(object sender, EventArgs e)
+        {
+            printPreviewDialogLearn.Document = printDocumentLearn;
+            printPreviewDialogLearn.ShowDialog();
+        }
+
+        private void printDocumentLearn_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            string title = "Data Learning";
+            Font titleFont = new Font("Arial", 32, FontStyle.Bold);
+            using (SolidBrush brush = new SolidBrush(Color.Black))
+            {
+                SizeF titleSize = e.Graphics.MeasureString(title, titleFont);
+                float titleX = (e.PageBounds.Width - titleSize.Width) / 2;
+                float titleY = 15;
+                e.Graphics.DrawString(title, titleFont, brush, titleX, titleY);
+            }
+            using (Pen pen = new Pen(Color.Black, 2))
+            {
+                e.Graphics.DrawLine(pen, new Point(50, 90), new Point(e.PageBounds.Width - 50, 90));
+            }
+            Bitmap btm = new Bitmap(this.dataGridViewLearning.Width, this.dataGridViewLearning.Height);
+            dataGridViewLearning.DrawToBitmap(btm, new Rectangle(0, 0, this.dataGridViewLearning.Width, this.dataGridViewLearning.Height));
+            float dataGridViewX = (e.PageBounds.Width - btm.Width) / 2;
+            float dataGridViewY = 110;
+            e.Graphics.DrawImage(btm, dataGridViewX, dataGridViewY);
+            e.Graphics.DrawString(pictureBoxPrint.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(310, 50));
         }
     }
 }

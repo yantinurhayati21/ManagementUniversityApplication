@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2PanelTitle = new Guna.UI2.WinForms.Guna2Panel();
             this.label1Yantovia = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
@@ -224,6 +224,7 @@
             this.guna2TextBoxLecturerName.SelectedText = "";
             this.guna2TextBoxLecturerName.Size = new System.Drawing.Size(296, 39);
             this.guna2TextBoxLecturerName.TabIndex = 38;
+            this.guna2TextBoxLecturerName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxLecturerName_KeyPress);
             // 
             // guna2ButtonUpload
             // 
@@ -295,6 +296,7 @@
             this.guna2TextBoxLecturerQual.SelectedText = "";
             this.guna2TextBoxLecturerQual.Size = new System.Drawing.Size(296, 39);
             this.guna2TextBoxLecturerQual.TabIndex = 34;
+            this.guna2TextBoxLecturerQual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxLecturerQual_KeyPress);
             // 
             // guna2RadioButton2Gnd
             // 
@@ -338,6 +340,7 @@
             this.guna2TextBoxLecturerId.SelectedText = "";
             this.guna2TextBoxLecturerId.Size = new System.Drawing.Size(296, 39);
             this.guna2TextBoxLecturerId.TabIndex = 25;
+            this.guna2TextBoxLecturerId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxLecturerId_KeyPress);
             // 
             // guna2TextBoxSalary
             // 
@@ -360,6 +363,7 @@
             this.guna2TextBoxSalary.SelectedText = "";
             this.guna2TextBoxSalary.Size = new System.Drawing.Size(310, 39);
             this.guna2TextBoxSalary.TabIndex = 28;
+            this.guna2TextBoxSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxSalary_KeyPress);
             // 
             // guna2ComboBoxDepID
             // 
@@ -579,28 +583,28 @@
             // 
             // dataGridViewLecturer
             // 
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
-            this.dataGridViewLecturer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.dataGridViewLecturer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewLecturer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridViewLecturer.BackgroundColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewLecturer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewLecturer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewLecturer.ColumnHeadersHeight = 4;
             this.dataGridViewLecturer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewLecturer.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewLecturer.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewLecturer.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGridViewLecturer.Location = new System.Drawing.Point(14, 388);
             this.dataGridViewLecturer.Name = "dataGridViewLecturer";

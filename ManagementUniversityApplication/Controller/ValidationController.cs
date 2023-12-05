@@ -17,7 +17,7 @@ namespace ManagementUniversityApplication.Controller
                 return false;
             }
 
-            char[] invalidChars = { '!', '@', '#', '$', '%', '^', '&', '*', ';', '_', ':', ',', '-', '/', '\\', '?', '+', '=' };
+            char[] invalidChars = { '!', '@', '#', '$', '%', '^', '&', '*', ';', '_', ':', '"', '-', '/', '\\', '?', '+', '=' };
 
             if (invalidChars.Contains(name[0]) || invalidChars.Contains(name[name.Length - 1]))
             {
@@ -45,7 +45,7 @@ namespace ManagementUniversityApplication.Controller
                 return false;
             }
 
-            char[] invalidChars = { ':', '?', '!', '#', '$', '%', '^', '&', '*', '(', ')' };
+            char[] invalidChars = { '!', '@', '#', '$', '%', '^', '&', '*', ';', '_', ':', '"', '-', '/', '\\', '?', '+', '=' };
 
             if (loc[0] >= '0' && loc[0] <= '9')
             {

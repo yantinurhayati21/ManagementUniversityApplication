@@ -94,7 +94,7 @@ namespace ManagementUniversityApplication.Controller
             try
             {
                 MySqlCommand command = new MySqlCommand
-                    ("select * from Salary where concat(SId, SLrId, SLrName, SLrSalary, SPeriod, FAmount, SPDate)like '%" + search + "%'", koneksi.GetConn());
+                    ("select * from Salary where concat(SId, SLrId, SLrName, SLrSalary, SPeriod, SPDate)like '%" + search + "%'", koneksi.GetConn());
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(table);
             }

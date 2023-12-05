@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalary));
             this.guna2PanelLeft = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2DateTimePickerPayDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtPeriodSalary = new Guna.UI2.WinForms.Guna2TextBox();
@@ -71,6 +72,8 @@
             this.pictureBoxLecturer = new System.Windows.Forms.PictureBox();
             this.pictureBoxDepartment = new System.Windows.Forms.PictureBox();
             this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
+            this.printDocumentSalary = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialogSalary = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2PanelLeft.SuspendLayout();
             this.guna2PanelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
@@ -147,6 +150,7 @@
             this.txtPeriodSalary.SelectedText = "";
             this.txtPeriodSalary.Size = new System.Drawing.Size(286, 39);
             this.txtPeriodSalary.TabIndex = 42;
+            this.txtPeriodSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeriodSalary_KeyPress);
             // 
             // labelLecId
             // 
@@ -236,6 +240,7 @@
             this.txtLectureSalary.SelectedText = "";
             this.txtLectureSalary.Size = new System.Drawing.Size(286, 39);
             this.txtLectureSalary.TabIndex = 35;
+            this.txtLectureSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLectureSalary_KeyPress);
             // 
             // guna2PanelTop
             // 
@@ -303,6 +308,7 @@
             this.txtLectureName.SelectedText = "";
             this.txtLectureName.Size = new System.Drawing.Size(286, 39);
             this.txtLectureName.TabIndex = 26;
+            this.txtLectureName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLectureName_KeyPress);
             // 
             // panelLineWhite
             // 
@@ -333,6 +339,7 @@
             this.txtSalaryId.SelectedText = "";
             this.txtSalaryId.Size = new System.Drawing.Size(286, 39);
             this.txtSalaryId.TabIndex = 25;
+            this.txtSalaryId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalaryId_KeyPress);
             // 
             // guna2PanelTitle
             // 
@@ -396,6 +403,7 @@
             this.pictureBoxSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxSearch.TabIndex = 44;
             this.pictureBoxSearch.TabStop = false;
+            this.pictureBoxSearch.Click += new System.EventHandler(this.pictureBoxSearch_Click);
             // 
             // guna2TextBoxSearch
             // 
@@ -430,6 +438,7 @@
             this.pictureBoxPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxPrint.TabIndex = 45;
             this.pictureBoxPrint.TabStop = false;
+            this.pictureBoxPrint.Click += new System.EventHandler(this.pictureBoxPrint_Click);
             // 
             // labelManageSalary
             // 
@@ -483,27 +492,27 @@
             // 
             // dataGridViewSalary
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dataGridViewSalary.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            this.dataGridViewSalary.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridViewSalary.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSalary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSalary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridViewSalary.ColumnHeadersHeight = 4;
             this.dataGridViewSalary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSalary.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSalary.DefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridViewSalary.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGridViewSalary.Location = new System.Drawing.Point(22, 266);
             this.dataGridViewSalary.Name = "dataGridViewSalary";
@@ -671,6 +680,20 @@
             this.pictureBoxStudent.TabStop = false;
             this.pictureBoxStudent.Click += new System.EventHandler(this.pictureBoxStudent_Click);
             // 
+            // printDocumentSalary
+            // 
+            this.printDocumentSalary.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentSalary_PrintPage);
+            // 
+            // printPreviewDialogSalary
+            // 
+            this.printPreviewDialogSalary.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogSalary.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogSalary.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialogSalary.Enabled = true;
+            this.printPreviewDialogSalary.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogSalary.Icon")));
+            this.printPreviewDialogSalary.Name = "printPreviewDialogSalary";
+            this.printPreviewDialogSalary.Visible = false;
+            // 
             // FormSalary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -748,5 +771,7 @@
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBoxLecID;
         private Guna.UI2.WinForms.Guna2TextBox txtPeriodSalary;
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePickerPayDate;
+        private System.Drawing.Printing.PrintDocument printDocumentSalary;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogSalary;
     }
 }

@@ -33,6 +33,12 @@ namespace ManagementUniversityApplication.View
             InitializeComponent();
             dataGridViewLecturer.DataSource = lecturerController.selectLecturers();
             dataGridViewLecturer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            guna2TextBoxLecturerId.MaxLength = 5;
+            guna2TextBoxLecturerName.MaxLength = 20;
+            guna2TextBoxLecturerQual.MaxLength = 20;
+            guna2TextBoxSalary.MaxLength = 10;
+            guna2ComboBoxDepID.MaxLength = 5;
+            guna2TextBoxDepName.MaxLength = 20;
             DepartmentId();
         }
 
@@ -200,9 +206,31 @@ namespace ManagementUniversityApplication.View
             }
         }
 
+        bool verify()
+        {
+            if (guna2PictureBoxPhoto.Image == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (val.ValidateOnlyAlphabet(guna2TextBoxLecturerName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxDepName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxLecturerQual.Text))
+            int bornYear = guna2DateTimePickerDOB.Value.Year;
+            int thisYear = DateTime.Now.Year;
+            if ((thisYear - bornYear) <= 26 || (thisYear - bornYear) >= 50)
+            {
+                MessageBox.Show("Age must be between 26 to 50", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!guna2RadioButtonGnd.Checked && !guna2RadioButton2Gnd.Checked)
+            {
+                MessageBox.Show("Please select a gender", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (verify() && val.ValidateOnlyAlphabet(guna2TextBoxLecturerName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxDepName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxLecturerQual.Text))
             {
                 try
                 {
@@ -237,7 +265,17 @@ namespace ManagementUniversityApplication.View
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (val.ValidateOnlyAlphabet(guna2TextBoxLecturerName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxDepName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxLecturerQual.Text))
+            int bornYear = guna2DateTimePickerDOB.Value.Year;
+            int thisYear = DateTime.Now.Year;
+            if ((thisYear - bornYear) <= 26 || (thisYear - bornYear) >= 50)
+            {
+                MessageBox.Show("Age must be between 26 to 50", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!guna2RadioButtonGnd.Checked && !guna2RadioButton2Gnd.Checked)
+            {
+                MessageBox.Show("Please select a gender", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (verify() && val.ValidateOnlyAlphabet(guna2TextBoxLecturerName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxDepName.Text) && val.ValidateOnlyAlphabet(guna2TextBoxLecturerQual.Text))
             {
                 try
                 {
@@ -272,9 +310,14 @@ namespace ManagementUniversityApplication.View
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int selectedValue = (int)dataGridViewLecturer.SelectedRows[0].Cells["LrId"].Value;
-            lecturerController.deleteLecturers(selectedValue);
-            refresh();
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this data?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                int selectedValue = (int)dataGridViewLecturer.SelectedRows[0].Cells["LrId"].Value;
+                lecturerController.deleteLecturers(selectedValue);
+                refresh();
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -284,6 +327,8 @@ namespace ManagementUniversityApplication.View
             guna2TextBoxLecturerQual.Clear();
             guna2DateTimePickerDOB.Value = DateTime.Now;
             guna2RadioButton2Gnd.Checked = false;
+            guna2RadioButtonGnd.Checked = false;
+            guna2ComboBoxDepID.SelectedIndex = 0;
             guna2TextBoxSalary.Clear();
             guna2TextBoxDepName.Clear();
             guna2PictureBoxPhoto.Image = null;
@@ -297,13 +342,27 @@ namespace ManagementUniversityApplication.View
         private void FormLecturer_Load(object sender, EventArgs e)
         {
             refresh();
-            guna2TextBoxLecturerId.MaxLength = 5;
-            guna2TextBoxLecturerName.MaxLength = 20;
-            guna2TextBoxLecturerQual.MaxLength = 20;
-            guna2TextBoxSalary.MaxLength = 10;
-            guna2ComboBoxDepID.MaxLength = 5;
-            guna2TextBoxDepName.MaxLength = 20;
             DepartmentId();
+        }
+
+        private void guna2TextBoxLecturerId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void guna2TextBoxLecturerName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void guna2TextBoxLecturerQual_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
+        }
+
+        private void guna2TextBoxSalary_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
         }
     }
 }

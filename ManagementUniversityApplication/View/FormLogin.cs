@@ -66,49 +66,12 @@ namespace ManagementUniversityApplication
             PanelInvalidUser.Visible = false;
             PanelInvalidPass.Visible = false;
             pictureBoxOpen.Visible = false;
+            txtPassword.UseSystemPasswordChar = true;
             pictureBoxClose.Visible = true;
             txtUserName.MaxLength = 10;
             txtPassword.MaxLength = 10;
         }
-
-        private void txtUserName_Enter(object sender, EventArgs e)
-        {
-            if(txtUserName.Text=="Enter Username")
-            {
-                txtUserName.Text = "";
-                txtUserName.ForeColor = Color.White;
-            }
-        }
-
-        private void txtUserName_Leave(object sender, EventArgs e)
-        {
-            if (txtUserName.Text == "")
-            {
-                txtUserName.Text = "Enter Username";
-                txtUserName.ForeColor = Color.Gray;
-                
-            }
-        }
-
-        private void txtPassword_Enter(object sender, EventArgs e)
-        {
-            if (txtPassword.Text == "Password")
-            {
-                txtPassword.Text = "";
-                txtPassword.ForeColor = Color.White;
-            }
-        }
-
-        private void txtPassword_Leave(object sender, EventArgs e)
-        {
-            if (txtPassword.Text == "")
-            {
-                txtPassword.Text = "Password";
-                txtPassword.ForeColor = Color.Gray;
-
-            }
-        }
-
+        
         private void txtUserName_TextChanged(object sender, EventArgs e)
         {
             PanelInvalidUser.Visible = false;
