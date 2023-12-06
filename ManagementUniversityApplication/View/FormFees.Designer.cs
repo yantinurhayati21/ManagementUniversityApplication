@@ -95,7 +95,8 @@
             // 
             // guna2PanelLeft
             // 
-            this.guna2PanelLeft.BackColor = System.Drawing.Color.Violet;
+            this.guna2PanelLeft.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PanelLeft.BackgroundImage = global::ManagementUniversityApplication.Properties.Resources.Purple_Fairy_Fantasy_Phone_Wallpaper;
             this.guna2PanelLeft.BorderRadius = 8;
             this.guna2PanelLeft.Controls.Add(this.guna2TextBoxDepID);
             this.guna2PanelLeft.Controls.Add(this.guna2DateTimePickerPayDate);
@@ -181,7 +182,7 @@
             // 
             this.labelLecId.AutoSize = true;
             this.labelLecId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLecId.ForeColor = System.Drawing.Color.DarkOrchid;
+            this.labelLecId.ForeColor = System.Drawing.Color.MediumBlue;
             this.labelLecId.Location = new System.Drawing.Point(1, 269);
             this.labelLecId.Name = "labelLecId";
             this.labelLecId.Size = new System.Drawing.Size(104, 25);
@@ -207,7 +208,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.FlatAppearance.BorderColor = System.Drawing.Color.Magenta;
+            this.btnReset.FlatAppearance.BorderColor = System.Drawing.Color.GhostWhite;
             this.btnReset.FlatAppearance.BorderSize = 2;
             this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Fuchsia;
             this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Fuchsia;
@@ -226,7 +227,7 @@
             // 
             // btnPay
             // 
-            this.btnPay.FlatAppearance.BorderColor = System.Drawing.Color.Magenta;
+            this.btnPay.FlatAppearance.BorderColor = System.Drawing.Color.GhostWhite;
             this.btnPay.FlatAppearance.BorderSize = 2;
             this.btnPay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Fuchsia;
             this.btnPay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Fuchsia;
@@ -292,11 +293,11 @@
             this.label1Yantovia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1Yantovia.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1Yantovia.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label1Yantovia.Location = new System.Drawing.Point(136, 82);
+            this.label1Yantovia.Location = new System.Drawing.Point(128, 73);
             this.label1Yantovia.Name = "label1Yantovia";
-            this.label1Yantovia.Size = new System.Drawing.Size(125, 35);
+            this.label1Yantovia.Size = new System.Drawing.Size(135, 35);
             this.label1Yantovia.TabIndex = 21;
-            this.label1Yantovia.Text = "Yantovia";
+            this.label1Yantovia.Text = "Sylvanica";
             // 
             // labelUniv
             // 
@@ -387,6 +388,9 @@
             // 
             // guna2PanelCenter
             // 
+            this.guna2PanelCenter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2PanelCenter.BackColor = System.Drawing.Color.White;
             this.guna2PanelCenter.Controls.Add(this.pictureBoxSearch);
             this.guna2PanelCenter.Controls.Add(this.guna2TextBoxSearch);
@@ -410,7 +414,6 @@
             this.guna2PanelCenter.Controls.Add(this.pictureBoxLecturer);
             this.guna2PanelCenter.Controls.Add(this.pictureBoxDepartment);
             this.guna2PanelCenter.Controls.Add(this.pictureBoxStudent);
-            this.guna2PanelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2PanelCenter.Location = new System.Drawing.Point(310, 68);
             this.guna2PanelCenter.Name = "guna2PanelCenter";
             this.guna2PanelCenter.Size = new System.Drawing.Size(974, 716);
@@ -418,7 +421,7 @@
             // 
             // pictureBoxSearch
             // 
-            this.pictureBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxSearch.Image = global::ManagementUniversityApplication.Properties.Resources.search__3_;
             this.pictureBoxSearch.Location = new System.Drawing.Point(870, 241);
             this.pictureBoxSearch.Name = "pictureBoxSearch";
@@ -430,7 +433,7 @@
             // 
             // guna2TextBoxSearch
             // 
-            this.guna2TextBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2TextBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2TextBoxSearch.BorderColor = System.Drawing.Color.Fuchsia;
             this.guna2TextBoxSearch.BorderThickness = 3;
             this.guna2TextBoxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -453,7 +456,6 @@
             // 
             // pictureBoxPrint
             // 
-            this.pictureBoxPrint.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBoxPrint.Image = global::ManagementUniversityApplication.Properties.Resources.printing__1_;
             this.pictureBoxPrint.Location = new System.Drawing.Point(17, 235);
             this.pictureBoxPrint.Name = "pictureBoxPrint";
@@ -517,7 +519,9 @@
             // 
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
             this.dataGridViewFees.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewFees.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridViewFees.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -726,6 +730,7 @@
             this.Controls.Add(this.guna2PanelTitle);
             this.Controls.Add(this.guna2PanelLeft);
             this.Name = "FormFees";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormFees";
             this.Load += new System.EventHandler(this.FormFees_Load);
             this.guna2PanelLeft.ResumeLayout(false);

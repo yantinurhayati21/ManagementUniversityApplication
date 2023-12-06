@@ -28,25 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalary));
-            this.guna2PanelLeft = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2DateTimePickerPayDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.txtPeriodSalary = new Guna.UI2.WinForms.Guna2TextBox();
-            this.labelLecId = new System.Windows.Forms.Label();
-            this.guna2ComboBoxLecID = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnPay = new System.Windows.Forms.Button();
-            this.txtLectureSalary = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2PanelTop = new Guna.UI2.WinForms.Guna2Panel();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.label1Yantovia = new System.Windows.Forms.Label();
-            this.labelUniv = new System.Windows.Forms.Label();
-            this.txtLectureName = new Guna.UI2.WinForms.Guna2TextBox();
-            this.panelLineWhite = new System.Windows.Forms.Panel();
-            this.txtSalaryId = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2PanelTitle = new Guna.UI2.WinForms.Guna2Panel();
             this.labelTitle = new System.Windows.Forms.Label();
             this.guna2PanelCenter = new Guna.UI2.WinForms.Guna2Panel();
@@ -74,9 +59,21 @@
             this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
             this.printDocumentSalary = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogSalary = new System.Windows.Forms.PrintPreviewDialog();
-            this.guna2PanelLeft.SuspendLayout();
-            this.guna2PanelTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            this.guna2PanelLeft = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtSalaryId = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2DateTimePickerPayDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.txtPeriodSalary = new Guna.UI2.WinForms.Guna2TextBox();
+            this.labelLecId = new System.Windows.Forms.Label();
+            this.guna2ComboBoxLecID = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnPay = new System.Windows.Forms.Button();
+            this.txtLectureSalary = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2PanelTop = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.label1Yantovia = new System.Windows.Forms.Label();
+            this.labelUniv = new System.Windows.Forms.Label();
+            this.txtLectureName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.panelLineWhite = new System.Windows.Forms.Panel();
             this.guna2PanelTitle.SuspendLayout();
             this.guna2PanelCenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSearch)).BeginInit();
@@ -90,256 +87,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLecturer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDepartment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).BeginInit();
+            this.guna2PanelLeft.SuspendLayout();
+            this.guna2PanelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // guna2PanelLeft
-            // 
-            this.guna2PanelLeft.BackColor = System.Drawing.Color.Plum;
-            this.guna2PanelLeft.BorderRadius = 8;
-            this.guna2PanelLeft.Controls.Add(this.guna2DateTimePickerPayDate);
-            this.guna2PanelLeft.Controls.Add(this.txtPeriodSalary);
-            this.guna2PanelLeft.Controls.Add(this.labelLecId);
-            this.guna2PanelLeft.Controls.Add(this.guna2ComboBoxLecID);
-            this.guna2PanelLeft.Controls.Add(this.btnReset);
-            this.guna2PanelLeft.Controls.Add(this.btnPay);
-            this.guna2PanelLeft.Controls.Add(this.txtLectureSalary);
-            this.guna2PanelLeft.Controls.Add(this.guna2PanelTop);
-            this.guna2PanelLeft.Controls.Add(this.txtLectureName);
-            this.guna2PanelLeft.Controls.Add(this.panelLineWhite);
-            this.guna2PanelLeft.Controls.Add(this.txtSalaryId);
-            this.guna2PanelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guna2PanelLeft.Location = new System.Drawing.Point(0, 0);
-            this.guna2PanelLeft.Name = "guna2PanelLeft";
-            this.guna2PanelLeft.Size = new System.Drawing.Size(310, 714);
-            this.guna2PanelLeft.TabIndex = 27;
-            // 
-            // guna2DateTimePickerPayDate
-            // 
-            this.guna2DateTimePickerPayDate.BorderRadius = 10;
-            this.guna2DateTimePickerPayDate.Checked = true;
-            this.guna2DateTimePickerPayDate.FillColor = System.Drawing.Color.DarkOrchid;
-            this.guna2DateTimePickerPayDate.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2DateTimePickerPayDate.ForeColor = System.Drawing.Color.White;
-            this.guna2DateTimePickerPayDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePickerPayDate.Location = new System.Drawing.Point(8, 480);
-            this.guna2DateTimePickerPayDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.guna2DateTimePickerPayDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.guna2DateTimePickerPayDate.Name = "guna2DateTimePickerPayDate";
-            this.guna2DateTimePickerPayDate.Size = new System.Drawing.Size(292, 36);
-            this.guna2DateTimePickerPayDate.TabIndex = 43;
-            this.guna2DateTimePickerPayDate.Value = new System.DateTime(2023, 11, 30, 10, 27, 51, 741);
-            // 
-            // txtPeriodSalary
-            // 
-            this.txtPeriodSalary.BorderRadius = 10;
-            this.txtPeriodSalary.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPeriodSalary.DefaultText = "";
-            this.txtPeriodSalary.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtPeriodSalary.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtPeriodSalary.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPeriodSalary.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPeriodSalary.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPeriodSalary.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtPeriodSalary.ForeColor = System.Drawing.Color.Black;
-            this.txtPeriodSalary.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPeriodSalary.Location = new System.Drawing.Point(8, 432);
-            this.txtPeriodSalary.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtPeriodSalary.Name = "txtPeriodSalary";
-            this.txtPeriodSalary.PasswordChar = '\0';
-            this.txtPeriodSalary.PlaceholderText = "Period Salary";
-            this.txtPeriodSalary.SelectedText = "";
-            this.txtPeriodSalary.Size = new System.Drawing.Size(286, 39);
-            this.txtPeriodSalary.TabIndex = 42;
-            this.txtPeriodSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeriodSalary_KeyPress);
-            // 
-            // labelLecId
-            // 
-            this.labelLecId.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelLecId.AutoSize = true;
-            this.labelLecId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLecId.ForeColor = System.Drawing.Color.DarkOrchid;
-            this.labelLecId.Location = new System.Drawing.Point(3, 234);
-            this.labelLecId.Name = "labelLecId";
-            this.labelLecId.Size = new System.Drawing.Size(107, 25);
-            this.labelLecId.TabIndex = 41;
-            this.labelLecId.Text = "Lecturer ID";
-            // 
-            // guna2ComboBoxLecID
-            // 
-            this.guna2ComboBoxLecID.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBoxLecID.BorderRadius = 10;
-            this.guna2ComboBoxLecID.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBoxLecID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBoxLecID.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBoxLecID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2ComboBoxLecID.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBoxLecID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBoxLecID.ItemHeight = 30;
-            this.guna2ComboBoxLecID.Location = new System.Drawing.Point(8, 262);
-            this.guna2ComboBoxLecID.Name = "guna2ComboBoxLecID";
-            this.guna2ComboBoxLecID.Size = new System.Drawing.Size(286, 36);
-            this.guna2ComboBoxLecID.TabIndex = 40;
-            this.guna2ComboBoxLecID.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBoxLecID_SelectedIndexChanged);
-            // 
-            // btnReset
-            // 
-            this.btnReset.FlatAppearance.BorderColor = System.Drawing.Color.Magenta;
-            this.btnReset.FlatAppearance.BorderSize = 2;
-            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Fuchsia;
-            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Fuchsia;
-            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.ForeColor = System.Drawing.Color.Fuchsia;
-            this.btnReset.Location = new System.Drawing.Point(41, 628);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(229, 45);
-            this.btnReset.TabIndex = 37;
-            this.btnReset.Text = "Reset Salary";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            this.btnReset.MouseEnter += new System.EventHandler(this.btnReset_MouseEnter);
-            this.btnReset.MouseLeave += new System.EventHandler(this.btnReset_MouseLeave);
-            // 
-            // btnPay
-            // 
-            this.btnPay.FlatAppearance.BorderColor = System.Drawing.Color.Magenta;
-            this.btnPay.FlatAppearance.BorderSize = 2;
-            this.btnPay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Fuchsia;
-            this.btnPay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Fuchsia;
-            this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPay.ForeColor = System.Drawing.Color.Fuchsia;
-            this.btnPay.Location = new System.Drawing.Point(41, 558);
-            this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(229, 45);
-            this.btnPay.TabIndex = 36;
-            this.btnPay.Text = "Pay Salary";
-            this.btnPay.UseVisualStyleBackColor = true;
-            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
-            this.btnPay.MouseEnter += new System.EventHandler(this.btnPay_MouseEnter);
-            this.btnPay.MouseLeave += new System.EventHandler(this.btnPay_MouseLeave);
-            // 
-            // txtLectureSalary
-            // 
-            this.txtLectureSalary.BorderRadius = 10;
-            this.txtLectureSalary.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtLectureSalary.DefaultText = "";
-            this.txtLectureSalary.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtLectureSalary.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtLectureSalary.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtLectureSalary.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtLectureSalary.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtLectureSalary.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtLectureSalary.ForeColor = System.Drawing.Color.Black;
-            this.txtLectureSalary.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtLectureSalary.Location = new System.Drawing.Point(8, 381);
-            this.txtLectureSalary.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtLectureSalary.Name = "txtLectureSalary";
-            this.txtLectureSalary.PasswordChar = '\0';
-            this.txtLectureSalary.PlaceholderText = "Lecturer Salary";
-            this.txtLectureSalary.SelectedText = "";
-            this.txtLectureSalary.Size = new System.Drawing.Size(286, 39);
-            this.txtLectureSalary.TabIndex = 35;
-            this.txtLectureSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLectureSalary_KeyPress);
-            // 
-            // guna2PanelTop
-            // 
-            this.guna2PanelTop.Controls.Add(this.pictureBoxLogo);
-            this.guna2PanelTop.Controls.Add(this.label1Yantovia);
-            this.guna2PanelTop.Controls.Add(this.labelUniv);
-            this.guna2PanelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2PanelTop.Location = new System.Drawing.Point(0, 0);
-            this.guna2PanelTop.Name = "guna2PanelTop";
-            this.guna2PanelTop.Size = new System.Drawing.Size(310, 134);
-            this.guna2PanelTop.TabIndex = 34;
-            // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.Image = global::ManagementUniversityApplication.Properties.Resources.school__4_;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(8, 30);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(94, 65);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxLogo.TabIndex = 24;
-            this.pictureBoxLogo.TabStop = false;
-            // 
-            // label1Yantovia
-            // 
-            this.label1Yantovia.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1Yantovia.AutoSize = true;
-            this.label1Yantovia.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1Yantovia.ForeColor = System.Drawing.Color.Magenta;
-            this.label1Yantovia.Location = new System.Drawing.Point(136, 82);
-            this.label1Yantovia.Name = "label1Yantovia";
-            this.label1Yantovia.Size = new System.Drawing.Size(125, 35);
-            this.label1Yantovia.TabIndex = 21;
-            this.label1Yantovia.Text = "Yantovia";
-            // 
-            // labelUniv
-            // 
-            this.labelUniv.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelUniv.AutoSize = true;
-            this.labelUniv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUniv.ForeColor = System.Drawing.Color.MediumVioletRed;
-            this.labelUniv.Location = new System.Drawing.Point(100, 51);
-            this.labelUniv.Name = "labelUniv";
-            this.labelUniv.Size = new System.Drawing.Size(206, 22);
-            this.labelUniv.TabIndex = 20;
-            this.labelUniv.Text = "University Technological";
-            // 
-            // txtLectureName
-            // 
-            this.txtLectureName.BorderRadius = 10;
-            this.txtLectureName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtLectureName.DefaultText = "";
-            this.txtLectureName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtLectureName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtLectureName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtLectureName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtLectureName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtLectureName.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtLectureName.ForeColor = System.Drawing.Color.Black;
-            this.txtLectureName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtLectureName.Location = new System.Drawing.Point(8, 330);
-            this.txtLectureName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtLectureName.Name = "txtLectureName";
-            this.txtLectureName.PasswordChar = '\0';
-            this.txtLectureName.PlaceholderText = "Lecturer Name";
-            this.txtLectureName.SelectedText = "";
-            this.txtLectureName.Size = new System.Drawing.Size(286, 39);
-            this.txtLectureName.TabIndex = 26;
-            this.txtLectureName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLectureName_KeyPress);
-            // 
-            // panelLineWhite
-            // 
-            this.panelLineWhite.BackColor = System.Drawing.Color.White;
-            this.panelLineWhite.Location = new System.Drawing.Point(3, 134);
-            this.panelLineWhite.Name = "panelLineWhite";
-            this.panelLineWhite.Size = new System.Drawing.Size(329, 3);
-            this.panelLineWhite.TabIndex = 24;
-            // 
-            // txtSalaryId
-            // 
-            this.txtSalaryId.BorderRadius = 10;
-            this.txtSalaryId.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSalaryId.DefaultText = "";
-            this.txtSalaryId.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtSalaryId.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtSalaryId.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSalaryId.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSalaryId.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSalaryId.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtSalaryId.ForeColor = System.Drawing.Color.Black;
-            this.txtSalaryId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSalaryId.Location = new System.Drawing.Point(8, 185);
-            this.txtSalaryId.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.txtSalaryId.Name = "txtSalaryId";
-            this.txtSalaryId.PasswordChar = '\0';
-            this.txtSalaryId.PlaceholderText = "Salary ID";
-            this.txtSalaryId.SelectedText = "";
-            this.txtSalaryId.Size = new System.Drawing.Size(286, 39);
-            this.txtSalaryId.TabIndex = 25;
-            this.txtSalaryId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSalaryId_KeyPress);
             // 
             // guna2PanelTitle
             // 
@@ -395,7 +146,7 @@
             // 
             // pictureBoxSearch
             // 
-            this.pictureBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxSearch.Image = global::ManagementUniversityApplication.Properties.Resources.search__3_;
             this.pictureBoxSearch.Location = new System.Drawing.Point(875, 206);
             this.pictureBoxSearch.Name = "pictureBoxSearch";
@@ -407,7 +158,7 @@
             // 
             // guna2TextBoxSearch
             // 
-            this.guna2TextBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2TextBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2TextBoxSearch.BorderColor = System.Drawing.Color.Fuchsia;
             this.guna2TextBoxSearch.BorderThickness = 3;
             this.guna2TextBoxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -430,7 +181,6 @@
             // 
             // pictureBoxPrint
             // 
-            this.pictureBoxPrint.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBoxPrint.Image = global::ManagementUniversityApplication.Properties.Resources.printing__1_;
             this.pictureBoxPrint.Location = new System.Drawing.Point(22, 200);
             this.pictureBoxPrint.Name = "pictureBoxPrint";
@@ -492,27 +242,29 @@
             // 
             // dataGridViewSalary
             // 
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
-            this.dataGridViewSalary.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
-            this.dataGridViewSalary.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSalary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dataGridViewSalary.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewSalary.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSalary.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewSalary.ColumnHeadersHeight = 4;
             this.dataGridViewSalary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewSalary.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSalary.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewSalary.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGridViewSalary.Location = new System.Drawing.Point(22, 266);
             this.dataGridViewSalary.Name = "dataGridViewSalary";
@@ -694,6 +446,253 @@
             this.printPreviewDialogSalary.Name = "printPreviewDialogSalary";
             this.printPreviewDialogSalary.Visible = false;
             // 
+            // guna2PanelLeft
+            // 
+            this.guna2PanelLeft.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PanelLeft.BackgroundImage = global::ManagementUniversityApplication.Properties.Resources.Purple_Fairy_Fantasy_Phone_Wallpaper;
+            this.guna2PanelLeft.BorderRadius = 8;
+            this.guna2PanelLeft.Controls.Add(this.txtSalaryId);
+            this.guna2PanelLeft.Controls.Add(this.guna2DateTimePickerPayDate);
+            this.guna2PanelLeft.Controls.Add(this.txtPeriodSalary);
+            this.guna2PanelLeft.Controls.Add(this.labelLecId);
+            this.guna2PanelLeft.Controls.Add(this.guna2ComboBoxLecID);
+            this.guna2PanelLeft.Controls.Add(this.btnReset);
+            this.guna2PanelLeft.Controls.Add(this.btnPay);
+            this.guna2PanelLeft.Controls.Add(this.txtLectureSalary);
+            this.guna2PanelLeft.Controls.Add(this.guna2PanelTop);
+            this.guna2PanelLeft.Controls.Add(this.txtLectureName);
+            this.guna2PanelLeft.Controls.Add(this.panelLineWhite);
+            this.guna2PanelLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2PanelLeft.Location = new System.Drawing.Point(0, 0);
+            this.guna2PanelLeft.Name = "guna2PanelLeft";
+            this.guna2PanelLeft.Size = new System.Drawing.Size(310, 714);
+            this.guna2PanelLeft.TabIndex = 27;
+            // 
+            // txtSalaryId
+            // 
+            this.txtSalaryId.BorderRadius = 10;
+            this.txtSalaryId.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSalaryId.DefaultText = "";
+            this.txtSalaryId.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSalaryId.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSalaryId.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSalaryId.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSalaryId.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSalaryId.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtSalaryId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSalaryId.Location = new System.Drawing.Point(8, 180);
+            this.txtSalaryId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSalaryId.Name = "txtSalaryId";
+            this.txtSalaryId.PasswordChar = '\0';
+            this.txtSalaryId.PlaceholderText = "Salary ID";
+            this.txtSalaryId.SelectedText = "";
+            this.txtSalaryId.Size = new System.Drawing.Size(286, 39);
+            this.txtSalaryId.TabIndex = 46;
+            // 
+            // guna2DateTimePickerPayDate
+            // 
+            this.guna2DateTimePickerPayDate.BorderRadius = 10;
+            this.guna2DateTimePickerPayDate.Checked = true;
+            this.guna2DateTimePickerPayDate.FillColor = System.Drawing.Color.DarkOrchid;
+            this.guna2DateTimePickerPayDate.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2DateTimePickerPayDate.ForeColor = System.Drawing.Color.White;
+            this.guna2DateTimePickerPayDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.guna2DateTimePickerPayDate.Location = new System.Drawing.Point(8, 480);
+            this.guna2DateTimePickerPayDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.guna2DateTimePickerPayDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.guna2DateTimePickerPayDate.Name = "guna2DateTimePickerPayDate";
+            this.guna2DateTimePickerPayDate.Size = new System.Drawing.Size(292, 36);
+            this.guna2DateTimePickerPayDate.TabIndex = 43;
+            this.guna2DateTimePickerPayDate.Value = new System.DateTime(2023, 11, 30, 10, 27, 51, 741);
+            // 
+            // txtPeriodSalary
+            // 
+            this.txtPeriodSalary.BorderRadius = 10;
+            this.txtPeriodSalary.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPeriodSalary.DefaultText = "";
+            this.txtPeriodSalary.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPeriodSalary.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPeriodSalary.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPeriodSalary.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPeriodSalary.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPeriodSalary.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtPeriodSalary.ForeColor = System.Drawing.Color.Black;
+            this.txtPeriodSalary.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPeriodSalary.Location = new System.Drawing.Point(8, 432);
+            this.txtPeriodSalary.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtPeriodSalary.Name = "txtPeriodSalary";
+            this.txtPeriodSalary.PasswordChar = '\0';
+            this.txtPeriodSalary.PlaceholderText = "Period Salary";
+            this.txtPeriodSalary.SelectedText = "";
+            this.txtPeriodSalary.Size = new System.Drawing.Size(286, 39);
+            this.txtPeriodSalary.TabIndex = 42;
+            this.txtPeriodSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeriodSalary_KeyPress);
+            // 
+            // labelLecId
+            // 
+            this.labelLecId.AutoSize = true;
+            this.labelLecId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLecId.ForeColor = System.Drawing.Color.DarkBlue;
+            this.labelLecId.Location = new System.Drawing.Point(3, 234);
+            this.labelLecId.Name = "labelLecId";
+            this.labelLecId.Size = new System.Drawing.Size(107, 25);
+            this.labelLecId.TabIndex = 41;
+            this.labelLecId.Text = "Lecturer ID";
+            // 
+            // guna2ComboBoxLecID
+            // 
+            this.guna2ComboBoxLecID.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBoxLecID.BorderRadius = 10;
+            this.guna2ComboBoxLecID.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBoxLecID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBoxLecID.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBoxLecID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBoxLecID.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBoxLecID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBoxLecID.ItemHeight = 30;
+            this.guna2ComboBoxLecID.Location = new System.Drawing.Point(8, 262);
+            this.guna2ComboBoxLecID.Name = "guna2ComboBoxLecID";
+            this.guna2ComboBoxLecID.Size = new System.Drawing.Size(286, 36);
+            this.guna2ComboBoxLecID.TabIndex = 40;
+            this.guna2ComboBoxLecID.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBoxLecID_SelectedIndexChanged);
+            // 
+            // btnReset
+            // 
+            this.btnReset.FlatAppearance.BorderColor = System.Drawing.Color.GhostWhite;
+            this.btnReset.FlatAppearance.BorderSize = 2;
+            this.btnReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Fuchsia;
+            this.btnReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Fuchsia;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.Color.Fuchsia;
+            this.btnReset.Location = new System.Drawing.Point(41, 628);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(229, 45);
+            this.btnReset.TabIndex = 37;
+            this.btnReset.Text = "Reset Salary";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            this.btnReset.MouseEnter += new System.EventHandler(this.btnReset_MouseEnter);
+            this.btnReset.MouseLeave += new System.EventHandler(this.btnReset_MouseLeave);
+            // 
+            // btnPay
+            // 
+            this.btnPay.FlatAppearance.BorderColor = System.Drawing.Color.AliceBlue;
+            this.btnPay.FlatAppearance.BorderSize = 2;
+            this.btnPay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Fuchsia;
+            this.btnPay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Fuchsia;
+            this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPay.ForeColor = System.Drawing.Color.Fuchsia;
+            this.btnPay.Location = new System.Drawing.Point(41, 558);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(229, 45);
+            this.btnPay.TabIndex = 36;
+            this.btnPay.Text = "Pay Salary";
+            this.btnPay.UseVisualStyleBackColor = true;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
+            this.btnPay.MouseEnter += new System.EventHandler(this.btnPay_MouseEnter);
+            this.btnPay.MouseLeave += new System.EventHandler(this.btnPay_MouseLeave);
+            // 
+            // txtLectureSalary
+            // 
+            this.txtLectureSalary.BorderRadius = 10;
+            this.txtLectureSalary.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtLectureSalary.DefaultText = "";
+            this.txtLectureSalary.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtLectureSalary.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtLectureSalary.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtLectureSalary.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtLectureSalary.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtLectureSalary.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtLectureSalary.ForeColor = System.Drawing.Color.Black;
+            this.txtLectureSalary.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtLectureSalary.Location = new System.Drawing.Point(8, 381);
+            this.txtLectureSalary.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtLectureSalary.Name = "txtLectureSalary";
+            this.txtLectureSalary.PasswordChar = '\0';
+            this.txtLectureSalary.PlaceholderText = "Lecturer Salary";
+            this.txtLectureSalary.SelectedText = "";
+            this.txtLectureSalary.Size = new System.Drawing.Size(286, 39);
+            this.txtLectureSalary.TabIndex = 35;
+            this.txtLectureSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLectureSalary_KeyPress);
+            // 
+            // guna2PanelTop
+            // 
+            this.guna2PanelTop.Controls.Add(this.pictureBoxLogo);
+            this.guna2PanelTop.Controls.Add(this.label1Yantovia);
+            this.guna2PanelTop.Controls.Add(this.labelUniv);
+            this.guna2PanelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2PanelTop.Location = new System.Drawing.Point(0, 0);
+            this.guna2PanelTop.Name = "guna2PanelTop";
+            this.guna2PanelTop.Size = new System.Drawing.Size(310, 134);
+            this.guna2PanelTop.TabIndex = 34;
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.Image = global::ManagementUniversityApplication.Properties.Resources.school__4_;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(8, 30);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(94, 65);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLogo.TabIndex = 24;
+            this.pictureBoxLogo.TabStop = false;
+            // 
+            // label1Yantovia
+            // 
+            this.label1Yantovia.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1Yantovia.AutoSize = true;
+            this.label1Yantovia.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1Yantovia.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label1Yantovia.Location = new System.Drawing.Point(136, 82);
+            this.label1Yantovia.Name = "label1Yantovia";
+            this.label1Yantovia.Size = new System.Drawing.Size(133, 35);
+            this.label1Yantovia.TabIndex = 21;
+            this.label1Yantovia.Text = "Sylvanica";
+            // 
+            // labelUniv
+            // 
+            this.labelUniv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelUniv.AutoSize = true;
+            this.labelUniv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUniv.ForeColor = System.Drawing.Color.MediumVioletRed;
+            this.labelUniv.Location = new System.Drawing.Point(100, 51);
+            this.labelUniv.Name = "labelUniv";
+            this.labelUniv.Size = new System.Drawing.Size(206, 22);
+            this.labelUniv.TabIndex = 20;
+            this.labelUniv.Text = "University Technological";
+            // 
+            // txtLectureName
+            // 
+            this.txtLectureName.BorderRadius = 10;
+            this.txtLectureName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtLectureName.DefaultText = "";
+            this.txtLectureName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtLectureName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtLectureName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtLectureName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtLectureName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtLectureName.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtLectureName.ForeColor = System.Drawing.Color.Black;
+            this.txtLectureName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtLectureName.Location = new System.Drawing.Point(8, 330);
+            this.txtLectureName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.txtLectureName.Name = "txtLectureName";
+            this.txtLectureName.PasswordChar = '\0';
+            this.txtLectureName.PlaceholderText = "Lecturer Name";
+            this.txtLectureName.SelectedText = "";
+            this.txtLectureName.Size = new System.Drawing.Size(286, 39);
+            this.txtLectureName.TabIndex = 26;
+            this.txtLectureName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLectureName_KeyPress);
+            // 
+            // panelLineWhite
+            // 
+            this.panelLineWhite.BackColor = System.Drawing.Color.White;
+            this.panelLineWhite.Location = new System.Drawing.Point(3, 134);
+            this.panelLineWhite.Name = "panelLineWhite";
+            this.panelLineWhite.Size = new System.Drawing.Size(329, 3);
+            this.panelLineWhite.TabIndex = 24;
+            // 
             // FormSalary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -703,13 +702,9 @@
             this.Controls.Add(this.guna2PanelTitle);
             this.Controls.Add(this.guna2PanelLeft);
             this.Name = "FormSalary";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormSalary";
             this.Load += new System.EventHandler(this.FormSalary_Load);
-            this.guna2PanelLeft.ResumeLayout(false);
-            this.guna2PanelLeft.PerformLayout();
-            this.guna2PanelTop.ResumeLayout(false);
-            this.guna2PanelTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.guna2PanelTitle.ResumeLayout(false);
             this.guna2PanelTitle.PerformLayout();
             this.guna2PanelCenter.ResumeLayout(false);
@@ -725,6 +720,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLecturer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDepartment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).EndInit();
+            this.guna2PanelLeft.ResumeLayout(false);
+            this.guna2PanelLeft.PerformLayout();
+            this.guna2PanelTop.ResumeLayout(false);
+            this.guna2PanelTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -741,7 +741,6 @@
         private System.Windows.Forms.Label labelUniv;
         private Guna.UI2.WinForms.Guna2TextBox txtLectureName;
         private System.Windows.Forms.Panel panelLineWhite;
-        private Guna.UI2.WinForms.Guna2TextBox txtSalaryId;
         private Guna.UI2.WinForms.Guna2Panel guna2PanelTitle;
         private System.Windows.Forms.Label labelTitle;
         private Guna.UI2.WinForms.Guna2Panel guna2PanelCenter;
@@ -773,5 +772,6 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePickerPayDate;
         private System.Drawing.Printing.PrintDocument printDocumentSalary;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialogSalary;
+        private Guna.UI2.WinForms.Guna2TextBox txtSalaryId;
     }
 }

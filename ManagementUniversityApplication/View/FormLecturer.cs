@@ -364,5 +364,34 @@ namespace ManagementUniversityApplication.View
         {
             e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
         }
+
+        private void pictureBoxPrint_Click(object sender, EventArgs e)
+        {
+            printPreviewDialogLec.Document = printDocumentLec;
+            printPreviewDialogLec.ShowDialog();
+        }
+
+        private void printDocumentLec_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            string title = "Data Lecturers";
+            Font titleFont = new Font("Arial", 32, FontStyle.Bold);
+            using (SolidBrush brush = new SolidBrush(Color.Black))
+            {
+                SizeF titleSize = e.Graphics.MeasureString(title, titleFont);
+                float titleX = (e.PageBounds.Width - titleSize.Width) / 2;
+                float titleY = 15;
+                e.Graphics.DrawString(title, titleFont, brush, titleX, titleY);
+            }
+            using (Pen pen = new Pen(Color.Black, 2))
+            {
+                e.Graphics.DrawLine(pen, new Point(50, 90), new Point(e.PageBounds.Width - 50, 90));
+            }
+            Bitmap btm = new Bitmap(this.dataGridViewLecturer.Width, this.dataGridViewLecturer.Height);
+            dataGridViewLecturer.DrawToBitmap(btm, new Rectangle(0, 0, this.dataGridViewLecturer.Width, this.dataGridViewLecturer.Height));
+            float dataGridViewX = (e.PageBounds.Width - btm.Width) / 2;
+            float dataGridViewY = 110;
+            e.Graphics.DrawImage(btm, dataGridViewX, dataGridViewY);
+            e.Graphics.DrawString(pictureBoxPrint.Text, new Font("Arial", 18, FontStyle.Bold), Brushes.Black, new Point(310, 50));
+        }
     }
 }

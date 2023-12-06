@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLecturer));
             this.guna2PanelTitle = new Guna.UI2.WinForms.Guna2Panel();
             this.label1Yantovia = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
@@ -74,6 +76,10 @@
             this.pictureBoxLecturer = new System.Windows.Forms.PictureBox();
             this.pictureBoxDepartment = new System.Windows.Forms.PictureBox();
             this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
+            this.bunifuElipseLec = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.pictureBoxPrint = new System.Windows.Forms.PictureBox();
+            this.printPreviewDialogLec = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocumentLec = new System.Drawing.Printing.PrintDocument();
             this.guna2PanelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.guna2PanelCenter.SuspendLayout();
@@ -88,6 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLecturer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDepartment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2PanelTitle
@@ -112,9 +119,9 @@
             this.label1Yantovia.ForeColor = System.Drawing.Color.AliceBlue;
             this.label1Yantovia.Location = new System.Drawing.Point(123, 33);
             this.label1Yantovia.Name = "label1Yantovia";
-            this.label1Yantovia.Size = new System.Drawing.Size(95, 25);
+            this.label1Yantovia.Size = new System.Drawing.Size(102, 25);
             this.label1Yantovia.TabIndex = 21;
-            this.label1Yantovia.Text = "Yantovia";
+            this.label1Yantovia.Text = "Sylvanica";
             // 
             // pictureBoxLogo
             // 
@@ -152,6 +159,7 @@
             // guna2PanelCenter
             // 
             this.guna2PanelCenter.BackColor = System.Drawing.Color.Azure;
+            this.guna2PanelCenter.Controls.Add(this.pictureBoxPrint);
             this.guna2PanelCenter.Controls.Add(this.guna2PanelInput);
             this.guna2PanelCenter.Controls.Add(this.btnClear);
             this.guna2PanelCenter.Controls.Add(this.guna2TextBoxSearch);
@@ -265,10 +273,9 @@
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkOrchid;
+            this.label1.ForeColor = System.Drawing.Color.DarkBlue;
             this.label1.Location = new System.Drawing.Point(710, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 25);
@@ -304,7 +311,7 @@
             this.guna2RadioButton2Gnd.BackColor = System.Drawing.Color.Violet;
             this.guna2RadioButton2Gnd.CheckedState.BorderColor = System.Drawing.Color.Violet;
             this.guna2RadioButton2Gnd.CheckedState.BorderThickness = 0;
-            this.guna2RadioButton2Gnd.CheckedState.FillColor = System.Drawing.Color.Plum;
+            this.guna2RadioButton2Gnd.CheckedState.FillColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton2Gnd.CheckedState.InnerColor = System.Drawing.Color.Fuchsia;
             this.guna2RadioButton2Gnd.CheckedState.InnerOffset = -4;
             this.guna2RadioButton2Gnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
@@ -315,8 +322,8 @@
             this.guna2RadioButton2Gnd.Text = "Female";
             this.guna2RadioButton2Gnd.UncheckedState.BorderColor = System.Drawing.Color.Purple;
             this.guna2RadioButton2Gnd.UncheckedState.BorderThickness = 2;
-            this.guna2RadioButton2Gnd.UncheckedState.FillColor = System.Drawing.Color.Violet;
-            this.guna2RadioButton2Gnd.UncheckedState.InnerColor = System.Drawing.Color.Violet;
+            this.guna2RadioButton2Gnd.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.guna2RadioButton2Gnd.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.guna2RadioButton2Gnd.UseVisualStyleBackColor = false;
             // 
             // guna2TextBoxLecturerId
@@ -451,7 +458,7 @@
             // 
             // guna2TextBoxSearch
             // 
-            this.guna2TextBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2TextBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2TextBoxSearch.BorderColor = System.Drawing.Color.Fuchsia;
             this.guna2TextBoxSearch.BorderThickness = 3;
             this.guna2TextBoxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -583,28 +590,30 @@
             // 
             // dataGridViewLecturer
             // 
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.dataGridViewLecturer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridViewLecturer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dataGridViewLecturer.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewLecturer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewLecturer.BackgroundColor = System.Drawing.Color.Azure;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewLecturer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewLecturer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewLecturer.ColumnHeadersHeight = 4;
             this.dataGridViewLecturer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewLecturer.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewLecturer.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewLecturer.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGridViewLecturer.Location = new System.Drawing.Point(14, 388);
             this.dataGridViewLecturer.Name = "dataGridViewLecturer";
@@ -772,6 +781,37 @@
             this.pictureBoxStudent.TabStop = false;
             this.pictureBoxStudent.Click += new System.EventHandler(this.pictureBoxStudent_Click);
             // 
+            // bunifuElipseLec
+            // 
+            this.bunifuElipseLec.ElipseRadius = 20;
+            this.bunifuElipseLec.TargetControl = this.guna2PanelInput;
+            // 
+            // pictureBoxPrint
+            // 
+            this.pictureBoxPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxPrint.Image = global::ManagementUniversityApplication.Properties.Resources.printing__1_;
+            this.pictureBoxPrint.Location = new System.Drawing.Point(820, 322);
+            this.pictureBoxPrint.Name = "pictureBoxPrint";
+            this.pictureBoxPrint.Size = new System.Drawing.Size(84, 45);
+            this.pictureBoxPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPrint.TabIndex = 46;
+            this.pictureBoxPrint.TabStop = false;
+            this.pictureBoxPrint.Click += new System.EventHandler(this.pictureBoxPrint_Click);
+            // 
+            // printPreviewDialogLec
+            // 
+            this.printPreviewDialogLec.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogLec.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogLec.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialogLec.Enabled = true;
+            this.printPreviewDialogLec.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogLec.Icon")));
+            this.printPreviewDialogLec.Name = "printPreviewDialogLec";
+            this.printPreviewDialogLec.Visible = false;
+            // 
+            // printDocumentLec
+            // 
+            this.printDocumentLec.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentLec_PrintPage);
+            // 
             // FormLecturer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -780,6 +820,7 @@
             this.Controls.Add(this.guna2PanelCenter);
             this.Controls.Add(this.guna2PanelTitle);
             this.Name = "FormLecturer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLecturer";
             this.Load += new System.EventHandler(this.FormLecturer_Load);
             this.guna2PanelTitle.ResumeLayout(false);
@@ -799,6 +840,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLecturer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDepartment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPrint)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -848,5 +890,9 @@
         private System.Windows.Forms.PictureBox pictureBoxDepartment;
         private System.Windows.Forms.PictureBox pictureBoxStudent;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxLecturerName;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipseLec;
+        private System.Windows.Forms.PictureBox pictureBoxPrint;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogLec;
+        private System.Drawing.Printing.PrintDocument printDocumentLec;
     }
 }

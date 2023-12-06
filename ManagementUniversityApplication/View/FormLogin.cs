@@ -48,7 +48,6 @@ namespace ManagementUniversityApplication
 
                 if (table.Rows.Count > 0)
                 {
-                    MessageBox.Show("Login Success");
                     Dashboard dsb = new Dashboard();
                     this.Hide();
                     dsb.Show();
@@ -121,5 +120,6 @@ namespace ManagementUniversityApplication
             this.Hide();
             signUp.Show();
         }
+
     }
 }

@@ -63,9 +63,29 @@ namespace ManagementUniversityApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("1-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _lock {
             get {
                 object obj = ResourceManager.GetObject("lock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Aesthetic_blue_phone_background_free {
+            get {
+                object obj = ResourceManager.GetObject("Aesthetic blue phone background free", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +116,16 @@ namespace ManagementUniversityApplication.Properties {
         internal static System.Drawing.Bitmap book__2_ {
             get {
                 object obj = ResourceManager.GetObject("book (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Clapping_banned_at_Oxford_University_and_replaced_with_jazz_hands {
+            get {
+                object obj = ResourceManager.GetObject("Clapping banned at Oxford University and replaced with jazz hands", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -243,6 +273,46 @@ namespace ManagementUniversityApplication.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Purple_Fairy_Fantasy_Phone_Wallpaper {
+            get {
+                object obj = ResourceManager.GetObject("Purple Fairy Fantasy Phone Wallpaper", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Purple_Fairy_Fantasy_Phone_Wallpaper__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Purple Fairy Fantasy Phone Wallpaper (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Purple_Fairy_Fantasy_Phone_Wallpaper__2_ {
+            get {
+                object obj = ResourceManager.GetObject("Purple Fairy Fantasy Phone Wallpaper (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Purple_Fairy_Fantasy_Phone_Wallpaper2 {
+            get {
+                object obj = ResourceManager.GetObject("Purple Fairy Fantasy Phone Wallpaper2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap right_arrow {
             get {
                 object obj = ResourceManager.GetObject("right-arrow", resourceCulture);
@@ -276,6 +346,16 @@ namespace ManagementUniversityApplication.Properties {
         internal static System.Drawing.Bitmap school__4_ {
             get {
                 object obj = ResourceManager.GetObject("school (4)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2023_12_06_200947 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2023-12-06 200947", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

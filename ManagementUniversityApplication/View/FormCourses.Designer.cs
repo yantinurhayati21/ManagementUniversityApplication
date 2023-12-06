@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCourses));
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.guna2PanelLeft = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2TextBoxRoom = new Guna.UI2.WinForms.Guna2TextBox();
             this.comboBoxLrId = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnClear = new System.Windows.Forms.Button();
@@ -44,11 +44,11 @@
             this.txtLecturerName = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.label1NmUniv = new System.Windows.Forms.Label();
+            this.labelUniv = new System.Windows.Forms.Label();
             this.txtCoursesName = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtCoursesPrice = new Guna.UI2.WinForms.Guna2TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelWhiteLine = new System.Windows.Forms.Panel();
             this.txtCoursesId = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2PanelCenter = new Guna.UI2.WinForms.Guna2Panel();
             this.pictureBoxSearch = new System.Windows.Forms.PictureBox();
@@ -76,7 +76,7 @@
             this.printDocumentCourses = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogCourses = new System.Windows.Forms.PrintPreviewDialog();
             this.guna2Panel3.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
+            this.guna2PanelLeft.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.guna2PanelCenter.SuspendLayout();
@@ -96,45 +96,46 @@
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.Fuchsia;
-            this.guna2Panel3.Controls.Add(this.label1);
+            this.guna2Panel3.Controls.Add(this.labelTitle);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel3.Location = new System.Drawing.Point(310, 0);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(984, 68);
             this.guna2Panel3.TabIndex = 30;
             // 
-            // label1
+            // labelTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(296, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(371, 49);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Management University";
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Monotype Corsiva", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.ForeColor = System.Drawing.Color.White;
+            this.labelTitle.Location = new System.Drawing.Point(296, 9);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(371, 49);
+            this.labelTitle.TabIndex = 27;
+            this.labelTitle.Text = "Management University";
             // 
-            // guna2Panel2
+            // guna2PanelLeft
             // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.Violet;
-            this.guna2Panel2.BorderRadius = 8;
-            this.guna2Panel2.Controls.Add(this.guna2TextBoxRoom);
-            this.guna2Panel2.Controls.Add(this.comboBoxLrId);
-            this.guna2Panel2.Controls.Add(this.btnClear);
-            this.guna2Panel2.Controls.Add(this.btnDelete);
-            this.guna2Panel2.Controls.Add(this.btnUpdate);
-            this.guna2Panel2.Controls.Add(this.btnAdd);
-            this.guna2Panel2.Controls.Add(this.txtLecturerName);
-            this.guna2Panel2.Controls.Add(this.guna2Panel4);
-            this.guna2Panel2.Controls.Add(this.txtCoursesName);
-            this.guna2Panel2.Controls.Add(this.txtCoursesPrice);
-            this.guna2Panel2.Controls.Add(this.panel2);
-            this.guna2Panel2.Controls.Add(this.txtCoursesId);
-            this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(310, 818);
-            this.guna2Panel2.TabIndex = 29;
+            this.guna2PanelLeft.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PanelLeft.BackgroundImage = global::ManagementUniversityApplication.Properties.Resources.Purple_Fairy_Fantasy_Phone_Wallpaper;
+            this.guna2PanelLeft.BorderRadius = 8;
+            this.guna2PanelLeft.Controls.Add(this.guna2TextBoxRoom);
+            this.guna2PanelLeft.Controls.Add(this.comboBoxLrId);
+            this.guna2PanelLeft.Controls.Add(this.btnClear);
+            this.guna2PanelLeft.Controls.Add(this.btnDelete);
+            this.guna2PanelLeft.Controls.Add(this.btnUpdate);
+            this.guna2PanelLeft.Controls.Add(this.btnAdd);
+            this.guna2PanelLeft.Controls.Add(this.txtLecturerName);
+            this.guna2PanelLeft.Controls.Add(this.guna2Panel4);
+            this.guna2PanelLeft.Controls.Add(this.txtCoursesName);
+            this.guna2PanelLeft.Controls.Add(this.txtCoursesPrice);
+            this.guna2PanelLeft.Controls.Add(this.panelWhiteLine);
+            this.guna2PanelLeft.Controls.Add(this.txtCoursesId);
+            this.guna2PanelLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2PanelLeft.Location = new System.Drawing.Point(0, 0);
+            this.guna2PanelLeft.Name = "guna2PanelLeft";
+            this.guna2PanelLeft.Size = new System.Drawing.Size(310, 818);
+            this.guna2PanelLeft.TabIndex = 29;
             // 
             // guna2TextBoxRoom
             // 
@@ -177,7 +178,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.Magenta;
+            this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.GhostWhite;
             this.btnClear.FlatAppearance.BorderSize = 2;
             this.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Fuchsia;
             this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Fuchsia;
@@ -196,7 +197,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.Magenta;
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.GhostWhite;
             this.btnDelete.FlatAppearance.BorderSize = 2;
             this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Fuchsia;
             this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Fuchsia;
@@ -215,7 +216,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.Magenta;
+            this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.Color.GhostWhite;
             this.btnUpdate.FlatAppearance.BorderSize = 2;
             this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Fuchsia;
             this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Fuchsia;
@@ -234,7 +235,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.Magenta;
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.GhostWhite;
             this.btnAdd.FlatAppearance.BorderSize = 2;
             this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Fuchsia;
             this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Fuchsia;
@@ -276,8 +277,8 @@
             // guna2Panel4
             // 
             this.guna2Panel4.Controls.Add(this.pictureBox1);
-            this.guna2Panel4.Controls.Add(this.label11);
-            this.guna2Panel4.Controls.Add(this.label10);
+            this.guna2Panel4.Controls.Add(this.label1NmUniv);
+            this.guna2Panel4.Controls.Add(this.labelUniv);
             this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel4.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel4.Name = "guna2Panel4";
@@ -294,29 +295,29 @@
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
             // 
-            // label11
+            // label1NmUniv
             // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label11.Location = new System.Drawing.Point(137, 59);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(125, 35);
-            this.label11.TabIndex = 21;
-            this.label11.Text = "Yantovia";
+            this.label1NmUniv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1NmUniv.AutoSize = true;
+            this.label1NmUniv.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1NmUniv.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label1NmUniv.Location = new System.Drawing.Point(137, 59);
+            this.label1NmUniv.Name = "label1NmUniv";
+            this.label1NmUniv.Size = new System.Drawing.Size(133, 35);
+            this.label1NmUniv.TabIndex = 21;
+            this.label1NmUniv.Text = "Sylvanica";
             // 
-            // label10
+            // labelUniv
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.MediumVioletRed;
-            this.label10.Location = new System.Drawing.Point(101, 28);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(206, 22);
-            this.label10.TabIndex = 20;
-            this.label10.Text = "University Technological";
+            this.labelUniv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelUniv.AutoSize = true;
+            this.labelUniv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUniv.ForeColor = System.Drawing.Color.MediumVioletRed;
+            this.labelUniv.Location = new System.Drawing.Point(101, 28);
+            this.labelUniv.Name = "labelUniv";
+            this.labelUniv.Size = new System.Drawing.Size(206, 22);
+            this.labelUniv.TabIndex = 20;
+            this.labelUniv.Text = "University Technological";
             // 
             // txtCoursesName
             // 
@@ -364,13 +365,13 @@
             this.txtCoursesPrice.TabIndex = 26;
             this.txtCoursesPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCoursesPrice_KeyPress);
             // 
-            // panel2
+            // panelWhiteLine
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(3, 130);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(329, 1);
-            this.panel2.TabIndex = 24;
+            this.panelWhiteLine.BackColor = System.Drawing.Color.White;
+            this.panelWhiteLine.Location = new System.Drawing.Point(3, 130);
+            this.panelWhiteLine.Name = "panelWhiteLine";
+            this.panelWhiteLine.Size = new System.Drawing.Size(329, 1);
+            this.panelWhiteLine.TabIndex = 24;
             // 
             // txtCoursesId
             // 
@@ -397,6 +398,9 @@
             // 
             // guna2PanelCenter
             // 
+            this.guna2PanelCenter.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2PanelCenter.BackColor = System.Drawing.Color.White;
             this.guna2PanelCenter.Controls.Add(this.pictureBoxSearch);
             this.guna2PanelCenter.Controls.Add(this.guna2TextBoxSearch);
@@ -420,7 +424,6 @@
             this.guna2PanelCenter.Controls.Add(this.pictureBoxLecturer);
             this.guna2PanelCenter.Controls.Add(this.pictureBoxDepartment);
             this.guna2PanelCenter.Controls.Add(this.pictureBoxStudent);
-            this.guna2PanelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2PanelCenter.Location = new System.Drawing.Point(310, 68);
             this.guna2PanelCenter.Name = "guna2PanelCenter";
             this.guna2PanelCenter.Size = new System.Drawing.Size(984, 750);
@@ -428,7 +431,7 @@
             // 
             // pictureBoxSearch
             // 
-            this.pictureBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxSearch.Image = global::ManagementUniversityApplication.Properties.Resources.search__3_;
             this.pictureBoxSearch.Location = new System.Drawing.Point(875, 258);
             this.pictureBoxSearch.Name = "pictureBoxSearch";
@@ -440,7 +443,7 @@
             // 
             // guna2TextBoxSearch
             // 
-            this.guna2TextBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2TextBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2TextBoxSearch.BorderColor = System.Drawing.Color.Fuchsia;
             this.guna2TextBoxSearch.BorderThickness = 3;
             this.guna2TextBoxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -463,7 +466,6 @@
             // 
             // pictureBoxPrint
             // 
-            this.pictureBoxPrint.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBoxPrint.Image = global::ManagementUniversityApplication.Properties.Resources.printing__1_;
             this.pictureBoxPrint.Location = new System.Drawing.Point(22, 252);
             this.pictureBoxPrint.Name = "pictureBoxPrint";
@@ -525,27 +527,29 @@
             // 
             // dataGridViewCourses
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dataGridViewCourses.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewCourses.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dataGridViewCourses.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewCourses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewCourses.ColumnHeadersHeight = 4;
             this.dataGridViewCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewCourses.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewCourses.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewCourses.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGridViewCourses.Location = new System.Drawing.Point(22, 318);
             this.dataGridViewCourses.Name = "dataGridViewCourses";
@@ -734,13 +738,14 @@
             this.ClientSize = new System.Drawing.Size(1294, 818);
             this.Controls.Add(this.guna2PanelCenter);
             this.Controls.Add(this.guna2Panel3);
-            this.Controls.Add(this.guna2Panel2);
+            this.Controls.Add(this.guna2PanelLeft);
             this.Name = "FormCourses";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCourses";
             this.Load += new System.EventHandler(this.FormCourses_Load);
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
-            this.guna2Panel2.ResumeLayout(false);
+            this.guna2PanelLeft.ResumeLayout(false);
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -764,8 +769,8 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private System.Windows.Forms.Label labelTitle;
+        private Guna.UI2.WinForms.Guna2Panel guna2PanelLeft;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
@@ -773,11 +778,11 @@
         private Guna.UI2.WinForms.Guna2TextBox txtLecturerName;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label1NmUniv;
+        private System.Windows.Forms.Label labelUniv;
         private Guna.UI2.WinForms.Guna2TextBox txtCoursesName;
         private Guna.UI2.WinForms.Guna2TextBox txtCoursesPrice;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelWhiteLine;
         private Guna.UI2.WinForms.Guna2TextBox txtCoursesId;
         private Guna.UI2.WinForms.Guna2ComboBox comboBoxLrId;
         private Guna.UI2.WinForms.Guna2Panel guna2PanelCenter;

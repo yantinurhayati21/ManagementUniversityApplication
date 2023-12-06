@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -44,10 +45,11 @@
             this.guna2DateTimePickerDOB = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2PictureBoxPhoto = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PanelCenter = new Guna.UI2.WinForms.Guna2Panel();
+            this.pictureBoxPrint = new System.Windows.Forms.PictureBox();
             this.guna2PanelInput = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ButtonUpload = new Guna.UI2.WinForms.Guna2Button();
             this.guna2RadioButtonGnd = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelDepId = new System.Windows.Forms.Label();
             this.guna2TextBoxSemester = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2RadioButton2Gnd = new Guna.UI2.WinForms.Guna2RadioButton();
             this.guna2ComboBoxDepID = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -75,13 +77,14 @@
             this.pictureBoxLecturer = new System.Windows.Forms.PictureBox();
             this.pictureBoxDepartment = new System.Windows.Forms.PictureBox();
             this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
-            this.pictureBoxPrint = new System.Windows.Forms.PictureBox();
             this.printDocumentStudents = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogSt = new System.Windows.Forms.PrintPreviewDialog();
+            this.bunifuElipseInp = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.guna2PanelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBoxPhoto)).BeginInit();
             this.guna2PanelCenter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPrint)).BeginInit();
             this.guna2PanelInput.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStudent)).BeginInit();
@@ -92,7 +95,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLecturer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDepartment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2PanelTitle
@@ -110,16 +112,15 @@
             // 
             // label1Yantovia
             // 
-            this.label1Yantovia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1Yantovia.AutoSize = true;
             this.label1Yantovia.BackColor = System.Drawing.Color.Fuchsia;
             this.label1Yantovia.Font = new System.Drawing.Font("Times New Roman", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1Yantovia.ForeColor = System.Drawing.Color.AliceBlue;
             this.label1Yantovia.Location = new System.Drawing.Point(132, 33);
             this.label1Yantovia.Name = "label1Yantovia";
-            this.label1Yantovia.Size = new System.Drawing.Size(95, 25);
+            this.label1Yantovia.Size = new System.Drawing.Size(102, 25);
             this.label1Yantovia.TabIndex = 21;
-            this.label1Yantovia.Text = "Yantovia";
+            this.label1Yantovia.Text = "Sylvanica";
             // 
             // pictureBoxLogo
             // 
@@ -144,7 +145,6 @@
             // 
             // labelUniv
             // 
-            this.labelUniv.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelUniv.AutoSize = true;
             this.labelUniv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUniv.ForeColor = System.Drawing.Color.MediumVioletRed;
@@ -306,12 +306,24 @@
             this.guna2PanelCenter.Size = new System.Drawing.Size(1303, 716);
             this.guna2PanelCenter.TabIndex = 27;
             // 
+            // pictureBoxPrint
+            // 
+            this.pictureBoxPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxPrint.Image = global::ManagementUniversityApplication.Properties.Resources.printing__1_;
+            this.pictureBoxPrint.Location = new System.Drawing.Point(810, 322);
+            this.pictureBoxPrint.Name = "pictureBoxPrint";
+            this.pictureBoxPrint.Size = new System.Drawing.Size(84, 45);
+            this.pictureBoxPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxPrint.TabIndex = 46;
+            this.pictureBoxPrint.TabStop = false;
+            this.pictureBoxPrint.Click += new System.EventHandler(this.pictureBoxPrint_Click);
+            // 
             // guna2PanelInput
             // 
             this.guna2PanelInput.BackColor = System.Drawing.Color.Violet;
             this.guna2PanelInput.Controls.Add(this.guna2ButtonUpload);
             this.guna2PanelInput.Controls.Add(this.guna2RadioButtonGnd);
-            this.guna2PanelInput.Controls.Add(this.label1);
+            this.guna2PanelInput.Controls.Add(this.labelDepId);
             this.guna2PanelInput.Controls.Add(this.guna2TextBoxSemester);
             this.guna2PanelInput.Controls.Add(this.guna2RadioButton2Gnd);
             this.guna2PanelInput.Controls.Add(this.guna2TextBoxStudentId);
@@ -363,17 +375,16 @@
             this.guna2RadioButtonGnd.UncheckedState.InnerColor = System.Drawing.Color.Violet;
             this.guna2RadioButtonGnd.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // labelDepId
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkOrchid;
-            this.label1.Location = new System.Drawing.Point(710, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 25);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "Department ID";
+            this.labelDepId.AutoSize = true;
+            this.labelDepId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDepId.ForeColor = System.Drawing.Color.DarkBlue;
+            this.labelDepId.Location = new System.Drawing.Point(710, 8);
+            this.labelDepId.Name = "labelDepId";
+            this.labelDepId.Size = new System.Drawing.Size(137, 25);
+            this.labelDepId.TabIndex = 35;
+            this.labelDepId.Text = "Department ID";
             // 
             // guna2TextBoxSemester
             // 
@@ -457,7 +468,7 @@
             // 
             // guna2TextBoxSearch
             // 
-            this.guna2TextBoxSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2TextBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2TextBoxSearch.BorderColor = System.Drawing.Color.Fuchsia;
             this.guna2TextBoxSearch.BorderThickness = 3;
             this.guna2TextBoxSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -591,7 +602,9 @@
             // 
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.dataGridViewStudent.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewStudent.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dataGridViewStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewStudent.BackgroundColor = System.Drawing.Color.Azure;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -778,18 +791,6 @@
             this.pictureBoxStudent.TabIndex = 4;
             this.pictureBoxStudent.TabStop = false;
             // 
-            // pictureBoxPrint
-            // 
-            this.pictureBoxPrint.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBoxPrint.Image = global::ManagementUniversityApplication.Properties.Resources.printing__1_;
-            this.pictureBoxPrint.Location = new System.Drawing.Point(810, 322);
-            this.pictureBoxPrint.Name = "pictureBoxPrint";
-            this.pictureBoxPrint.Size = new System.Drawing.Size(84, 45);
-            this.pictureBoxPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxPrint.TabIndex = 46;
-            this.pictureBoxPrint.TabStop = false;
-            this.pictureBoxPrint.Click += new System.EventHandler(this.pictureBoxPrint_Click);
-            // 
             // printDocumentStudents
             // 
             this.printDocumentStudents.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentStudents_PrintPage);
@@ -804,6 +805,11 @@
             this.printPreviewDialogSt.Name = "printPreviewDialogSt";
             this.printPreviewDialogSt.Visible = false;
             // 
+            // bunifuElipseInp
+            // 
+            this.bunifuElipseInp.ElipseRadius = 20;
+            this.bunifuElipseInp.TargetControl = this.guna2PanelInput;
+            // 
             // FormStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -812,6 +818,7 @@
             this.Controls.Add(this.guna2PanelCenter);
             this.Controls.Add(this.guna2PanelTitle);
             this.Name = "FormStudents";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormStudents";
             this.Load += new System.EventHandler(this.FormStudents_Load);
             this.guna2PanelTitle.ResumeLayout(false);
@@ -820,6 +827,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBoxPhoto)).EndInit();
             this.guna2PanelCenter.ResumeLayout(false);
             this.guna2PanelCenter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPrint)).EndInit();
             this.guna2PanelInput.ResumeLayout(false);
             this.guna2PanelInput.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxHome)).EndInit();
@@ -831,7 +839,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLecturer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDepartment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPrint)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -877,11 +884,12 @@
         private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton2Gnd;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxSemester;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBoxDepID;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelDepId;
         private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButtonGnd;
         private Guna.UI2.WinForms.Guna2Button guna2ButtonUpload;
         private System.Windows.Forms.PictureBox pictureBoxPrint;
         private System.Drawing.Printing.PrintDocument printDocumentStudents;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialogSt;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipseInp;
     }
 }

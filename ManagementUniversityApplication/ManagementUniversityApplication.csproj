@@ -458,6 +458,27 @@
   <ItemGroup>
     <None Include="Resources\b564c1ee-4e8e-41b4-86b3-278dc809b22f.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Purple Fairy Fantasy Phone Wallpaper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Purple Fairy Fantasy Phone Wallpaper2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Purple Fairy Fantasy Phone Wallpaper %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Purple Fairy Fantasy Phone Wallpaper %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Screenshot 2023-12-06 200947.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Aesthetic blue phone background free.jpeg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\packages\Fody.4.0.2\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
