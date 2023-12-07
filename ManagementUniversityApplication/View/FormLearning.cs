@@ -147,10 +147,10 @@ namespace ManagementUniversityApplication.View
         private void StudentId()
         {
             DataTable data = new DataTable();
-            string studentId = "SELECT StId FROM Students";
-            conn.cmd = new MySqlCommand(studentId, conn.GetConn());
+            string lecturerId = "SELECT StId FROM Students";
+            conn.cmd = new MySqlCommand(lecturerId, conn.GetConn());
             conn.dr = conn.cmd.ExecuteReader();
-            data.Columns.Add("StId", typeof(Int32));
+            data.Columns.Add("StId", typeof(string));
             data.Load(conn.dr);
             guna2ComboBoxStuID.ValueMember = "StId";
             guna2ComboBoxStuID.DataSource = data;
@@ -158,14 +158,22 @@ namespace ManagementUniversityApplication.View
 
         private void StudName()
         {
-            string pelname = "SELECT * FROM Students WHERE StId = " + guna2ComboBoxStuID.SelectedValue;
-            conn.cmd = new MySqlCommand(pelname, conn.GetConn());
-            DataTable data = new DataTable();
+            string stuname = "SELECT StName FROM Students WHERE StId = @StId";
+
+            conn.cmd = new MySqlCommand(stuname, conn.GetConn());
+            conn.cmd.Parameters.AddWithValue("@StId", guna2ComboBoxStuID.SelectedValue);
+
+            DataTable datast = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(conn.cmd);
-            da.Fill(data);
-            foreach (DataRow dr in data.Rows)
+            da.Fill(datast);
+
+            if (datast.Rows.Count > 0)
             {
-                guna2TextBoxStuName.Text = dr["StName"].ToString();
+                guna2TextBoxStuName.Text = datast.Rows[0]["StName"].ToString();
+            }
+            else
+            {
+                guna2TextBoxStuName.Text = string.Empty;
             }
         }
 
@@ -175,7 +183,7 @@ namespace ManagementUniversityApplication.View
             string courseId = "SELECT CId FROM Courses";
             conn.cmd = new MySqlCommand(courseId, conn.GetConn());
             conn.dr = conn.cmd.ExecuteReader();
-            data.Columns.Add("CId", typeof(Int32));
+            data.Columns.Add("CId", typeof(string));
             data.Load(conn.dr);
             guna2ComboBoxCID.ValueMember = "CId";
             guna2ComboBoxCID.DataSource = data;
@@ -183,15 +191,23 @@ namespace ManagementUniversityApplication.View
 
         private void CourseName()
         {
-            string pelname = "SELECT * FROM Courses WHERE CId = " + guna2ComboBoxCID.SelectedValue;
-            conn.cmd = new MySqlCommand(pelname, conn.GetConn());
+            string courname = "SELECT * FROM Courses WHERE CId = @CId";
+
+            conn.cmd = new MySqlCommand(courname, conn.GetConn());
+            conn.cmd.Parameters.AddWithValue("@CId", guna2ComboBoxCID.SelectedValue);
+
             DataTable data = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(conn.cmd);
             da.Fill(data);
-            foreach (DataRow dr in data.Rows)
+
+            if (data.Rows.Count > 0)
             {
-                guna2TextBoxCName.Text = dr["CName"].ToString();
-                guna2TextBoxCRoom.Text = dr["CRoom"].ToString();
+                guna2TextBoxCName.Text = data.Rows[0]["CName"].ToString();
+                guna2TextBoxCRoom.Text = data.Rows[0]["CRoom"].ToString();
+            }
+            else
+            {
+                guna2TextBoxCName.Text = string.Empty;
             }
         }
 
@@ -201,7 +217,7 @@ namespace ManagementUniversityApplication.View
             string lectureId = "SELECT LrId FROM Lecturer";
             conn.cmd = new MySqlCommand(lectureId, conn.GetConn());
             conn.dr = conn.cmd.ExecuteReader();
-            data.Columns.Add("LrId", typeof(Int32));
+            data.Columns.Add("LrId", typeof(string));
             data.Load(conn.dr);
             guna2ComboBoxLecID.ValueMember = "LrId";
             guna2ComboBoxLecID.DataSource = data;
@@ -209,14 +225,22 @@ namespace ManagementUniversityApplication.View
 
         private void LecName()
         {
-            string pelname = "SELECT * FROM Lecturer WHERE LrId = " + guna2ComboBoxLecID.SelectedValue;
-            conn.cmd = new MySqlCommand(pelname, conn.GetConn());
+            string lecname = "SELECT LrName FROM Lecturer WHERE LrId = @LrId";
+
+            conn.cmd = new MySqlCommand(lecname, conn.GetConn());
+            conn.cmd.Parameters.AddWithValue("@LrId", guna2ComboBoxLecID.SelectedValue);
+
             DataTable data = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(conn.cmd);
             da.Fill(data);
-            foreach (DataRow dr in data.Rows)
+
+            if (data.Rows.Count > 0)
             {
-                guna2TextBoxLecturerName.Text = dr["LrName"].ToString();
+                guna2TextBoxLecturerName.Text = data.Rows[0]["LrName"].ToString();
+            }
+            else
+            {
+                guna2TextBoxLecturerName.Text = string.Empty;
             }
         }
 
@@ -256,14 +280,14 @@ namespace ManagementUniversityApplication.View
                 try
                 {                  
                     learningController.addLearning(
-                        Convert.ToInt32(guna2TextBoxLearnID.Text),
-                        Convert.ToInt32(guna2ComboBoxStuID.Text),
+                        guna2TextBoxLearnID.Text,
+                        guna2ComboBoxStuID.Text,
                         guna2TextBoxStuName.Text,
-                        Convert.ToInt32(guna2ComboBoxCID.Text),
+                        guna2ComboBoxCID.Text,
                         guna2TextBoxCName.Text,
                         guna2TextBoxCRoom.Text,
                         guna2DateTimePickerClass.Value,
-                        Convert.ToInt32(guna2ComboBoxLecID.Text),
+                        guna2ComboBoxLecID.Text,
                         guna2TextBoxLecturerName.Text,
                         Convert.ToInt32(guna2TextBoxDuration.Text)
                     );
@@ -288,14 +312,14 @@ namespace ManagementUniversityApplication.View
                 try
                 {
                     learningController.updateLearning(
-                        Convert.ToInt32(guna2TextBoxLearnID.Text),
-                        Convert.ToInt32(guna2ComboBoxStuID.Text),
+                        guna2TextBoxLearnID.Text,
+                        guna2ComboBoxStuID.Text,
                         guna2TextBoxStuName.Text,
-                        Convert.ToInt32(guna2ComboBoxCID.Text),
+                        guna2ComboBoxCID.Text,
                         guna2TextBoxCName.Text,
                         guna2TextBoxCRoom.Text,
                         guna2DateTimePickerClass.Value,
-                        Convert.ToInt32(guna2ComboBoxLecID.Text),
+                        guna2ComboBoxLecID.Text,
                         guna2TextBoxLecturerName.Text,
                         Convert.ToInt32(guna2TextBoxDuration.Text)
                     );
@@ -319,7 +343,7 @@ namespace ManagementUniversityApplication.View
 
             if (result == DialogResult.Yes)
             {
-                int selectedValue = (int)dataGridViewLearning.SelectedRows[0].Cells["LrnId"].Value;
+                string selectedValue = (string)dataGridViewLearning.SelectedRows[0].Cells["LrnId"].Value;
                 learningController.deleteLearning(selectedValue);
                 refresh();
             }
@@ -339,10 +363,6 @@ namespace ManagementUniversityApplication.View
             guna2ComboBoxStuID.SelectedIndex = 0;
         }
 
-        private void guna2TextBoxLearnID_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
-        }
 
         private void guna2TextBoxStuName_KeyPress(object sender, KeyPressEventArgs e)
         {

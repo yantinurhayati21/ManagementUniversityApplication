@@ -347,7 +347,6 @@
             this.guna2TextBoxLecturerId.SelectedText = "";
             this.guna2TextBoxLecturerId.Size = new System.Drawing.Size(296, 39);
             this.guna2TextBoxLecturerId.TabIndex = 25;
-            this.guna2TextBoxLecturerId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxLecturerId_KeyPress);
             // 
             // guna2TextBoxSalary
             // 

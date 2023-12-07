@@ -29,17 +29,17 @@ namespace ManagementUniversityApplication.Controller
             return dataCourses;
         }
 
-        public void addCourses(int CId, string CName, int CPrice, string CRoom, int CLrId, string CLrName)
+        public void addCourses(string CId, string CName, int CPrice, string CRoom, string CLrId, string CLrName)
         {
             string add = "insert into Courses values (@CId, @CName, @CPrice, @CRoom, @CLrId, @CLrName)";
             try
             {
                 cmd = new MySqlConnector.MySqlCommand(add, GetConn());
-                cmd.Parameters.Add("@CId", MySqlConnector.MySqlDbType.Int32).Value = CId;
+                cmd.Parameters.Add("@CId", MySqlConnector.MySqlDbType.VarChar).Value = CId;
                 cmd.Parameters.Add("@CName", MySqlConnector.MySqlDbType.VarChar).Value = CName;
                 cmd.Parameters.Add("@CPrice", MySqlConnector.MySqlDbType.Int32).Value = CPrice;
                 cmd.Parameters.Add("@CRoom", MySqlConnector.MySqlDbType.VarChar).Value = CRoom;
-                cmd.Parameters.Add("@CLrId", MySqlConnector.MySqlDbType.Int32).Value = CLrId;
+                cmd.Parameters.Add("@CLrId", MySqlConnector.MySqlDbType.VarChar).Value = CLrId;
                 cmd.Parameters.Add("@CLrName", MySqlConnector.MySqlDbType.VarChar).Value = CLrName;
                 cmd.ExecuteNonQuery();
             }
@@ -50,17 +50,17 @@ namespace ManagementUniversityApplication.Controller
 
         }
 
-        public void updateCourses(int CId, string CName, decimal CPrice, string CRoom, int CLrId, string CLrName)
+        public void updateCourses(string CId, string CName, decimal CPrice, string CRoom, string CLrId, string CLrName)
         {
-            string update = "update Courses set CName=@CName, CPrice=@CPrice, CRoom=@CRoom, CLrId=@CLrId, CLrName=@CLrName where CId=" + CId;
+            string update = "update Courses set CName=@CName, CPrice=@CPrice, CRoom=@CRoom, CLrId=@CLrId, CLrName=@CLrName where CId=@CId";
             try
             {
                 cmd = new MySqlConnector.MySqlCommand(update, GetConn());
-                cmd.Parameters.Add("@CId", MySqlConnector.MySqlDbType.Int32).Value = CId;
+                cmd.Parameters.Add("@CId", MySqlConnector.MySqlDbType.VarChar).Value = CId;
                 cmd.Parameters.Add("@CName", MySqlConnector.MySqlDbType.VarChar).Value = CName;
                 cmd.Parameters.Add("@CPrice", MySqlConnector.MySqlDbType.Decimal).Value = CPrice;
                 cmd.Parameters.Add("@CRoom", MySqlConnector.MySqlDbType.VarChar).Value = CRoom;
-                cmd.Parameters.Add("@CLrId", MySqlConnector.MySqlDbType.Int32).Value = CLrId;
+                cmd.Parameters.Add("@CLrId", MySqlConnector.MySqlDbType.VarChar).Value = CLrId;
                 cmd.Parameters.Add("@CLrName", MySqlConnector.MySqlDbType.VarChar).Value = CLrName;
                 cmd.ExecuteNonQuery();
             }
@@ -71,14 +71,14 @@ namespace ManagementUniversityApplication.Controller
 
         }
 
-        public void deleteCourses(int CId)
+        public void deleteCourses(string CId)
         {
             string delete = "delete from Courses where CId = @CId";
 
             try
             {
                 cmd = new MySqlConnector.MySqlCommand(delete, GetConn());
-                cmd.Parameters.Add("@CId", MySqlConnector.MySqlDbType.Int32).Value = CId;
+                cmd.Parameters.Add("@CId", MySqlConnector.MySqlDbType.VarChar).Value = CId;
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)

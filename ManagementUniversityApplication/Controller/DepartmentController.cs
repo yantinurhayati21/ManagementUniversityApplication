@@ -29,13 +29,13 @@ namespace ManagementUniversityApplication.Controller
             return dataDepartment;
         }
 
-        public void addDepartment(int DepId, string DepName, string DepNmDekan, string DepDescription)
+        public void addDepartment(string DepId, string DepName, string DepNmDekan, string DepDescription)
         {
             string add = "insert into Department values (@DepId, @DepName, @DepNmDekan, @DepDescription)";
             try
             {
                 cmd = new MySqlConnector.MySqlCommand(add, GetConn());
-                cmd.Parameters.Add("@DepId", MySqlConnector.MySqlDbType.Int32).Value = DepId;
+                cmd.Parameters.Add("@DepId", MySqlConnector.MySqlDbType.VarChar).Value = DepId;
                 cmd.Parameters.Add("@DepName", MySqlConnector.MySqlDbType.VarChar).Value = DepName;
                 cmd.Parameters.Add("@DepNmDekan", MySqlConnector.MySqlDbType.VarChar).Value = DepNmDekan;
                 cmd.Parameters.Add("@DepDescription", MySqlConnector.MySqlDbType.VarChar).Value = DepDescription;
@@ -48,13 +48,13 @@ namespace ManagementUniversityApplication.Controller
 
         }
 
-        public void updateDepartment(int DepId, string DepName, string DepNmDekan, string DepDescription)
+        public void updateDepartment(string DepId, string DepName, string DepNmDekan, string DepDescription)
         {
-            string update = "update Department set DepName=@DepName, DepNmDekan=@DepNmDekan, DepDescription=@DepDescription where DepId=" + DepId;
+            string update = "update Department set DepName=@DepName, DepNmDekan=@DepNmDekan, DepDescription=@DepDescription where DepId=@DepId";
             try
             {
                 cmd = new MySqlConnector.MySqlCommand(update, GetConn());
-                cmd.Parameters.Add("@DepId", MySqlConnector.MySqlDbType.Int32).Value = DepId;
+                cmd.Parameters.Add("@DepId", MySqlConnector.MySqlDbType.VarChar).Value = DepId;
                 cmd.Parameters.Add("@DepName", MySqlConnector.MySqlDbType.VarChar).Value = DepName;
                 cmd.Parameters.Add("@DepNmDekan", MySqlConnector.MySqlDbType.VarChar).Value = DepNmDekan;
                 cmd.Parameters.Add("@DepDescription", MySqlConnector.MySqlDbType.VarChar).Value = DepDescription;
@@ -67,14 +67,14 @@ namespace ManagementUniversityApplication.Controller
 
         }
 
-        public void deleteDepartment(int DepId)
+        public void deleteDepartment(string DepId)
         {
             string delete = "delete from Department where DepId = @DepId";
 
             try
             {
                 cmd = new MySqlConnector.MySqlCommand(delete, GetConn());
-                cmd.Parameters.Add("@DepId", MySqlConnector.MySqlDbType.Int32).Value = DepId;
+                cmd.Parameters.Add("@DepId", MySqlConnector.MySqlDbType.VarChar).Value = DepId;
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)

@@ -36,14 +36,14 @@ namespace ManagementUniversityApplication.View
         private void pictureBoxStudent_Click(object sender, EventArgs e)
         {
             FormStudents students = new FormStudents();
-            students.Show(); 
+            students.Show();
             this.Close();
         }
 
         private void pictureBoxDepartment_Click(object sender, EventArgs e)
         {
             FormDepartment department = new FormDepartment();
-            department.Show(); 
+            department.Show();
             this.Close();
         }
 
@@ -116,16 +116,16 @@ namespace ManagementUniversityApplication.View
             txtLectureName.MaxLength = 20;
             txtLectureSalary.MaxLength = 5;
             txtPeriodSalary.MaxLength = 20;
-            LectureId();
+            LecturerId();
         }
 
-        private void LectureId()
+        private void LecturerId()
         {
             DataTable data = new DataTable();
-            string lectureId = "SELECT LrId FROM Lecturer";
-            conn.cmd = new MySqlCommand(lectureId, conn.GetConn());
+            string lecturerId = "SELECT LrId FROM Lecturer";
+            conn.cmd = new MySqlCommand(lecturerId, conn.GetConn());
             conn.dr = conn.cmd.ExecuteReader();
-            data.Columns.Add("LrId", typeof(Int32));
+            data.Columns.Add("LrId", typeof(string));
             data.Load(conn.dr);
             guna2ComboBoxLecID.ValueMember = "LrId";
             guna2ComboBoxLecID.DataSource = data;
@@ -133,21 +133,24 @@ namespace ManagementUniversityApplication.View
 
         private void LecName()
         {
-            string pelname = "SELECT * FROM Lecturer WHERE LrId = " + guna2ComboBoxLecID.SelectedValue;
-            conn.cmd = new MySqlCommand(pelname, conn.GetConn());
+            string depname = "SELECT * FROM Lecturer WHERE LrId = @LrId";
+
+            conn.cmd = new MySqlCommand(depname, conn.GetConn());
+            conn.cmd.Parameters.AddWithValue("@LrId", guna2ComboBoxLecID.SelectedValue);
+
             DataTable data = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(conn.cmd);
             da.Fill(data);
-            foreach (DataRow dr in data.Rows)
-            {
-                txtLectureName.Text = dr["LrName"].ToString();
-                txtLectureSalary.Text = dr["LrSalary"].ToString();
-            }
-        }
 
-        private void FormSalary_Load(object sender, EventArgs e)
-        {
-            refresh();
+            if (data.Rows.Count > 0)
+            {
+                txtLectureName.Text = data.Rows[0]["LrName"].ToString();
+                txtLectureSalary.Text = data.Rows[0]["LrSalary"].ToString();
+            }
+            else
+            {
+                txtLectureName.Text = string.Empty;
+            } 
         }
 
         private void btnPay_Click(object sender, EventArgs e)
@@ -157,8 +160,8 @@ namespace ManagementUniversityApplication.View
                 try
                 {
                     salaryController.addSalary(
-                        Convert.ToInt32(txtSalaryId.Text),
-                        Convert.ToInt32(guna2ComboBoxLecID.Text),
+                        txtSalaryId.Text,
+                        guna2ComboBoxLecID.Text,
                         txtLectureName.Text,
                         Convert.ToInt32(txtLectureSalary.Text),
                         Convert.ToInt32(txtPeriodSalary.Text),
@@ -186,17 +189,17 @@ namespace ManagementUniversityApplication.View
             txtLectureSalary.Clear();
             txtPeriodSalary.Clear();
             guna2DateTimePickerPayDate.Value = DateTime.Now;
-            guna2ComboBoxLecID.SelectedIndex= 0;
+            guna2ComboBoxLecID.SelectedIndex = 0;
+        }
+
+        private void FormSalary_Load(object sender, EventArgs e)
+        {
+            refresh();
         }
 
         private void guna2ComboBoxLecID_SelectedIndexChanged(object sender, EventArgs e)
         {
             LecName();
-        }
-
-        private void txtSalaryId_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
         }
 
         private void txtLectureName_KeyPress(object sender, KeyPressEventArgs e)
@@ -248,4 +251,5 @@ namespace ManagementUniversityApplication.View
             dataGridViewSalary.DataSource = salaryController.searchSalary(guna2TextBoxSearch.Text);
         }
     }
+    
 }

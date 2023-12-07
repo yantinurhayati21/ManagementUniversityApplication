@@ -213,7 +213,6 @@
             this.txtDepartmentDesc.SelectedText = "";
             this.txtDepartmentDesc.Size = new System.Drawing.Size(268, 105);
             this.txtDepartmentDesc.TabIndex = 35;
-            this.txtDepartmentDesc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDepartmentDesc_KeyPress);
             // 
             // guna2PanelTop
             // 
@@ -339,7 +338,6 @@
             this.txtDepartmentId.SelectedText = "";
             this.txtDepartmentId.Size = new System.Drawing.Size(268, 39);
             this.txtDepartmentId.TabIndex = 25;
-            this.txtDepartmentId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDepartmentId_KeyPress);
             // 
             // labelTitle
             // 

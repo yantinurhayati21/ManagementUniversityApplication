@@ -75,9 +75,7 @@
             // 
             // PanelLogin
             // 
-            this.PanelLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PanelLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PanelLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(50)))));
             this.PanelLogin.Controls.Add(this.guna2PanelLineViolet);
             this.PanelLogin.Controls.Add(this.linkLabelSignUp);
@@ -375,9 +373,9 @@
             // 
             // PanelTop
             // 
+            this.PanelTop.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PanelTop.BackColor = System.Drawing.Color.Fuchsia;
             this.PanelTop.Controls.Add(this.labelTitle);
-            this.PanelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTop.Location = new System.Drawing.Point(3, 3);
             this.PanelTop.Name = "PanelTop";
             this.PanelTop.Size = new System.Drawing.Size(887, 54);
@@ -385,8 +383,7 @@
             // 
             // labelTitle
             // 
-            this.labelTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Monotype Corsiva", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.Color.White;
@@ -408,8 +405,7 @@
             // 
             // guna2PanelLeft
             // 
-            this.guna2PanelLeft.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.guna2PanelLeft.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2PanelLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(50)))));
             this.guna2PanelLeft.Controls.Add(this.pictureBoxLogo);
             this.guna2PanelLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

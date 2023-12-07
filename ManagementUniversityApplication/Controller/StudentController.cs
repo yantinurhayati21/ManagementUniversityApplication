@@ -29,19 +29,19 @@ namespace ManagementUniversityApplication.Controller
             return dataStudents;
         }
 
-        public void addStudents(int StId, string StNim, string StName, DateTime StDOB, string StGen, int StSem, int StDepId, string StDepName, byte[] StPhoto)
+        public void addStudents(string StId, string StNim, string StName, DateTime StDOB, string StGen, int StSem, string StDepId, string StDepName, byte[] StPhoto)
         {
             string add = "insert into Students values (@StId, @StNim, @StName, @StDOB, @StGen, @StSem, @StDepId, @StDepName, @StPhoto)";
             try
             {
                 cmd = new MySqlConnector.MySqlCommand(add, GetConn());
-                cmd.Parameters.Add("@StId", MySqlConnector.MySqlDbType.Int32).Value = StId;
+                cmd.Parameters.Add("@StId", MySqlConnector.MySqlDbType.VarChar).Value = StId;
                 cmd.Parameters.Add("@StNim", MySqlConnector.MySqlDbType.VarChar).Value = StNim;
                 cmd.Parameters.Add("@StName", MySqlConnector.MySqlDbType.VarChar).Value = StName;
                 cmd.Parameters.Add("@StDOB", MySqlConnector.MySqlDbType.VarChar).Value = StDOB;
                 cmd.Parameters.Add("@StGen", MySqlConnector.MySqlDbType.VarChar).Value = StGen;
                 cmd.Parameters.Add("@StSem", MySqlConnector.MySqlDbType.Int32).Value = StSem;
-                cmd.Parameters.Add("@StDepId", MySqlConnector.MySqlDbType.Int32).Value = StDepId;
+                cmd.Parameters.Add("@StDepId", MySqlConnector.MySqlDbType.VarChar).Value = StDepId;
                 cmd.Parameters.Add("@StDepName", MySqlConnector.MySqlDbType.VarChar).Value = StDepName;
                 cmd.Parameters.Add("@StPhoto", MySqlConnector.MySqlDbType.Blob).Value = StPhoto;
                 cmd.ExecuteNonQuery();
@@ -53,19 +53,19 @@ namespace ManagementUniversityApplication.Controller
 
         }
 
-        public void updateStudents(int StId, string StNim, string StName, DateTime StDOB, string StGen, int StSem, int StDepId, string StDepName, byte[] StPhoto)
+        public void updateStudents(string StId, string StNim, string StName, DateTime StDOB, string StGen, int StSem, string StDepId, string StDepName, byte[] StPhoto)
         {
-            string update = "update Students set StNim=@StNim, StName=@StName, StDOB=@StDOB, StGen=@StGen, StSem=@StSem, StDepId=@StDepId, StDepName=@StDepName, StPhoto=@StPhoto where StId=" + StId;
+            string update = "update Students set StNim=@StNim, StName=@StName, StDOB=@StDOB, StGen=@StGen, StSem=@StSem, StDepId=@StDepId, StDepName=@StDepName, StPhoto=@StPhoto where StId=@StId";
             try
             {
                 cmd = new MySqlConnector.MySqlCommand(update, GetConn());
-                cmd.Parameters.Add("@StId", MySqlConnector.MySqlDbType.Int32).Value = StId;
+                cmd.Parameters.Add("@StId", MySqlConnector.MySqlDbType.VarChar).Value = StId;
                 cmd.Parameters.Add("@StNim", MySqlConnector.MySqlDbType.VarChar).Value = StNim;
                 cmd.Parameters.Add("@StName", MySqlConnector.MySqlDbType.VarChar).Value = StName;
                 cmd.Parameters.Add("@StDOB", MySqlConnector.MySqlDbType.VarChar).Value = StDOB;
                 cmd.Parameters.Add("@StGen", MySqlConnector.MySqlDbType.VarChar).Value = StGen;
                 cmd.Parameters.Add("@StSem", MySqlConnector.MySqlDbType.Int32).Value = StSem;
-                cmd.Parameters.Add("@StDepId", MySqlConnector.MySqlDbType.Int32).Value = StDepId;
+                cmd.Parameters.Add("@StDepId", MySqlConnector.MySqlDbType.VarChar).Value = StDepId;
                 cmd.Parameters.Add("@StDepName", MySqlConnector.MySqlDbType.VarChar).Value = StDepName;
                 cmd.Parameters.Add("@StPhoto", MySqlConnector.MySqlDbType.Blob).Value = StPhoto;
                 cmd.ExecuteNonQuery();
@@ -76,14 +76,14 @@ namespace ManagementUniversityApplication.Controller
             }
         }
 
-        public void deleteStudents(int StId)
+        public void deleteStudents(string StId)
         {
             string delete = "delete from Students where StId = @StId";
 
             try
             {
                 cmd = new MySqlConnector.MySqlCommand(delete, GetConn());
-                cmd.Parameters.Add("@StId", MySqlConnector.MySqlDbType.Int32).Value = StId;
+                cmd.Parameters.Add("@StId", MySqlConnector.MySqlDbType.VarChar).Value = StId;
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)

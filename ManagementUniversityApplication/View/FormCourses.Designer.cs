@@ -340,7 +340,6 @@
             this.txtCoursesName.SelectedText = "";
             this.txtCoursesName.Size = new System.Drawing.Size(268, 39);
             this.txtCoursesName.TabIndex = 28;
-            this.txtCoursesName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCoursesName_KeyPress);
             // 
             // txtCoursesPrice
             // 
@@ -394,7 +393,6 @@
             this.txtCoursesId.SelectedText = "";
             this.txtCoursesId.Size = new System.Drawing.Size(268, 39);
             this.txtCoursesId.TabIndex = 25;
-            this.txtCoursesId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCoursesId_KeyPress);
             // 
             // guna2PanelCenter
             // 

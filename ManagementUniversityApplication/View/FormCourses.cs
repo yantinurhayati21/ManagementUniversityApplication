@@ -48,7 +48,7 @@ namespace ManagementUniversityApplication.View
             string lecturerId = "SELECT LrId FROM Lecturer";
             conn.cmd = new MySqlCommand(lecturerId, conn.GetConn());
             conn.dr = conn.cmd.ExecuteReader();
-            data.Columns.Add("LrId", typeof(Int32));
+            data.Columns.Add("LrId", typeof(string));
             data.Load(conn.dr);
             comboBoxLrId.ValueMember = "LrId";
             comboBoxLrId.DataSource = data;
@@ -56,14 +56,22 @@ namespace ManagementUniversityApplication.View
 
         private void LecName()
         {
-            string pelname = "SELECT * FROM Lecturer WHERE LrId = " + comboBoxLrId.SelectedValue;
-            conn.cmd = new MySqlCommand(pelname, conn.GetConn());
+            string depname = "SELECT LrName FROM Lecturer WHERE LrId = @LrId";
+
+            conn.cmd = new MySqlCommand(depname, conn.GetConn());
+            conn.cmd.Parameters.AddWithValue("@LrId", comboBoxLrId.SelectedValue);
+
             DataTable data = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(conn.cmd);
             da.Fill(data);
-            foreach (DataRow dr in data.Rows)
+
+            if (data.Rows.Count > 0)
             {
-                txtLecturerName.Text = dr["LrName"].ToString();
+                txtLecturerName.Text = data.Rows[0]["LrName"].ToString();
+            }
+            else
+            {
+                txtLecturerName.Text = string.Empty;
             }
         }
 
@@ -174,11 +182,11 @@ namespace ManagementUniversityApplication.View
             {
                 try
                 {
-                    courseController.addCourses(Convert.ToInt32(txtCoursesId.Text),
+                    courseController.addCourses(txtCoursesId.Text,
                         txtCoursesName.Text,                    
                         Convert.ToInt32(txtCoursesPrice.Text),
                         guna2TextBoxRoom.Text,
-                        Convert.ToInt32(comboBoxLrId.Text),
+                        comboBoxLrId.Text,
                         txtLecturerName.Text
                     );
                     MessageBox.Show("Saved Succesfully");
@@ -201,11 +209,11 @@ namespace ManagementUniversityApplication.View
             {
                 try
                 {
-                    courseController.updateCourses(Convert.ToInt32(txtCoursesId.Text),
+                    courseController.updateCourses(txtCoursesId.Text,
                         txtCoursesName.Text,
                         Convert.ToDecimal(txtCoursesPrice.Text),
                         guna2TextBoxRoom.Text,
-                        Convert.ToInt32(comboBoxLrId.Text),
+                        comboBoxLrId.Text,
                         txtLecturerName.Text
                     );
                     MessageBox.Show("Update Succesfully");
@@ -228,7 +236,7 @@ namespace ManagementUniversityApplication.View
 
             if (result == DialogResult.Yes)
             {
-                int selectedValue = (int)dataGridViewCourses.SelectedRows[0].Cells["CId"].Value;
+                string selectedValue = (string)dataGridViewCourses.SelectedRows[0].Cells["CId"].Value;
                 courseController.deleteCourses(selectedValue);
                 refresh();
             }     
@@ -254,15 +262,6 @@ namespace ManagementUniversityApplication.View
             txtLecturerName.Text = dataGridViewCourses.CurrentRow.Cells[5].Value.ToString();
         }
 
-        private void txtCoursesId_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
-        }
-
-        private void txtCoursesName_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
-        }
 
         private void txtCoursesPrice_KeyPress(object sender, KeyPressEventArgs e)
         {

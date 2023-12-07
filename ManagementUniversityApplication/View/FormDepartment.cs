@@ -46,11 +46,11 @@ namespace ManagementUniversityApplication.View
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
-            if(val.ValidateOnlyAlphabet(txtDepartmentName.Text) && val.ValidateOnlyAlphabet(txtDepartmentNmDekan.Text) && val.ValidateAlphabetAndNumber(txtDepartmentDesc.Text))
+            if(val.ValidateAlphabetAndNumber(txtDepartmentName.Text) && val.ValidateOnlyAlphabet(txtDepartmentNmDekan.Text) && val.ValidateAlphabetAndNumber(txtDepartmentDesc.Text))
             {
                 try
                 {
-                    departmentController.addDepartment(Convert.ToInt32(txtDepartmentId.Text), txtDepartmentName.Text, txtDepartmentNmDekan.Text, txtDepartmentDesc.Text);
+                    departmentController.addDepartment(txtDepartmentId.Text, txtDepartmentName.Text, txtDepartmentNmDekan.Text, txtDepartmentDesc.Text);
                     MessageBox.Show("Saved Succesfully");
                     refresh();
                 }
@@ -71,7 +71,7 @@ namespace ManagementUniversityApplication.View
             {
                 try
                 {
-                    departmentController.updateDepartment(Convert.ToInt32(txtDepartmentId.Text), txtDepartmentName.Text, txtDepartmentNmDekan.Text, txtDepartmentDesc.Text);
+                    departmentController.updateDepartment(txtDepartmentId.Text, txtDepartmentName.Text, txtDepartmentNmDekan.Text, txtDepartmentDesc.Text);
                     MessageBox.Show("Update Succesfully");
                     refresh();
                 }
@@ -92,15 +92,10 @@ namespace ManagementUniversityApplication.View
 
             if (result == DialogResult.Yes)
             {
-                int selectedValue = (int)dataGridViewDepartment.SelectedRows[0].Cells["DepId"].Value;
+                string selectedValue = (string)dataGridViewDepartment.SelectedRows[0].Cells["DepId"].Value;
                 departmentController.deleteDepartment(selectedValue);
                 refresh();
             }
-        }
-
-        private void txtDepartmentId_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
         }
 
         private void txtDepartmentName_KeyPress(object sender, KeyPressEventArgs e)
@@ -262,11 +257,6 @@ namespace ManagementUniversityApplication.View
             FormSalary sl = new FormSalary();
             sl.Show();
             this.Close();
-        }
-
-        private void txtDepartmentDesc_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
         }
     }
 }

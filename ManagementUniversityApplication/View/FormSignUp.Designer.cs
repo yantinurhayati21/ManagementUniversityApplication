@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.PanelTop = new Guna.UI2.WinForms.Guna2Panel();
+            this.labelTitle = new System.Windows.Forms.Label();
             this.guna2PanelRight = new Guna.UI2.WinForms.Guna2Panel();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.guna2PanelRig = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Panel1LineViolet = new Guna.UI2.WinForms.Guna2Panel();
             this.linkLabelLogin = new System.Windows.Forms.LinkLabel();
             this.btnSignUp = new System.Windows.Forms.Button();
             this.lblSignUp = new System.Windows.Forms.Label();
@@ -55,8 +57,6 @@
             this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2PanelLineWhiteUsr = new Guna.UI2.WinForms.Guna2Panel();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.guna2Panel1LineViolet = new Guna.UI2.WinForms.Guna2Panel();
-            this.labelTitle = new System.Windows.Forms.Label();
             this.PanelTop.SuspendLayout();
             this.guna2PanelRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
@@ -73,18 +73,28 @@
             // 
             // PanelTop
             // 
+            this.PanelTop.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.PanelTop.BackColor = System.Drawing.Color.Fuchsia;
             this.PanelTop.Controls.Add(this.labelTitle);
-            this.PanelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTop.Location = new System.Drawing.Point(0, 0);
             this.PanelTop.Name = "PanelTop";
             this.PanelTop.Size = new System.Drawing.Size(885, 54);
             this.PanelTop.TabIndex = 1;
             // 
+            // labelTitle
+            // 
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("Monotype Corsiva", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.ForeColor = System.Drawing.Color.White;
+            this.labelTitle.Location = new System.Drawing.Point(251, 5);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(371, 49);
+            this.labelTitle.TabIndex = 29;
+            this.labelTitle.Text = "Management University";
+            // 
             // guna2PanelRight
             // 
-            this.guna2PanelRight.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2PanelRight.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2PanelRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(50)))));
             this.guna2PanelRight.Controls.Add(this.pictureBoxLogo);
             this.guna2PanelRight.Location = new System.Drawing.Point(483, 54);
@@ -105,9 +115,7 @@
             // 
             // guna2PanelRig
             // 
-            this.guna2PanelRig.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2PanelRig.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2PanelRig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(50)))));
             this.guna2PanelRig.Controls.Add(this.guna2Panel1LineViolet);
             this.guna2PanelRig.Controls.Add(this.linkLabelLogin);
@@ -125,6 +133,16 @@
             this.guna2PanelRig.Name = "guna2PanelRig";
             this.guna2PanelRig.Size = new System.Drawing.Size(561, 474);
             this.guna2PanelRig.TabIndex = 3;
+            // 
+            // guna2Panel1LineViolet
+            // 
+            this.guna2Panel1LineViolet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.guna2Panel1LineViolet.BackColor = System.Drawing.Color.Fuchsia;
+            this.guna2Panel1LineViolet.Location = new System.Drawing.Point(558, 0);
+            this.guna2Panel1LineViolet.Name = "guna2Panel1LineViolet";
+            this.guna2Panel1LineViolet.Size = new System.Drawing.Size(5, 474);
+            this.guna2Panel1LineViolet.TabIndex = 14;
             // 
             // linkLabelLogin
             // 
@@ -406,27 +424,6 @@
             this.lblUsername.Size = new System.Drawing.Size(102, 25);
             this.lblUsername.TabIndex = 5;
             this.lblUsername.Text = "Username";
-            // 
-            // guna2Panel1LineViolet
-            // 
-            this.guna2Panel1LineViolet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.guna2Panel1LineViolet.BackColor = System.Drawing.Color.Fuchsia;
-            this.guna2Panel1LineViolet.Location = new System.Drawing.Point(558, 0);
-            this.guna2Panel1LineViolet.Name = "guna2Panel1LineViolet";
-            this.guna2Panel1LineViolet.Size = new System.Drawing.Size(5, 474);
-            this.guna2Panel1LineViolet.TabIndex = 14;
-            // 
-            // labelTitle
-            // 
-            this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Monotype Corsiva", 20F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.ForeColor = System.Drawing.Color.White;
-            this.labelTitle.Location = new System.Drawing.Point(251, 5);
-            this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(371, 49);
-            this.labelTitle.TabIndex = 29;
-            this.labelTitle.Text = "Management University";
             // 
             // FormSignUp
             // 

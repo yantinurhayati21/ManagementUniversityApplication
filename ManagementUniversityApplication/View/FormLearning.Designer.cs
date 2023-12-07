@@ -429,7 +429,6 @@
             this.guna2TextBoxLearnID.SelectedText = "";
             this.guna2TextBoxLearnID.Size = new System.Drawing.Size(296, 39);
             this.guna2TextBoxLearnID.TabIndex = 25;
-            this.guna2TextBoxLearnID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxLearnID_KeyPress);
             // 
             // guna2ComboBoxLecID
             // 

@@ -175,7 +175,6 @@
             this.guna2TextBoxStudentId.SelectedText = "";
             this.guna2TextBoxStudentId.Size = new System.Drawing.Size(296, 39);
             this.guna2TextBoxStudentId.TabIndex = 25;
-            this.guna2TextBoxStudentId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxStudentId_KeyPress);
             // 
             // guna2TextBoxName
             // 

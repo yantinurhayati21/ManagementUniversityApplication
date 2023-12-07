@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFees));
             this.guna2PanelLeft = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2TextBoxDepID = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblDepId = new System.Windows.Forms.Label();
+            this.guna2ComboBoxDepId = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2TextBoxDepName = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2DateTimePickerPayDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtPayAmount = new Guna.UI2.WinForms.Guna2TextBox();
             this.labelLecId = new System.Windows.Forms.Label();
@@ -98,7 +100,9 @@
             this.guna2PanelLeft.BackColor = System.Drawing.Color.Transparent;
             this.guna2PanelLeft.BackgroundImage = global::ManagementUniversityApplication.Properties.Resources.Purple_Fairy_Fantasy_Phone_Wallpaper;
             this.guna2PanelLeft.BorderRadius = 8;
-            this.guna2PanelLeft.Controls.Add(this.guna2TextBoxDepID);
+            this.guna2PanelLeft.Controls.Add(this.lblDepId);
+            this.guna2PanelLeft.Controls.Add(this.guna2ComboBoxDepId);
+            this.guna2PanelLeft.Controls.Add(this.guna2TextBoxDepName);
             this.guna2PanelLeft.Controls.Add(this.guna2DateTimePickerPayDate);
             this.guna2PanelLeft.Controls.Add(this.txtPayAmount);
             this.guna2PanelLeft.Controls.Add(this.labelLecId);
@@ -116,28 +120,55 @@
             this.guna2PanelLeft.Size = new System.Drawing.Size(310, 784);
             this.guna2PanelLeft.TabIndex = 28;
             // 
-            // guna2TextBoxDepID
+            // lblDepId
             // 
-            this.guna2TextBoxDepID.BorderRadius = 10;
-            this.guna2TextBoxDepID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBoxDepID.DefaultText = "";
-            this.guna2TextBoxDepID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBoxDepID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBoxDepID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBoxDepID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBoxDepID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxDepID.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2TextBoxDepID.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBoxDepID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBoxDepID.Location = new System.Drawing.Point(6, 415);
-            this.guna2TextBoxDepID.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.guna2TextBoxDepID.Name = "guna2TextBoxDepID";
-            this.guna2TextBoxDepID.PasswordChar = '\0';
-            this.guna2TextBoxDepID.PlaceholderText = "Department ID";
-            this.guna2TextBoxDepID.SelectedText = "";
-            this.guna2TextBoxDepID.Size = new System.Drawing.Size(286, 39);
-            this.guna2TextBoxDepID.TabIndex = 46;
-            this.guna2TextBoxDepID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.guna2TextBoxDepID_KeyPress);
+            this.lblDepId.AutoSize = true;
+            this.lblDepId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepId.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lblDepId.Location = new System.Drawing.Point(-1, 333);
+            this.lblDepId.Name = "lblDepId";
+            this.lblDepId.Size = new System.Drawing.Size(137, 25);
+            this.lblDepId.TabIndex = 48;
+            this.lblDepId.Text = "Department ID";
+            // 
+            // guna2ComboBoxDepId
+            // 
+            this.guna2ComboBoxDepId.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBoxDepId.BorderRadius = 10;
+            this.guna2ComboBoxDepId.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBoxDepId.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBoxDepId.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBoxDepId.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBoxDepId.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBoxDepId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBoxDepId.ItemHeight = 30;
+            this.guna2ComboBoxDepId.Location = new System.Drawing.Point(4, 361);
+            this.guna2ComboBoxDepId.Name = "guna2ComboBoxDepId";
+            this.guna2ComboBoxDepId.Size = new System.Drawing.Size(286, 36);
+            this.guna2ComboBoxDepId.TabIndex = 47;
+            this.guna2ComboBoxDepId.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBoxDepId_SelectedIndexChanged);
+            // 
+            // guna2TextBoxDepName
+            // 
+            this.guna2TextBoxDepName.BorderRadius = 10;
+            this.guna2TextBoxDepName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBoxDepName.DefaultText = "";
+            this.guna2TextBoxDepName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBoxDepName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBoxDepName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBoxDepName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBoxDepName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBoxDepName.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2TextBoxDepName.ForeColor = System.Drawing.Color.Black;
+            this.guna2TextBoxDepName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBoxDepName.Location = new System.Drawing.Point(6, 431);
+            this.guna2TextBoxDepName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.guna2TextBoxDepName.Name = "guna2TextBoxDepName";
+            this.guna2TextBoxDepName.PasswordChar = '\0';
+            this.guna2TextBoxDepName.PlaceholderText = "Department Name";
+            this.guna2TextBoxDepName.SelectedText = "";
+            this.guna2TextBoxDepName.Size = new System.Drawing.Size(286, 39);
+            this.guna2TextBoxDepName.TabIndex = 46;
             // 
             // guna2DateTimePickerPayDate
             // 
@@ -147,7 +178,7 @@
             this.guna2DateTimePickerPayDate.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2DateTimePickerPayDate.ForeColor = System.Drawing.Color.White;
             this.guna2DateTimePickerPayDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.guna2DateTimePickerPayDate.Location = new System.Drawing.Point(8, 575);
+            this.guna2DateTimePickerPayDate.Location = new System.Drawing.Point(8, 591);
             this.guna2DateTimePickerPayDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.guna2DateTimePickerPayDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.guna2DateTimePickerPayDate.Name = "guna2DateTimePickerPayDate";
@@ -168,7 +199,7 @@
             this.txtPayAmount.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPayAmount.ForeColor = System.Drawing.Color.Black;
             this.txtPayAmount.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPayAmount.Location = new System.Drawing.Point(8, 517);
+            this.txtPayAmount.Location = new System.Drawing.Point(8, 533);
             this.txtPayAmount.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtPayAmount.Name = "txtPayAmount";
             this.txtPayAmount.PasswordChar = '\0';
@@ -183,7 +214,7 @@
             this.labelLecId.AutoSize = true;
             this.labelLecId.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLecId.ForeColor = System.Drawing.Color.MediumBlue;
-            this.labelLecId.Location = new System.Drawing.Point(1, 269);
+            this.labelLecId.Location = new System.Drawing.Point(-1, 193);
             this.labelLecId.Name = "labelLecId";
             this.labelLecId.Size = new System.Drawing.Size(104, 25);
             this.labelLecId.TabIndex = 41;
@@ -200,7 +231,7 @@
             this.guna2ComboBoxStuID.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.guna2ComboBoxStuID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2ComboBoxStuID.ItemHeight = 30;
-            this.guna2ComboBoxStuID.Location = new System.Drawing.Point(6, 297);
+            this.guna2ComboBoxStuID.Location = new System.Drawing.Point(4, 221);
             this.guna2ComboBoxStuID.Name = "guna2ComboBoxStuID";
             this.guna2ComboBoxStuID.Size = new System.Drawing.Size(286, 36);
             this.guna2ComboBoxStuID.TabIndex = 40;
@@ -215,7 +246,7 @@
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.ForeColor = System.Drawing.Color.Fuchsia;
-            this.btnReset.Location = new System.Drawing.Point(159, 637);
+            this.btnReset.Location = new System.Drawing.Point(159, 653);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(135, 45);
             this.btnReset.TabIndex = 37;
@@ -234,7 +265,7 @@
             this.btnPay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPay.ForeColor = System.Drawing.Color.Fuchsia;
-            this.btnPay.Location = new System.Drawing.Point(6, 637);
+            this.btnPay.Location = new System.Drawing.Point(6, 653);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(135, 45);
             this.btnPay.TabIndex = 36;
@@ -257,7 +288,7 @@
             this.txtFeesPeriod.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtFeesPeriod.ForeColor = System.Drawing.Color.Black;
             this.txtFeesPeriod.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFeesPeriod.Location = new System.Drawing.Point(8, 466);
+            this.txtFeesPeriod.Location = new System.Drawing.Point(8, 482);
             this.txtFeesPeriod.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtFeesPeriod.Name = "txtFeesPeriod";
             this.txtFeesPeriod.PasswordChar = '\0';
@@ -324,7 +355,7 @@
             this.txtStudentName.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtStudentName.ForeColor = System.Drawing.Color.Black;
             this.txtStudentName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtStudentName.Location = new System.Drawing.Point(8, 364);
+            this.txtStudentName.Location = new System.Drawing.Point(6, 288);
             this.txtStudentName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtStudentName.Name = "txtStudentName";
             this.txtStudentName.PasswordChar = '\0';
@@ -355,7 +386,7 @@
             this.txtFeesId.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtFeesId.ForeColor = System.Drawing.Color.Black;
             this.txtFeesId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFeesId.Location = new System.Drawing.Point(8, 212);
+            this.txtFeesId.Location = new System.Drawing.Point(6, 148);
             this.txtFeesId.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtFeesId.Name = "txtFeesId";
             this.txtFeesId.PasswordChar = '\0';
@@ -363,7 +394,6 @@
             this.txtFeesId.SelectedText = "";
             this.txtFeesId.Size = new System.Drawing.Size(286, 39);
             this.txtFeesId.TabIndex = 25;
-            this.txtFeesId.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFeesId_KeyPress);
             // 
             // guna2PanelTitle
             // 
@@ -517,29 +547,29 @@
             // 
             // dataGridViewFees
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dataGridViewFees.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.dataGridViewFees.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewFees.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewFees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewFees.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewFees.ColumnHeadersHeight = 4;
             this.dataGridViewFees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewFees.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewFees.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewFees.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGridViewFees.Location = new System.Drawing.Point(17, 301);
             this.dataGridViewFees.Name = "dataGridViewFees";
@@ -799,8 +829,10 @@
         private System.Windows.Forms.PictureBox pictureBoxLecturer;
         private System.Windows.Forms.PictureBox pictureBoxDepartment;
         private System.Windows.Forms.PictureBox pictureBoxStudent;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxDepID;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxDepName;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialogFees;
         private System.Drawing.Printing.PrintDocument printDocumentFees;
+        private System.Windows.Forms.Label lblDepId;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBoxDepId;
     }
 }

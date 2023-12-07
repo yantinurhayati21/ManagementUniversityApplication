@@ -136,7 +136,7 @@ namespace ManagementUniversityApplication.View
             string departmentId = "SELECT DepId FROM Department";
             conn.cmd = new MySqlCommand(departmentId, conn.GetConn());
             conn.dr = conn.cmd.ExecuteReader();
-            data.Columns.Add("DepId", typeof(Int32));
+            data.Columns.Add("DepId", typeof(string));
             data.Load(conn.dr);
             guna2ComboBoxDepID.ValueMember = "DepId";
             guna2ComboBoxDepID.DataSource = data;
@@ -144,14 +144,22 @@ namespace ManagementUniversityApplication.View
 
         private void DepName()
         {
-            string pelname = "SELECT * FROM Department WHERE DepId = " + guna2ComboBoxDepID.SelectedValue;
-            conn.cmd = new MySqlCommand(pelname, conn.GetConn());
+            string depname = "SELECT DepName FROM Department WHERE DepId = @DepId";
+
+            conn.cmd = new MySqlCommand(depname, conn.GetConn());
+            conn.cmd.Parameters.AddWithValue("@DepId", guna2ComboBoxDepID.SelectedValue);
+
             DataTable data = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(conn.cmd);
             da.Fill(data);
-            foreach (DataRow dr in data.Rows)
+
+            if (data.Rows.Count > 0)
             {
-                guna2TextBoxDepName.Text = dr["DepName"].ToString();
+                guna2TextBoxDepName.Text = data.Rows[0]["DepName"].ToString();
+            }
+            else
+            {
+                guna2TextBoxDepName.Text = string.Empty;
             }
         }
 
@@ -192,13 +200,13 @@ namespace ManagementUniversityApplication.View
                     guna2PictureBoxPhoto.Image.Save(memory, guna2PictureBoxPhoto.Image.RawFormat);
                     byte[] img = memory.ToArray();
                     studentController.addStudents(
-                        Convert.ToInt32(guna2TextBoxStudentId.Text),
+                        guna2TextBoxStudentId.Text,
                         guna2TextBoxStudentNim.Text,
                         guna2TextBoxName.Text,
                         guna2DateTimePickerDOB.Value,
                         gender,
                         Convert.ToInt32(guna2TextBoxSemester.Text),
-                        Convert.ToInt32(guna2ComboBoxDepID.Text),
+                        guna2ComboBoxDepID.Text,
                         guna2TextBoxDepName.Text,
                         img
                     );
@@ -271,13 +279,13 @@ namespace ManagementUniversityApplication.View
                     guna2PictureBoxPhoto.Image.Save(memori, guna2PictureBoxPhoto.Image.RawFormat);
                     byte[] img = memori.ToArray();
                     studentController.updateStudents(
-                        Convert.ToInt32(guna2TextBoxStudentId.Text),
+                        guna2TextBoxStudentId.Text,
                         guna2TextBoxStudentNim.Text,               
                         guna2TextBoxName.Text,                    
                         guna2DateTimePickerDOB.Value,              
                         gender,                                    
                         Convert.ToInt32(guna2TextBoxSemester.Text), 
-                        Convert.ToInt32(guna2ComboBoxDepID.Text),   
+                        guna2ComboBoxDepID.Text,   
                         guna2TextBoxDepName.Text,                  
                         img
                      );
@@ -301,7 +309,7 @@ namespace ManagementUniversityApplication.View
 
             if (result == DialogResult.Yes)
             {
-                int selectedValue = (int)dataGridViewStudent.SelectedRows[0].Cells["StId"].Value;
+                string selectedValue = (string)dataGridViewStudent.SelectedRows[0].Cells["StId"].Value;
                 studentController.deleteStudents(selectedValue);
                 refresh();
             }
@@ -350,12 +358,6 @@ namespace ManagementUniversityApplication.View
         private void btnClear_MouseLeave(object sender, EventArgs e)
         {
             btnClear.ForeColor = Color.Fuchsia;
-        }
-
-        private void guna2TextBoxStudentId_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
-
         }
 
         private void guna2TextBoxStudentNim_KeyPress(object sender, KeyPressEventArgs e)

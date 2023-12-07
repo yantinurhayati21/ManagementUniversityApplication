@@ -100,7 +100,7 @@ namespace ManagementUniversityApplication.View
         {
             txtFeesId.Clear();
             txtStudentName.Clear();
-            guna2TextBoxDepID.Clear();
+            guna2TextBoxDepName.Clear();
             txtFeesPeriod.Clear();
             txtPayAmount.Clear();
             guna2ComboBoxStuID.SelectedIndex = 0;
@@ -112,10 +112,11 @@ namespace ManagementUniversityApplication.View
             txtFeesId.Text = dataGridViewFees.CurrentRow.Cells[0].Value.ToString();
             guna2ComboBoxStuID.Text = dataGridViewFees.CurrentRow.Cells[1].Value.ToString();
             txtStudentName.Text = dataGridViewFees.CurrentRow.Cells[2].Value.ToString();
-            guna2TextBoxDepID.Text = dataGridViewFees.CurrentRow.Cells[3].Value.ToString();
-            txtFeesPeriod.Text = dataGridViewFees.CurrentRow.Cells[4].Value.ToString();
-            txtPayAmount.Text = dataGridViewFees.CurrentRow.Cells[5].Value.ToString();
-            guna2DateTimePickerPayDate.Value = (DateTime)dataGridViewFees.CurrentRow.Cells[6].Value;  
+            guna2ComboBoxDepId.Text = dataGridViewFees.CurrentRow.Cells[3].Value.ToString();
+            guna2TextBoxDepName.Text = dataGridViewFees.CurrentRow.Cells[4].Value.ToString();
+            txtFeesPeriod.Text = dataGridViewFees.CurrentRow.Cells[5].Value.ToString();
+            txtPayAmount.Text = dataGridViewFees.CurrentRow.Cells[6].Value.ToString();
+            guna2DateTimePickerPayDate.Value = (DateTime)dataGridViewFees.CurrentRow.Cells[7].Value;  
         }
 
         private void refresh()
@@ -127,38 +128,78 @@ namespace ManagementUniversityApplication.View
             txtFeesId.MaxLength = 5;
             guna2ComboBoxStuID.MaxLength = 5;
             txtStudentName.MaxLength = 20;
-            guna2TextBoxDepID.MaxLength = 5;
+            guna2TextBoxDepName.MaxLength = 5;
             txtFeesPeriod.MaxLength = 20;
             txtPayAmount.MaxLength = 5;
             StudentId();
+            DepartId();
         }
 
         private void StudentId()
         {
             DataTable data = new DataTable();
-            string studentId = "SELECT StId FROM Students";
-            conn.cmd = new MySqlCommand(studentId, conn.GetConn());
+            string lecturerId = "SELECT StId FROM Students";
+            conn.cmd = new MySqlCommand(lecturerId, conn.GetConn());
             conn.dr = conn.cmd.ExecuteReader();
-            data.Columns.Add("StId", typeof(Int32));
+            data.Columns.Add("StId", typeof(string));
             data.Load(conn.dr);
             guna2ComboBoxStuID.ValueMember = "StId";
             guna2ComboBoxStuID.DataSource = data;
         }
-    
+
         private void StudName()
         {
-            string pelname = "SELECT * FROM Students WHERE StId = " + guna2ComboBoxStuID.SelectedValue;
-            conn.cmd = new MySqlCommand(pelname, conn.GetConn());
-            DataTable data = new DataTable();
+            string stuname = "SELECT * FROM Students WHERE StId = @StId";
+
+            conn.cmd = new MySqlCommand(stuname, conn.GetConn());
+            conn.cmd.Parameters.AddWithValue("@StId", guna2ComboBoxStuID.SelectedValue);
+
+            DataTable datast = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(conn.cmd);
-            da.Fill(data);
-            foreach (DataRow dr in data.Rows)
+            da.Fill(datast);
+
+            if (datast.Rows.Count > 0)
             {
-                txtStudentName.Text = dr["StName"].ToString();
-                guna2TextBoxDepID.Text = dr["StDepId"].ToString();
+                txtStudentName.Text = datast.Rows[0]["StName"].ToString();
+            }
+            else
+            {
+                txtStudentName.Text = string.Empty;
             }
         }
 
+        private void DepartId()
+        {
+            DataTable data = new DataTable();
+            string lecturerId = "SELECT DepId FROM Department";
+            conn.cmd = new MySqlCommand(lecturerId, conn.GetConn());
+            conn.dr = conn.cmd.ExecuteReader();
+            data.Columns.Add("DepId", typeof(string));
+            data.Load(conn.dr);
+            guna2ComboBoxDepId.ValueMember = "DepId";
+            guna2ComboBoxDepId.DataSource = data;
+        }
+
+        private void DepartName()
+        {
+            string stuname = "SELECT * FROM Department WHERE DepId = @DepId";
+
+            conn.cmd = new MySqlCommand(stuname, conn.GetConn());
+            conn.cmd.Parameters.AddWithValue("@DepId", guna2ComboBoxDepId.SelectedValue);
+
+            DataTable datast = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(conn.cmd);
+            da.Fill(datast);
+
+            if (datast.Rows.Count > 0)
+            {
+                guna2TextBoxDepName.Text = datast.Rows[0]["DepName"].ToString();
+            }
+            else
+            {
+                txtStudentName.Text = string.Empty;
+            }
+        }
         private void guna2ComboBoxStuID_SelectedIndexChanged(object sender, EventArgs e)
         {
             StudName();
@@ -168,6 +209,7 @@ namespace ManagementUniversityApplication.View
         {
             refresh();       
             StudentId();
+            DepartId();
         }
 
         private void btnPay_Click(object sender, EventArgs e)
@@ -177,10 +219,11 @@ namespace ManagementUniversityApplication.View
                 try
                 {
                     feesController.addFees(
-                        Convert.ToInt32(txtFeesId.Text),
-                        Convert.ToInt32(guna2ComboBoxStuID.Text),
+                        txtFeesId.Text,
+                        guna2ComboBoxStuID.Text,
                         txtStudentName.Text,
-                        Convert.ToInt32(guna2TextBoxDepID.Text),
+                        guna2ComboBoxDepId.Text,
+                        guna2TextBoxDepName.Text,
                         Convert.ToInt32(txtFeesPeriod.Text),
                         Convert.ToInt32(txtPayAmount.Text),
                         guna2DateTimePickerPayDate.Value
@@ -199,19 +242,9 @@ namespace ManagementUniversityApplication.View
             }
         }
 
-        private void txtFeesId_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
-        }
-
         private void txtStudentName_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
-        }
-
-        private void guna2TextBoxDepID_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
         }
 
         private void txtFeesPeriod_KeyPress(object sender, KeyPressEventArgs e)
@@ -223,8 +256,6 @@ namespace ManagementUniversityApplication.View
         {
             e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back;
         }
-
-        
 
         private void printDocumentFees_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
@@ -258,6 +289,11 @@ namespace ManagementUniversityApplication.View
         private void pictureBoxSearch_Click(object sender, EventArgs e)
         {
             dataGridViewFees.DataSource = feesController.searchFees(guna2TextBoxSearch.Text);
+        }
+
+        private void guna2ComboBoxDepId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DepartName();
         }
     }
 }
