@@ -44,7 +44,7 @@ CREATE TABLE Lecturer (
     LrQual VARCHAR(15),
     LrDOB DATE,
     LrGen VARCHAR(10),
-    LrSalary DECIMAL(10, 2),
+    LrSalary int,
     LrDepId VARCHAR(5),
     LrDepName VARCHAR(50),
     LrPhoto LONGBLOB,
@@ -85,6 +85,7 @@ CREATE TABLE Fees (
     FStId VARCHAR(5),
     FStName VARCHAR(50),
     FDepId VARCHAR(5),
+    FDepName VARCHAR(50),
     FPeriod INT,
     FAmount INT,
     PayDate DATE,
@@ -97,7 +98,7 @@ CREATE TABLE Salary (
     SId VARCHAR(5) PRIMARY KEY,
     SLrId VARCHAR(5),
     SLrName VARCHAR(100),
-    SLrSalary DECIMAL(10, 2),
+    SLrSalary int,
     SPeriod INT,
     SPDate DATE,
     FOREIGN KEY (SLrId) REFERENCES Lecturer(LrId)
@@ -134,10 +135,10 @@ INSERT INTO Learning VALUES
     
 -- Insert ke tabel Fees
 INSERT INTO Fees VALUES 
-    ('F0001','S0001', 'Yanti Nurhayati', 'D0001', 3, 50000.00, '2023-11-15'),
-    ('F0002','S0002', 'Dinar Aghnaya', 'D0002', 3, 45000.00, '2023-11-20');
+    ('F0001','S0001', 'Yanti Nurhayati', 'D0001', 'Computer Science', 3, 50000.00, '2023-11-15'),
+    ('F0002','S0002', 'Dinar Aghnaya', 'D0002', 'Biology', 3, 45000.00, '2023-11-20');
 
 -- Insert ke tabel Salary
 INSERT INTO Salary VALUES 
-	('SA001','L0001', 'Dr. Erna', 60000.00, 3, '2023-11-25'),
-	('SA002','L0002', 'Prof. Wilson', 55000.00, 3, '2023-11-28');
+	('SA001','L0001', 'Dr. Erna', 60000, 3, '2023-11-25'),
+	('SA002','L0002', 'Prof. Wilson', 55000, 3, '2023-11-28');

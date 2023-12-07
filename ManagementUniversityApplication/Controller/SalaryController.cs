@@ -31,14 +31,14 @@ namespace ManagementUniversityApplication.Controller
 
         public void addSalary(string SId, string SLrId, string SLrName, int SLrSalary, int SPeriod, DateTime SPDate)
         {
-            string add = "insert into Salary values (@SId, @SLrId, @SLrName, @SLrSalary, @SPeriod, @FAmount, @SPDate)";
+            string add = "insert into Salary values (@SId, @SLrId, @SLrName, @SLrSalary, @SPeriod, @SPDate)";
             try
             {
                 cmd = new MySqlConnector.MySqlCommand(add, GetConn());
                 cmd.Parameters.Add("@SId", MySqlConnector.MySqlDbType.VarChar).Value = SId;
                 cmd.Parameters.Add("@SLrId", MySqlConnector.MySqlDbType.VarChar).Value = SLrId;
                 cmd.Parameters.Add("@SLrName", MySqlConnector.MySqlDbType.VarChar).Value = SLrName;
-                cmd.Parameters.Add("@SLrSalary", MySqlConnector.MySqlDbType.Decimal).Value = SLrSalary;
+                cmd.Parameters.Add("@SLrSalary", MySqlConnector.MySqlDbType.Int32).Value = SLrSalary;
                 cmd.Parameters.Add("@SPeriod", MySqlConnector.MySqlDbType.Int32).Value = SPeriod;
                 cmd.Parameters.Add("@SPDate", MySqlConnector.MySqlDbType.VarChar).Value = SPDate;
                 cmd.ExecuteNonQuery();
