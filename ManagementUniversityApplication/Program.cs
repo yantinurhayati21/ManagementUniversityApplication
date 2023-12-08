@@ -17,7 +17,7 @@ namespace ManagementUniversityApplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Dashboard());
+            Application.Run(new FormLogin());
         }
     }
 }

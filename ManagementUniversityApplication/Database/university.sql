@@ -44,7 +44,7 @@ CREATE TABLE Lecturer (
     LrQual VARCHAR(15),
     LrDOB DATE,
     LrGen VARCHAR(10),
-    LrSalary int,
+    LrSalary INT,
     LrDepId VARCHAR(5),
     LrDepName VARCHAR(50),
     LrPhoto LONGBLOB,
@@ -98,7 +98,7 @@ CREATE TABLE Salary (
     SId VARCHAR(5) PRIMARY KEY,
     SLrId VARCHAR(5),
     SLrName VARCHAR(100),
-    SLrSalary int,
+    SLrSalary INT,
     SPeriod INT,
     SPDate DATE,
     FOREIGN KEY (SLrId) REFERENCES Lecturer(LrId)

@@ -57,6 +57,11 @@
             this.txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2PanelLineWhiteUsr = new Guna.UI2.WinForms.Guna2Panel();
             this.lblUsername = new System.Windows.Forms.Label();
+            this.labelLightMode = new System.Windows.Forms.Label();
+            this.guna2ToggleSwitchMode = new Guna.UI2.WinForms.Guna2ToggleSwitch();
+            this.labelLng = new System.Windows.Forms.Label();
+            this.pictureBoxInd = new System.Windows.Forms.PictureBox();
+            this.pictureBoxEng = new System.Windows.Forms.PictureBox();
             this.PanelTop.SuspendLayout();
             this.guna2PanelRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
@@ -69,6 +74,8 @@
             this.guna2PanelContact.SuspendLayout();
             this.guna2PanelUsr.SuspendLayout();
             this.PanelUsername.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEng)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelTop
@@ -96,7 +103,9 @@
             // 
             this.guna2PanelRight.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2PanelRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(50)))));
+            this.guna2PanelRight.Controls.Add(this.labelLightMode);
             this.guna2PanelRight.Controls.Add(this.pictureBoxLogo);
+            this.guna2PanelRight.Controls.Add(this.guna2ToggleSwitchMode);
             this.guna2PanelRight.Location = new System.Drawing.Point(483, 54);
             this.guna2PanelRight.Name = "guna2PanelRight";
             this.guna2PanelRight.Size = new System.Drawing.Size(402, 474);
@@ -117,6 +126,9 @@
             // 
             this.guna2PanelRig.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.guna2PanelRig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(50)))));
+            this.guna2PanelRig.Controls.Add(this.labelLng);
+            this.guna2PanelRig.Controls.Add(this.pictureBoxInd);
+            this.guna2PanelRig.Controls.Add(this.pictureBoxEng);
             this.guna2PanelRig.Controls.Add(this.guna2Panel1LineViolet);
             this.guna2PanelRig.Controls.Add(this.linkLabelLogin);
             this.guna2PanelRig.Controls.Add(this.btnSignUp);
@@ -173,13 +185,15 @@
             this.btnSignUp.Text = "Sign Up";
             this.btnSignUp.UseVisualStyleBackColor = true;
             this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
+            this.btnSignUp.MouseEnter += new System.EventHandler(this.btnSignUp_MouseEnter);
+            this.btnSignUp.MouseLeave += new System.EventHandler(this.btnSignUp_MouseLeave);
             // 
             // lblSignUp
             // 
             this.lblSignUp.AutoSize = true;
             this.lblSignUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSignUp.ForeColor = System.Drawing.Color.White;
-            this.lblSignUp.Location = new System.Drawing.Point(227, 24);
+            this.lblSignUp.Location = new System.Drawing.Point(254, 24);
             this.lblSignUp.Name = "lblSignUp";
             this.lblSignUp.Size = new System.Drawing.Size(123, 36);
             this.lblSignUp.TabIndex = 13;
@@ -345,6 +359,7 @@
             this.txtContact.SelectedText = "";
             this.txtContact.Size = new System.Drawing.Size(258, 29);
             this.txtContact.TabIndex = 16;
+            this.txtContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContact_KeyPress);
             // 
             // guna2PanelLinewhitecnt
             // 
@@ -394,7 +409,7 @@
             this.txtUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtUsername.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(50)))));
             this.txtUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtUsername.ForeColor = System.Drawing.Color.White;
             this.txtUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtUsername.Location = new System.Drawing.Point(0, 6);
@@ -425,6 +440,66 @@
             this.lblUsername.TabIndex = 5;
             this.lblUsername.Text = "Username";
             // 
+            // labelLightMode
+            // 
+            this.labelLightMode.AutoSize = true;
+            this.labelLightMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLightMode.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.labelLightMode.Location = new System.Drawing.Point(174, 24);
+            this.labelLightMode.Name = "labelLightMode";
+            this.labelLightMode.Size = new System.Drawing.Size(108, 22);
+            this.labelLightMode.TabIndex = 17;
+            this.labelLightMode.Text = "Light Mode";
+            // 
+            // guna2ToggleSwitchMode
+            // 
+            this.guna2ToggleSwitchMode.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ToggleSwitchMode.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ToggleSwitchMode.CheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitchMode.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitchMode.Location = new System.Drawing.Point(320, 24);
+            this.guna2ToggleSwitchMode.Name = "guna2ToggleSwitchMode";
+            this.guna2ToggleSwitchMode.Size = new System.Drawing.Size(60, 35);
+            this.guna2ToggleSwitchMode.TabIndex = 16;
+            this.guna2ToggleSwitchMode.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2ToggleSwitchMode.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2ToggleSwitchMode.UncheckedState.InnerBorderColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitchMode.UncheckedState.InnerColor = System.Drawing.Color.White;
+            this.guna2ToggleSwitchMode.CheckedChanged += new System.EventHandler(this.guna2ToggleSwitchMode_CheckedChanged);
+            // 
+            // labelLng
+            // 
+            this.labelLng.AutoSize = true;
+            this.labelLng.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLng.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.labelLng.Location = new System.Drawing.Point(8, 13);
+            this.labelLng.Name = "labelLng";
+            this.labelLng.Size = new System.Drawing.Size(76, 22);
+            this.labelLng.TabIndex = 19;
+            this.labelLng.Text = "English";
+            // 
+            // pictureBoxInd
+            // 
+            this.pictureBoxInd.Image = global::ManagementUniversityApplication.Properties.Resources.world__1_;
+            this.pictureBoxInd.Location = new System.Drawing.Point(117, 6);
+            this.pictureBoxInd.Name = "pictureBoxInd";
+            this.pictureBoxInd.Size = new System.Drawing.Size(44, 29);
+            this.pictureBoxInd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxInd.TabIndex = 18;
+            this.pictureBoxInd.TabStop = false;
+            this.pictureBoxInd.Click += new System.EventHandler(this.pictureBoxInd_Click);
+            // 
+            // pictureBoxEng
+            // 
+            this.pictureBoxEng.Image = global::ManagementUniversityApplication.Properties.Resources.global;
+            this.pictureBoxEng.Location = new System.Drawing.Point(117, 6);
+            this.pictureBoxEng.Name = "pictureBoxEng";
+            this.pictureBoxEng.Size = new System.Drawing.Size(44, 29);
+            this.pictureBoxEng.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxEng.TabIndex = 17;
+            this.pictureBoxEng.TabStop = false;
+            this.pictureBoxEng.Click += new System.EventHandler(this.pictureBoxEng_Click);
+            // 
             // FormSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -440,6 +515,7 @@
             this.PanelTop.ResumeLayout(false);
             this.PanelTop.PerformLayout();
             this.guna2PanelRight.ResumeLayout(false);
+            this.guna2PanelRight.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.guna2PanelRig.ResumeLayout(false);
             this.guna2PanelRig.PerformLayout();
@@ -451,6 +527,8 @@
             this.guna2PanelContact.ResumeLayout(false);
             this.guna2PanelUsr.ResumeLayout(false);
             this.PanelUsername.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxInd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEng)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -486,5 +564,10 @@
         private Guna.UI2.WinForms.Guna2TextBox txtUsername;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1LineViolet;
         private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Label labelLightMode;
+        private Guna.UI2.WinForms.Guna2ToggleSwitch guna2ToggleSwitchMode;
+        private System.Windows.Forms.Label labelLng;
+        private System.Windows.Forms.PictureBox pictureBoxInd;
+        private System.Windows.Forms.PictureBox pictureBoxEng;
     }
 }
